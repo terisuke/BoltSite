@@ -1,8 +1,8 @@
-# BoltSite - Digital Marketing Agency Landing Page
+# BoltSite - 高性能ホームページ制作サービス
 
-Introducing "BoltSite" - a stunning and versatile Astro theme designed for digital marketing agencies.
+BoltSiteは、中小企業向けの高性能ホームページ制作サービスです。Jamstack技術を使用して0.3秒表示を実現し、SEO満点のサイトを月額15,000円〜で提供します。
 
-Built with clean, modern aesthetics and leveraging the power of Astro and Tailwind, Positivus empowers you to craft a captivating website that showcases your agency's expertise and fosters trust with potential clients.
+高速・高品質・低コストでビジネスの成長を加速させましょう。
 
 [![Static Badge](https://img.shields.io/badge/UI%2FUX-Olga-blue)](https://www.figma.com/@olgaaverchenko) [![View Demo](https://img.shields.io/badge/Develop-Manul_Thanura-red)](https://lk.linkedin.com/in/manulthanura)
 [![Static Badge](https://img.shields.io/badge/View_Demo-green)](https://boltsite.vercel.app)
@@ -10,27 +10,34 @@ Built with clean, modern aesthetics and leveraging the power of Astro and Tailwi
 
 ![Cover](./public/cover.png)
 
-## Theme Features
+## 🚀 サービス特徴
 
-Leveraging the power of Astro and Tailwind CSS, BoltSite offers:
+BoltSiteの高性能ホームページ制作サービス：
 
-- Clean and modern design.
-- SEO-friendly.
-- Multiple Layouts.
-- Seamless Navigation.
-- Pre-built Sections.
-- Customizable Components.
-- Mobile-Responsiveness.
+- **0.3秒表示**: Jamstack技術による超高速サイト
+- **SEO満点**: Google検索で上位表示を実現
+- **月額15,000円〜**: 初期費用0円で始められる
+- **レスポンシブデザイン**: スマホ・タブレット対応
+- **多言語対応**: 日本語・英語・中国語・スペイン語
+- **DXパッケージ**: TapForge・IoTRealmとの連携
+- **パフォーマンス保証**: Core Web Vitals 95点以上
 
-## 🚀 Project Structure
+## 📋 料金プラン
 
-The project is built using Astro.js and Tailwind CSS. Here's a quick look at the project structure:
+| プラン | 月額料金 | 初期費用 | 特徴 |
+|--------|----------|----------|------|
+| **Beginner** | 15,000円 | 0円 | 基本機能・5ページまで |
+| **Standard** | 25,000円 | 0円 | 標準機能・10ページまで |
+| **Premium** | 40,000円 | 0円 | 高機能・20ページまで |
+| **Enterprise** | 要相談 | 0円 | カスタム機能・無制限 |
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🛠️ 技術仕様
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
+- **フレームワーク**: Astro.js
+- **スタイリング**: Tailwind CSS
+- **デプロイ**: Vercel
+- **分析**: Google Analytics 4 + Hotjar
+- **SEO**: 構造化データ + メタタグ最適化
 
 ## 🧞 Commands
 
@@ -45,9 +52,13 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## 📞 お問い合わせ
 
-Feel free to check [Astro documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+BoltSiteの高性能ホームページ制作サービスについて、お気軽にお問い合わせください。
+
+- **無料相談**: 30分の無料相談を実施中
+- **お問い合わせ**: [Google Forms](https://forms.gle/your-form-url)
+- **会社**: Cor.株式会社
 
 ## 📄 License
 
