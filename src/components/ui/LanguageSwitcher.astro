@@ -1,0 +1,261 @@
+---
+// 言語切り替えコンポーネント
+---
+
+<div class="relative inline-block text-left">
+  <button 
+    id="language-switcher" 
+    class="inline-flex items-center justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+    onclick="toggleLanguageMenu()"
+  >
+    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M7 2a1 1 0 011 1v1h3a1 1 0 110 2H9.578a18.87 18.87 0 01-1.724 4.78c.29.354.596.696.914 1.026a1 1 0 11-1.44 1.389c-.188-.196-.373-.396-.554-.6a19.098 19.098 0 01-3.107 3.567 1 1 0 01-1.334-1.49 17.087 17.087 0 003.13-3.733 18.992 18.992 0 01-1.487-2.494 1 1 0 111.79-.89c.234.47.489.928.764 1.372.417-.934.752-1.913.997-2.927H3a1 1 0 110-2h3V3a1 1 0 011-1zm6 6a1 1 0 01.894.553l2.991 5.982a.869.869 0 01.02.037l.99 1.98a1 1 0 11-1.79.895L15.383 16h-4.764l-.724 1.447a1 1 0 11-1.788-.894l.99-1.98.019-.038 2.99-5.982A1 1 0 0113 8zm-1.382 6h2.764L13 11.236 11.618 14z" clip-rule="evenodd"></path>
+    </svg>
+    <span id="current-language">日本語</span>
+    <svg class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+    </svg>
+  </button>
+  
+  <div 
+    id="language-menu" 
+    class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+  >
+    <div class="py-1">
+      <button 
+        class="language-option block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+        data-lang="ja"
+        data-flag="🇯🇵"
+        data-name="日本語"
+        onclick="changeLanguage('ja')"
+      >
+        🇯🇵 日本語
+      </button>
+      <button 
+        class="language-option block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+        data-lang="en"
+        data-flag="🇺🇸"
+        data-name="English"
+        onclick="changeLanguage('en')"
+      >
+        🇺🇸 English
+      </button>
+      <button 
+        class="language-option block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+        data-lang="zh"
+        data-flag="🇨🇳"
+        data-name="中文"
+        onclick="changeLanguage('zh')"
+      >
+        🇨🇳 中文
+      </button>
+      <button 
+        class="language-option block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+        data-lang="es"
+        data-flag="🇪🇸"
+        data-name="Español"
+        onclick="changeLanguage('es')"
+      >
+        🇪🇸 Español
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // 現在の言語を取得（デフォルトは日本語）
+  let currentLang = localStorage.getItem('selectedLanguage') || 'ja';
+  
+  // 言語データ
+  const translations = {
+    ja: {
+      // ヒーローセクション
+      'hero-title': '速さ・品質・コストで<br><span class="text-blue-600">成長を加速</span>。<br><span class="text-blue-500">BoltSite</span>でビジネスを変革。',
+      'hero-subtitle': '中小企業でも大企業並みの高速サイトを実現。<br><span class="font-semibold text-blue-600">0.3秒表示</span>で顧客満足度を向上させませんか？',
+      'hero-cta': '無料相談申し込み',
+      'hero-cta-sub': '(30分)',
+      'hero-cta-secondary': '料金プランを見る',
+      
+      // サービス概要
+      'service-title': '高性能ホームページ制作サービス',
+      'service-subtitle': 'WordPressやテンプレートサイトを超えるパフォーマンスとDXで、<br>中小企業の競争力を強化します',
+      'service-price': '15,000円〜',
+      'service-price-sub': '月額料金（税込）',
+      'service-initial': '初期費用0円',
+      'service-delivery': '1ヶ月以内に提供開始で、即時成果を',
+      
+      // 料金プラン
+      'pricing-title': '料金プラン詳細',
+      'pricing-subtitle': '初期費用0円、月額制でお気軽にスタート',
+      'plan-beginner': 'ビギナー',
+      'plan-standard': 'スタンダード',
+      'plan-premium': 'プレミアム',
+      'plan-enterprise': 'エンタープライズ',
+      
+      // FAQ
+      'faq-title': 'よくある質問',
+      'faq-subtitle': 'お客様からよくいただく質問にお答えします',
+      
+      // CTA
+      'cta-title': '今すぐ始めませんか？',
+      'cta-subtitle': '無料相談で、あなたのビジネスに最適なソリューションをご提案',
+      'cta-button': '無料相談申し込み',
+      'cta-contact': 'お問い合わせ'
+    },
+    en: {
+      // ヒーローセクション
+      'hero-title': 'Accelerate growth with<br><span class="text-blue-600">speed, quality, and cost</span>.<br>Transform your business with <span class="text-blue-500">BoltSite</span>.',
+      'hero-subtitle': 'Achieve enterprise-level fast sites for SMEs.<br>Improve customer satisfaction with <span class="font-semibold text-blue-600">0.3-second display</span>.',
+      'hero-cta': 'Free Consultation',
+      'hero-cta-sub': '(30 min)',
+      'hero-cta-secondary': 'View Pricing Plans',
+      
+      // サービス概要
+      'service-title': 'High-Performance Website Creation Service',
+      'service-subtitle': 'Strengthen SME competitiveness with performance and DX<br>that exceeds WordPress and template sites',
+      'service-price': 'From $100/month',
+      'service-price-sub': 'Monthly fee (tax included)',
+      'service-initial': 'Initial cost $0',
+      'service-delivery': 'Start delivery within 1 month for immediate results',
+      
+      // 料金プラン
+      'pricing-title': 'Pricing Plan Details',
+      'pricing-subtitle': 'Start easily with $0 initial cost and monthly billing',
+      'plan-beginner': 'Beginner',
+      'plan-standard': 'Standard',
+      'plan-premium': 'Premium',
+      'plan-enterprise': 'Enterprise',
+      
+      // FAQ
+      'faq-title': 'Frequently Asked Questions',
+      'faq-subtitle': 'We answer common questions from our customers',
+      
+      // CTA
+      'cta-title': 'Ready to get started?',
+      'cta-subtitle': 'Free consultation to propose the optimal solution for your business',
+      'cta-button': 'Free Consultation',
+      'cta-contact': 'Contact Us'
+    },
+    zh: {
+      // ヒーローセクション
+      'hero-title': '通过<span class="text-blue-600">速度、质量、成本</span><br>加速增长。<br>用<span class="text-blue-500">BoltSite</span>改变您的业务。',
+      'hero-subtitle': '为中小企业实现企业级快速网站。<br>通过<span class="font-semibold text-blue-600">0.3秒显示</span>提高客户满意度。',
+      'hero-cta': '免费咨询',
+      'hero-cta-sub': '(30分钟)',
+      'hero-cta-secondary': '查看价格方案',
+      
+      // サービス概要
+      'service-title': '高性能网站创建服务',
+      'service-subtitle': '通过超越WordPress和模板网站的性能和DX<br>增强中小企业竞争力',
+      'service-price': '从100美元/月起',
+      'service-price-sub': '月费（含税）',
+      'service-initial': '初始成本0美元',
+      'service-delivery': '1个月内开始交付，立即见效',
+      
+      // 料金プラン
+      'pricing-title': '价格方案详情',
+      'pricing-subtitle': '零初始成本，月付制轻松开始',
+      'plan-beginner': '初学者',
+      'plan-standard': '标准',
+      'plan-premium': '高级',
+      'plan-enterprise': '企业',
+      
+      // FAQ
+      'faq-title': '常见问题',
+      'faq-subtitle': '我们回答客户的常见问题',
+      
+      // CTA
+      'cta-title': '准备开始了吗？',
+      'cta-subtitle': '免费咨询，为您的业务提出最佳解决方案',
+      'cta-button': '免费咨询',
+      'cta-contact': '联系我们'
+    },
+    es: {
+      // ヒーローセクション
+      'hero-title': 'Acelera el crecimiento con<br><span class="text-blue-600">velocidad, calidad y costo</span>.<br>Transforma tu negocio con <span class="text-blue-500">BoltSite</span>.',
+      'hero-subtitle': 'Logra sitios rápidos de nivel empresarial para PYMEs.<br>Mejora la satisfacción del cliente con <span class="font-semibold text-blue-600">0.3 segundos de visualización</span>.',
+      'hero-cta': 'Consulta Gratuita',
+      'hero-cta-sub': '(30 min)',
+      'hero-cta-secondary': 'Ver Planes de Precios',
+      
+      // サービス概要
+      'service-title': 'Servicio de Creación de Sitios Web de Alto Rendimiento',
+      'service-subtitle': 'Fortalece la competitividad de las PYMEs con rendimiento y DX<br>que supera WordPress y sitios de plantillas',
+      'service-price': 'Desde $100/mes',
+      'service-price-sub': 'Tarifa mensual (impuestos incluidos)',
+      'service-initial': 'Costo inicial $0',
+      'service-delivery': 'Inicia la entrega en 1 mes para resultados inmediatos',
+      
+      // 料金プラン
+      'pricing-title': 'Detalles del Plan de Precios',
+      'pricing-subtitle': 'Comienza fácilmente con $0 de costo inicial y facturación mensual',
+      'plan-beginner': 'Principiante',
+      'plan-standard': 'Estándar',
+      'plan-premium': 'Premium',
+      'plan-enterprise': 'Empresarial',
+      
+      // FAQ
+      'faq-title': 'Preguntas Frecuentes',
+      'faq-subtitle': 'Respondemos preguntas comunes de nuestros clientes',
+      
+      // CTA
+      'cta-title': '¿Listo para comenzar?',
+      'cta-subtitle': 'Consulta gratuita para proponer la solución óptima para tu negocio',
+      'cta-button': 'Consulta Gratuita',
+      'cta-contact': 'Contáctanos'
+    }
+  };
+  
+  function toggleLanguageMenu() {
+    const menu = document.getElementById('language-menu');
+    menu.classList.toggle('hidden');
+  }
+  
+  function changeLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('selectedLanguage', lang);
+    
+    // 言語切り替えボタンのテキストを更新
+    const currentLanguageSpan = document.getElementById('current-language');
+    const selectedOption = document.querySelector(`[data-lang="${lang}"]`);
+    currentLanguageSpan.textContent = selectedOption.dataset.name;
+    
+    // メニューを閉じる
+    document.getElementById('language-menu').classList.add('hidden');
+    
+    // ページのテキストを更新
+    updatePageText(lang);
+  }
+  
+  function updatePageText(lang) {
+    const texts = translations[lang];
+    if (!texts) return;
+    
+    // 各要素のテキストを更新
+    Object.keys(texts).forEach(key => {
+      const elements = document.querySelectorAll(`[data-translate="${key}"]`);
+      elements.forEach(element => {
+        element.innerHTML = texts[key];
+      });
+    });
+  }
+  
+  // ページ読み込み時に現在の言語を設定
+  document.addEventListener('DOMContentLoaded', function() {
+    const selectedOption = document.querySelector(`[data-lang="${currentLang}"]`);
+    if (selectedOption) {
+      document.getElementById('current-language').textContent = selectedOption.dataset.name;
+      updatePageText(currentLang);
+    }
+  });
+  
+  // メニュー外をクリックしたら閉じる
+  document.addEventListener('click', function(event) {
+    const switcher = document.getElementById('language-switcher');
+    const menu = document.getElementById('language-menu');
+    
+    if (!switcher.contains(event.target) && !menu.contains(event.target)) {
+      menu.classList.add('hidden');
+    }
+  });
+</script>
