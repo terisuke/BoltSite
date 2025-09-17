@@ -20,12 +20,14 @@
       <div class="space-y-4">
         
         <!-- 基本機能 -->
-        <div class="bg-gray-50 rounded-lg overflow-hidden">
-          <button class="w-full px-6 py-4 text-left bg-gray-100 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-between" onclick="toggleAccordion('basic')">
-            <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-2">
-              <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
-              </svg>
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden">
+          <button class="w-full px-6 py-4 text-left hover:bg-gray-50 transition-colors duration-300 flex items-center justify-between accordion-button" data-target="basic">
+            <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-3">
+              <div class="w-8 h-8 bg-blue-100 rounded flex items-center justify-center">
+                <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                </svg>
+              </div>
               基本機能
             </h3>
             <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" id="basic-icon" fill="currentColor" viewBox="0 0 20 20">
@@ -80,12 +82,14 @@
         </div>
         
         <!-- パフォーマンス -->
-        <div class="bg-gray-50 rounded-lg overflow-hidden">
-          <button class="w-full px-6 py-4 text-left bg-gray-100 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-between" onclick="toggleAccordion('performance')">
-            <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-2">
-              <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden">
+          <button class="w-full px-6 py-4 text-left hover:bg-gray-50 transition-colors duration-300 flex items-center justify-between accordion-button" data-target="performance">
+            <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-3">
+              <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
               パフォーマンス
             </h3>
             <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" id="performance-icon" fill="currentColor" viewBox="0 0 20 20">
@@ -145,12 +149,14 @@
         </div>
         
         <!-- 更新・サポート -->
-        <div class="bg-gray-50 rounded-lg overflow-hidden">
-          <button class="w-full px-6 py-4 text-left bg-gray-100 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-between" onclick="toggleAccordion('support')">
-            <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-2">
-              <svg class="w-5 h-5 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-2 0c0 .993-.241 1.929-.668 2.754l-1.524-1.525a3.997 3.997 0 00.078-2.183l1.562-1.562C15.759 8.071 16 9.007 16 10zm-5.165 3.913l1.58 1.58A5.98 5.98 0 0110 16a5.976 5.976 0 01-2.516-.552l1.562-1.562a4.006 4.006 0 001.789.027zm-4.677-2.796a3.996 3.996 0 01-.061-2.183l1.562-1.562C6.241 8.071 6 9.007 6 10c0 .993.241 1.929.668 2.754l1.524-1.525zm11.33-4.713C16.759 6.071 15.993 6 15 6a5.976 5.976 0 00-2.516.552l1.562 1.562a4.006 4.006 0 001.789-.027zM6 10c0-.993.241-1.929.668-2.754l1.524 1.525a3.996 3.996 0 00.078 2.183l-1.562 1.562C6.241 11.929 6 10.993 6 10z"></path>
-              </svg>
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden">
+          <button class="w-full px-6 py-4 text-left hover:bg-gray-50 transition-colors duration-300 flex items-center justify-between accordion-button" data-target="support">
+            <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-3">
+              <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-2 0c0 .993-.241 1.929-.668 2.754l-1.524-1.525a3.997 3.997 0 00.078-2.183l1.562-1.562C15.759 8.071 16 9.007 16 10zm-5.165 3.913l1.58 1.58A5.98 5.98 0 0110 16a5.976 5.976 0 01-2.516-.552l1.562-1.562a4.006 4.006 0 001.789.027zm-4.677-2.796a3.996 3.996 0 01-.061-2.183l1.562-1.562C6.241 8.071 6 9.007 6 10c0 .993.241 1.929.668 2.754l1.524-1.525zm11.33-4.713C16.759 6.071 15.993 6 15 6a5.976 5.976 0 00-2.516.552l1.562 1.562a4.006 4.006 0 001.789-.027zM6 10c0-.993.241-1.929.668-2.754l1.524 1.525a3.996 3.996 0 00.078 2.183l-1.562 1.562C6.241 11.929 6 10.993 6 10z"></path>
+                </svg>
+              </div>
               更新・サポート
             </h3>
             <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" id="support-icon" fill="currentColor" viewBox="0 0 20 20">
@@ -205,12 +211,14 @@
         </div>
         
         <!-- マーケティング -->
-        <div class="bg-gray-50 rounded-lg overflow-hidden">
-          <button class="w-full px-6 py-4 text-left bg-gray-100 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-between" onclick="toggleAccordion('marketing')">
-            <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-2">
-              <svg class="w-5 h-5 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
-              </svg>
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden">
+          <button class="w-full px-6 py-4 text-left hover:bg-gray-50 transition-colors duration-300 flex items-center justify-between accordion-button" data-target="marketing">
+            <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-3">
+              <div class="w-8 h-8 bg-orange-100 rounded flex items-center justify-center">
+                <svg class="w-4 h-4 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                </svg>
+              </div>
               マーケティング
             </h3>
             <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" id="marketing-icon" fill="currentColor" viewBox="0 0 20 20">
@@ -265,12 +273,14 @@
         </div>
         
         <!-- コンテンツサポート -->
-        <div class="bg-gray-50 rounded-lg overflow-hidden">
-          <button class="w-full px-6 py-4 text-left bg-gray-100 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-between" onclick="toggleAccordion('content')">
-            <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-2">
-              <svg class="w-5 h-5 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"></path>
-              </svg>
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden">
+          <button class="w-full px-6 py-4 text-left hover:bg-gray-50 transition-colors duration-300 flex items-center justify-between accordion-button" data-target="content">
+            <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-3">
+              <div class="w-8 h-8 bg-indigo-100 rounded flex items-center justify-center">
+                <svg class="w-4 h-4 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"></path>
+                </svg>
+              </div>
               コンテンツサポート
             </h3>
             <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" id="content-icon" fill="currentColor" viewBox="0 0 20 20">
@@ -318,12 +328,14 @@
         </div>
         
         <!-- 分析・改善 -->
-        <div class="bg-gray-50 rounded-lg overflow-hidden">
-          <button class="w-full px-6 py-4 text-left bg-gray-100 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-between" onclick="toggleAccordion('analysis')">
-            <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-2">
-              <svg class="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
-              </svg>
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden">
+          <button class="w-full px-6 py-4 text-left hover:bg-gray-50 transition-colors duration-300 flex items-center justify-between accordion-button" data-target="analysis">
+            <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-3">
+              <div class="w-8 h-8 bg-red-100 rounded flex items-center justify-center">
+                <svg class="w-4 h-4 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
+                </svg>
+              </div>
               分析・改善
             </h3>
             <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" id="analysis-icon" fill="currentColor" viewBox="0 0 20 20">
@@ -381,17 +393,42 @@
   </div>
 </section>
 
-<script>
+<script is:inline>
+  // DOMが読み込まれた後に実行
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, setting up accordion listeners');
+    
+    // すべてのアコーディオンボタンにイベントリスナーを追加
+    const accordionButtons = document.querySelectorAll('.accordion-button');
+    console.log('Found accordion buttons:', accordionButtons.length);
+    
+    accordionButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const target = this.getAttribute('data-target');
+        console.log('Accordion button clicked:', target);
+        toggleAccordion(target);
+      });
+    });
+  });
+  
   function toggleAccordion(id) {
+    console.log('toggleAccordion called with id:', id);
     const content = document.getElementById(id + '-content');
     const icon = document.getElementById(id + '-icon');
+    
+    if (!content || !icon) {
+      console.error('Element not found:', id + '-content or ' + id + '-icon');
+      return;
+    }
     
     if (content.classList.contains('hidden')) {
       content.classList.remove('hidden');
       icon.style.transform = 'rotate(180deg)';
+      console.log('Opening accordion:', id);
     } else {
       content.classList.add('hidden');
       icon.style.transform = 'rotate(0deg)';
+      console.log('Closing accordion:', id);
     }
   }
 </script>
