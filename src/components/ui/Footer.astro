@@ -1,125 +1,160 @@
 ---
-import { Image } from "astro:assets";
-import Facebook from "../../assets/facebook.svg";
-import Linkedin from "../../assets/linkedin.svg";
-import Logo from "../../assets/logo-alt.svg";
-import Twitter from "../../assets/twitter.svg";
-import ShortForm from "../ui/ShortForm.astro";
+import type { FooterLink, SocialLink } from '../../types';
 
-const logos = [
-  { name: "Facebook", src: Facebook, link: "https://facebook.com" },
-  { name: "Linkedin", src: Linkedin, link: "https://linkedin.com" },
-  { name: "Twitter", src: Twitter, link: "https://twitter.com" },
+const socialLinks: SocialLink[] = [
+  { name: "Twitter", src: "/src/assets/twitter.svg", link: "https://twitter.com/boltsite" },
+  { name: "Twitter(日本語)", src: "/src/assets/twitter.svg", link: "https://twitter.com/boltsite_jp" },
+  { name: "LinkedIn", src: "/src/assets/linkedin.svg", link: "https://linkedin.com/company/boltsite" },
 ];
 
-const links = [
-  { name: "About us", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Use Cases", href: "#cases" },
-  { name: "Pricing", href: "#Testimonials" },
-  { name: "Blog", href: "#Home" },
+const servicesLinks: FooterLink[] = [
+  { name: "サービス概要", href: "/services" },
+  { name: "料金プラン", href: "/pricing" },
+  { name: "機能比較", href: "/services#features" },
+  { name: "パフォーマンス保証", href: "/#performance" },
+  { name: "DXパッケージ", href: "/#dx-package" },
+];
+
+const supportLinks: FooterLink[] = [
+  { name: "よくある質問", href: "/#faq" },
+  { name: "導入の流れ", href: "/#introduction-flow" },
+  { name: "お問い合わせ", href: "/#contact" },
+  { name: "Cor.株式会社", href: "https://cor-jp.com" },
 ];
 ---
 
-<section class="sm:px-5">
-  <div class="w-full max-w-[1240px] mx-auto">
-    <div
-      class="px-[15px] bg-dark text-gray py-[55px] lg:px-[60px] sm:rounded-t-[45px]"
-    >
-      <div>
-        <div
-          class="flex flex-col lg:flex-row gap-7 items-center justify-between"
-        >
-          <picture>
-            <a href="#home">
-              <Image src={Logo} alt="Logo for Kreatif Brand" />
-            </a>
-          </picture>
-          <ul class="flex flex-col sm:flex-row gap-5">
-            {
-              links.map((link) => {
-                return (
-                  <li class="text-center">
-                    <a class="underline" href={link.href}>
-                      {link.name}
-                    </a>
-                  </li>
-                );
-              })
-            }
-          </ul>
-          <ul class="flex gap-5">
-            {
-              logos.map((logo) => {
-                return (
-                  <li>
-                    <a href={logo.link} target="_blank">
-                      <picture>
-                        <Image src={logo.src} alt={logo.name} />
-                      </picture>
-                    </a>
-                  </li>
-                );
-              })
-            }
-          </ul>
-        </div>
-
-        <div class="flex flex-col lg:flex-row mt-[66px] mb-[51px]">
-          <div
-            class="flex text-center lg:text-start flex-col w-full lg:w-[30%]"
-          >
-            <h3 class="mb-5 text-center md:text-left text-2xl text-green">Contact us</h3>
-            <div class="flex flex-col justify-between gap-4">
-              <span> Email: examplemail.com </span>
-              <span> Phone: +123 456 789 </span>
-              <span class="lg:w-3/4">
-                Address: 1234 Street Name, City Name, Country Name
-              </span>
+<footer class="bg-gray-900 text-white">
+  <div class="section-container">
+    <div class="section-content">
+      
+      <!-- メインコンテンツ -->
+      <div class="py-16">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          <!-- ロゴと説明 -->
+          <div>
+            <h2 class="text-xl font-bold text-white mb-4">BoltSite</h2>
+            <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+              高性能ホームページ制作サービス<br/>
+              中小企業のDXを加速します
+            </p>
+            <div class="flex gap-3">
+              {socialLinks.map((social) => (
+                <a
+                  href={social.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-gray-400 hover:text-white transition-colors duration-300"
+                  aria-label={social.name}
+                >
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    {social.name.includes("Twitter") && (
+                      <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                    )}
+                    {social.name === "LinkedIn" && (
+                      <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                    )}
+                  </svg>
+                </a>
+              ))}
             </div>
           </div>
-          <div class="flex-grow my-10 lg:my-0 lg:ml-12">
-            <ShortForm />
+          
+          <!-- サービス -->
+          <div>
+            <h3 class="text-base font-semibold mb-4">サービス</h3>
+            <ul class="space-y-2">
+              {servicesLinks.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- サポート -->
+          <div>
+            <h3 class="text-base font-semibold mb-4">サポート</h3>
+            <ul class="space-y-2">
+              {supportLinks.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    target={link.href.startsWith('http') ? '_blank' : '_self'}
+                    rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    class="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <!-- お問い合わせ -->
+          <div>
+            <h3 class="text-base font-semibold mb-4">お問い合わせ</h3>
+            <div class="space-y-3 text-sm">
+              <div class="flex items-start gap-2">
+                <span class="text-gray-400">✉</span>
+                <a href="mailto:contact@boltsite.com" class="text-gray-400 hover:text-white transition-colors duration-300">
+                  contact@boltsite.com
+                </a>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-gray-400">📞</span>
+                <a href="tel:03-1234-5678" class="text-gray-400 hover:text-white transition-colors duration-300">
+                  03-1234-5678
+                </a>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-gray-400">📍</span>
+                <span class="text-gray-400">東京都渋谷区</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 共創パートナー優待制度 -->
+      <div class="my-8">
+        <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-6">
+          <div class="text-center">
+            <h3 class="text-lg font-bold text-white mb-2">共創パートナー優待制度</h3>
+            <p class="text-white/90 mb-4 text-sm">
+              Cor.株式会社の他のサービスをご利用のお客様には、長期的なパートナーシップに基づく特別料金をご提供いたします。
+            </p>
+            <a href="#" class="inline-block bg-white text-blue-600 px-6 py-2 rounded-full text-sm font-semibold hover:bg-blue-50 transition-colors duration-300">
+              詳細はこちら
+            </a>
           </div>
         </div>
       </div>
 
-      <div class="h-[1px] bg-gray mb-5"></div>
-      <div
-        class="flex flex-col lg:flex-row h-20 justify-center mt-4 text-center md:justify-between md:mt-0"
-      >
-        <span
-          >2024 Positivus - Made With <a
-            class="underline"
-            target="_blank"
-            href="https://astro.build">Astro</a
-          > by 
-          <a 
-          class="underline"
-          target="_blank"
-          href="https://manulthanura.com">Manul</a
-          ></span
-        >&nbsp
-        <span>
-          Credits (
-          <a
-            href="https://www.olgaskuja.design/"
-            target="_blank"
-            class="underline">Olga</a
-          >,
-          <a
-            href="https://esteban-vasquez.netlify.app/"
-            target="_blank"
-            class="underline">Esteban</a
-          >)
-          <span> &</span>
-          <a
-            class="underline"
-            href="https://creativecommons.org/licenses/by/4.0/"
-            target="_blank">Licence</a
-          >
-        </span>
+      <!-- 分割線 -->
+      <div class="border-t border-gray-800"></div>
+
+      <!-- コピーライト -->
+      <div class="py-6 text-center">
+        <div class="text-gray-400 text-sm mb-3">
+          © 2024 BoltSite by Cor.株式会社. All rights reserved.
+        </div>
+        <div class="flex justify-center gap-6 text-sm">
+          <a href="/privacy" class="text-gray-400 hover:text-white transition-colors duration-300">
+            プライバシーポリシー
+          </a>
+          <span class="text-gray-600">|</span>
+          <a href="/terms" class="text-gray-400 hover:text-white transition-colors duration-300">
+            利用規約
+          </a>
+        </div>
       </div>
+      
     </div>
   </div>
-</section>
+</footer>

@@ -1,38 +1,38 @@
 [
-    {
-        "index": 1,
-        "name": "John Smith",
-        "role": "Marketing dierector at XYZ",
-        "comment": "We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence."
-    },
-    {
-        "index": 2,
-        "name": "Jane Doe",
-        "role": "CEO at ABC",
-        "comment": "We chose Positivus to help us with our SEO and PPC campaigns and have been very impressed with their results. They are knowledgeable, responsive, and truly care about the success of our business. We highly recommend Positivus to any company looking to grow their online presence."
-    },
-    {
-        "index": 3,
-        "name": "Alice Johnson",
-        "role": "Owner at 123",
-        "comment": "I recently started working with Positivus and have been very impressed with their professionalism and expertise. They have helped me increase my online visibility and generate more leads for my business. I highly recommend Positivus to anyone looking to improve their online marketing strategy."
-    },
-    {
-        "index": 4,
-        "name": "Bob Brown",
-        "role": "Dierector at XYZ",
-        "comment": "Positivus has been a great partner for our company. They are knowledgeable, responsive, and truly care about the success of our business. We have seen a significant increase in website traffic and leads as a result of their efforts. I highly recommend Positivus to any company looking to grow their online presence."
-    },
-    {
-        "index": 5,
-        "name": "Gupta Patel",
-        "role": "Content creator",
-        "comment": "I have been working with Positivus for the past year and have been very impressed with their professionalism and expertise. They have helped me increase my online visibility and generate more leads for my business. I highly recommend Positivus to anyone looking to improve their online marketing strategy."
-    },
-    {
-        "index": 6,
-        "name": "Sara Johnson",
-        "role": "Freelancer",
-        "comment": "Positivus made a huge difference in our online presence. They are knowledgeable, responsive, and truly care about the success of our business. We have seen a significant increase in website traffic and leads as a result of their efforts. I highly recommend Positivus to any company looking to grow their online presence."
-    }
+  {
+    "index": 1,
+    "name": "田中 太郎",
+    "role": "株式会社テクノソリューション 代表取締役",
+    "comment": "BoltSiteを導入してから、サイトの表示速度が劇的に改善されました。0.3秒の高速表示により、顧客の離脱率が大幅に減少し、売上も30%向上しました。コストパフォーマンスも非常に優れており、中小企業には最適なソリューションです。"
+  },
+  {
+    "index": 2,
+    "name": "佐藤 花子",
+    "role": "グリーンファーム マーケティング部長",
+    "comment": "従来のWordPressサイトからBoltSiteに移行し、PageSpeedスコアが95点を達成しました。SEO効果も顕著で、検索順位が大幅に向上し、新規顧客の獲得数が2倍になりました。月額25,000円でこの効果は驚異的です。"
+  },
+  {
+    "index": 3,
+    "name": "山田 次郎",
+    "role": "クリエイティブスタジオ オーナー",
+    "comment": "BoltSiteの導入により、サイトの保守管理が格段に楽になりました。Jamstack技術により、セキュリティ面でも安心でき、更新作業も効率的になりました。初期費用0円で始められるのも魅力的です。"
+  },
+  {
+    "index": 4,
+    "name": "鈴木 美咲",
+    "role": "デジタルマーケティング コンサルタント",
+    "comment": "クライアントのサイトをBoltSiteで制作し、全員が満足しています。特に地方の中小企業にとって、大企業並みの高速サイトを低コストで実現できるのは革命的です。DX推進の強力なパートナーです。"
+  },
+  {
+    "index": 5,
+    "name": "高橋 健一",
+    "role": "製造業 経営者",
+    "comment": "BoltSiteを導入して1年が経ちましたが、サイトの安定性とパフォーマンスに全く問題ありません。月額15,000円でこの品質は信じられません。他のサービスと比較しても圧倒的にコストパフォーマンスが良いです。"
+  },
+  {
+    "index": 6,
+    "name": "伊藤 恵",
+    "role": "ECサイト運営者",
+    "comment": "BoltSiteの多言語対応機能により、海外展開がスムーズに進みました。サイトの表示速度も海外からアクセスしても非常に高速で、ユーザー体験が大幅に向上しました。グローバル展開を考えている企業には強くお勧めします。"
+  }
 ]

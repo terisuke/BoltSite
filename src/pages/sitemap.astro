@@ -1,0 +1,161 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+// サイトマップのURLリスト
+const sitemapUrls = [
+  { url: '/', title: 'ホーム', description: 'BoltSite - 高性能ホームページ制作サービス' },
+  { url: '/about', title: '会社概要', description: 'BoltSite by Cor.Incの会社概要' },
+  { url: '/services', title: 'サービス', description: 'BoltSiteのサービス一覧' },
+  { url: '/services/seo', title: 'SEOサービス', description: 'SEO最適化サービス' },
+  { url: '/pricing', title: '料金プラン', description: 'BoltSiteの料金プラン' },
+  { url: '/articles', title: 'ブログ', description: 'BoltSiteのブログ記事' },
+  { url: '/privacy', title: 'プライバシーポリシー', description: 'プライバシーポリシー' },
+  { url: '/terms', title: '利用規約', description: '利用規約' },
+  { url: '/sitemap', title: 'サイトマップ', description: 'サイトマップ' },
+];
+---
+
+<MainLayout 
+  title="サイトマップ | BoltSite by Cor.Inc"
+  description="BoltSite by Cor.Incのサイトマップ。サイト内のすべてのページを一覧でご確認いただけます。"
+>
+  <div class="section-container">
+    <div class="section-content">
+      
+      <!-- ヘッダー -->
+      <div class="py-16 text-center">
+        <h1 class="text-heading-1 mb-6">サイトマップ</h1>
+        <p class="text-body-large mb-4">
+          BoltSite by Cor.Incのサイト内ページ一覧
+        </p>
+        <p class="text-body">
+          以下のリンクから、お探しのページにアクセスできます。
+        </p>
+      </div>
+
+      <!-- メインコンテンツ -->
+      <div class="max-w-4xl mx-auto">
+        
+        <!-- メインページ -->
+        <section class="mb-12">
+          <h2 class="text-heading-3 mb-6">メインページ</h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow duration-300">
+              <h3 class="text-xl font-semibold mb-2">
+                <a href="/" class="text-primary-600 hover:text-primary-700">ホーム</a>
+              </h3>
+              <p class="text-gray-600 mb-3">BoltSite - 高性能ホームページ制作サービス</p>
+              <p class="text-sm text-gray-500">Jamstack技術を活用した0.3秒の高速表示とSEO満点を実現</p>
+            </div>
+            
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow duration-300">
+              <h3 class="text-xl font-semibold mb-2">
+                <a href="/about" class="text-primary-600 hover:text-primary-700">会社概要</a>
+              </h3>
+              <p class="text-gray-600 mb-3">BoltSite by Cor.Incの会社概要</p>
+              <p class="text-sm text-gray-500">私たちのミッションとビジョンをご紹介</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- サービスページ -->
+        <section class="mb-12">
+          <h2 class="text-heading-3 mb-6">サービス</h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow duration-300">
+              <h3 class="text-xl font-semibold mb-2">
+                <a href="/services" class="text-primary-600 hover:text-primary-700">サービス一覧</a>
+              </h3>
+              <p class="text-gray-600 mb-3">BoltSiteのサービス一覧</p>
+              <p class="text-sm text-gray-500">高性能ホームページ制作サービスの詳細</p>
+            </div>
+            
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow duration-300">
+              <h3 class="text-xl font-semibold mb-2">
+                <a href="/services/seo" class="text-primary-600 hover:text-primary-700">SEOサービス</a>
+              </h3>
+              <p class="text-gray-600 mb-3">SEO最適化サービス</p>
+              <p class="text-sm text-gray-500">Google PageSpeed 95点以上を保証</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 料金・ブログ -->
+        <section class="mb-12">
+          <h2 class="text-heading-3 mb-6">料金・コンテンツ</h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow duration-300">
+              <h3 class="text-xl font-semibold mb-2">
+                <a href="/pricing" class="text-primary-600 hover:text-primary-700">料金プラン</a>
+              </h3>
+              <p class="text-gray-600 mb-3">BoltSiteの料金プラン</p>
+              <p class="text-sm text-gray-500">月額15,000円〜の低コストプラン</p>
+            </div>
+            
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow duration-300">
+              <h3 class="text-xl font-semibold mb-2">
+                <a href="/articles" class="text-primary-600 hover:text-primary-700">ブログ</a>
+              </h3>
+              <p class="text-gray-600 mb-3">BoltSiteのブログ記事</p>
+              <p class="text-sm text-gray-500">Web制作やDXに関する最新情報</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 法的ページ -->
+        <section class="mb-12">
+          <h2 class="text-heading-3 mb-6">法的情報</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow duration-300">
+              <h3 class="text-xl font-semibold mb-2">
+                <a href="/privacy" class="text-primary-600 hover:text-primary-700">プライバシーポリシー</a>
+              </h3>
+              <p class="text-gray-600 mb-3">プライバシーポリシー</p>
+              <p class="text-sm text-gray-500">個人情報の取り扱いについて</p>
+            </div>
+            
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow duration-300">
+              <h3 class="text-xl font-semibold mb-2">
+                <a href="/terms" class="text-primary-600 hover:text-primary-700">利用規約</a>
+              </h3>
+              <p class="text-gray-600 mb-3">利用規約</p>
+              <p class="text-sm text-gray-500">サービスの利用条件</p>
+            </div>
+            
+            <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow duration-300">
+              <h3 class="text-xl font-semibold mb-2">
+                <a href="/sitemap" class="text-primary-600 hover:text-primary-700">サイトマップ</a>
+              </h3>
+              <p class="text-gray-600 mb-3">サイトマップ</p>
+              <p class="text-sm text-gray-500">サイト内ページ一覧</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- お問い合わせ -->
+        <section class="mb-12">
+          <div class="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-lg p-8 text-center">
+            <h2 class="text-heading-3 mb-4">お問い合わせ</h2>
+            <p class="text-body mb-6">
+              ご質問やご相談がございましたら、お気軽にお問い合わせください。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="mailto:company@cor-jp.com" class="btn-primary">
+                メールでお問い合わせ
+              </a>
+              <a href="tel:+81-070-8561-1659" class="btn-secondary">
+                電話でお問い合わせ
+              </a>
+            </div>
+            <div class="mt-6 text-sm text-gray-600">
+              <p>営業時間: 平日 9:00-18:00</p>
+              <p>メール: company@cor-jp.com</p>
+              <p>電話: +81-070-8561-1659</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</MainLayout>

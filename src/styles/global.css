@@ -19,6 +19,89 @@
     font-display: swap;
   }
 
+  :root {
+    /* BoltSite Brand Colors */
+    --color-primary: #3b82f6;
+    --color-primary-dark: #2563eb;
+    --color-primary-light: #60a5fa;
+    --color-secondary: #10b981;
+    --color-secondary-dark: #059669;
+    --color-accent: #8b5cf6;
+    --color-accent-dark: #7c3aed;
+
+    /* Neutral Colors */
+    --color-white: #ffffff;
+    --color-gray-50: #f9fafb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-gray-300: #d1d5db;
+    --color-gray-400: #9ca3af;
+    --color-gray-500: #6b7280;
+    --color-gray-600: #4b5563;
+    --color-gray-700: #374151;
+    --color-gray-800: #1f2937;
+    --color-gray-900: #111827;
+    --color-black: #000000;
+
+    /* Semantic Colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #3b82f6;
+
+    /* Background Colors */
+    --color-bg-primary: var(--color-white);
+    --color-bg-secondary: var(--color-gray-50);
+    --color-bg-tertiary: var(--color-gray-100);
+
+    /* Text Colors */
+    --color-text-primary: var(--color-gray-900);
+    --color-text-secondary: var(--color-gray-600);
+    --color-text-tertiary: var(--color-gray-500);
+
+    /* Border Colors */
+    --color-border-primary: var(--color-gray-200);
+    --color-border-secondary: var(--color-gray-300);
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    --radius-full: 9999px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    /* Transitions */
+    --transition-fast: 150ms ease-in-out;
+    --transition-normal: 300ms ease-in-out;
+    --transition-slow: 500ms ease-in-out;
+
+    /* Legacy Colors (for backward compatibility) */
+    --green: #b9ff66;
+    --black: rgb(0, 0, 0);
+    --dark: #191a23;
+    --gray: #f3f3f3;
+    --white: #ffffff;
+  }
+
   .font-outline {
     -webkit-text-stroke: 2.5px black;
     background-color: transparent;
@@ -26,14 +109,6 @@
   .font-outline-sm {
     -webkit-text-stroke: 1.2px black;
     background-color: transparent;
-  }
-
-  :root {
-    --green: #b9ff66;
-    --black: rgb(0, 0, 0);
-    --dark: #191a23;
-    --gray: #f3f3f3;
-    --white: #ffffff;
   }
 
   /* @layer base {
@@ -100,29 +175,77 @@
   } */
 
   @layer components {
+    /* Button Components */
     .btn-primary {
-      @apply bg-dark text-white rounded-lg px-[35px] py-5 transition-all duration-200;
-    }
-    .btn-primary:hover {
-      @apply bg-green text-black transform scale-105;
+      @apply bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
     }
 
     .btn-secondary {
-      @apply bg-transparent text-black px-[35px] py-5 rounded-lg border border-solid border-black transition-all duration-200;
-    }
-    .btn-secondary:hover {
-      @apply bg-black text-white border-green transform scale-105;
+      @apply border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
     }
 
     .btn-tertiary {
-      @apply bg-green text-black rounded-lg px-[35px] py-5 transition-all duration-200;
-    }
-    .btn-tertiary:hover {
-      @apply bg-white text-black transform scale-105;
+      @apply bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2;
     }
 
+    .btn-outline {
+      @apply bg-transparent text-gray-700 hover:bg-gray-100 px-6 py-3 rounded-lg border border-gray-300 font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+    }
+
+    /* Card Components */
+    .card {
+      @apply bg-white rounded-2xl shadow-lg p-6 border-2 border-gray-200 transition-all duration-300 hover:shadow-xl;
+    }
+
+    .card-featured {
+      @apply bg-white rounded-2xl shadow-lg p-6 border-2 border-primary-500 relative transition-all duration-300 hover:shadow-xl;
+    }
+
+    .card-hover {
+      @apply hover:border-primary-300;
+    }
+
+    /* Section Components */
+    .section-container {
+      @apply container mx-auto px-4;
+    }
+
+    .section-content {
+      @apply max-w-6xl mx-auto;
+    }
+
+    .section-padding {
+      @apply py-20;
+    }
+
+    /* Text Components */
+    .text-heading-1 {
+      @apply text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight;
+    }
+
+    .text-heading-2 {
+      @apply text-3xl md:text-4xl font-bold text-gray-900 mb-4;
+    }
+
+    .text-heading-3 {
+      @apply text-2xl font-bold text-gray-900 mb-3;
+    }
+
+    .text-body-large {
+      @apply text-xl text-gray-600 leading-relaxed;
+    }
+
+    .text-body {
+      @apply text-base text-gray-600 leading-relaxed;
+    }
+
+    .text-caption {
+      @apply text-sm text-gray-500;
+    }
+
+    /* Utility Classes */
     .greenhead {
-      @apply bg-green text-black rounded-[7px] px-[7px];
+      @apply bg-legacy-green text-black rounded-[7px] px-[7px];
     }
 
     .whitehead {
@@ -131,6 +254,65 @@
 
     .blackhead {
       @apply bg-black text-white rounded-[7px] px-[7px];
+    }
+
+    /* Animation Classes */
+    .animate-fade-in {
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .animate-slide-up {
+      animation: slideUp 0.6s ease-out;
+    }
+
+    .animate-scale-in {
+      animation: scaleIn 0.4s ease-out;
+    }
+
+    /* Focus States */
+    .focus-ring {
+      @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    }
+
+    /* Responsive Utilities */
+    .mobile-only {
+      @apply block lg:hidden;
+    }
+
+    .desktop-only {
+      @apply hidden lg:block;
+    }
+  }
+
+  /* Keyframe Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
     }
   }
 }

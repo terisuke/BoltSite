@@ -24,6 +24,11 @@ const { ...props } = Astro.props;
     }
   </style>
   <script src="../utils/lenis"></script>
+  <script>
+    // パフォーマンス最適化の初期化
+    import { initPerformanceOptimizations } from '../utils/performance';
+    initPerformanceOptimizations();
+  </script>
   <body class="bg-white font-grotesk">
     <main>
       <Navbar />

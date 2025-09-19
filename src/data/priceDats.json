@@ -1,32 +1,42 @@
 [
-    {
-        "title": "Starter",
-        "description": "Best option for personal use & for your next project",
-        "price": 29,
-        "devCount": "1 developer",
-        "support": "6 months",
-        "update": "6 months",
-        "action": "Get Started",
-        "link": "/"
-    },
-    {
-        "title": "Company",
-        "description": "Relevant for multiple users, extended & premium support",
-        "price": 99,
-        "devCount": "10 developers",
-        "support": "24 months",
-        "update": "24 months",
-        "action": "Get Started",
-        "link": "/"
-    },
-    {
-        "title": "Enterprise",
-        "description": "Best for large scale uses and extended redistribution rights",
-        "price": 499,
-        "devCount": "100+ developers",
-        "support": "36 months",
-        "update": "36 months",
-        "action": "Get Started",
-        "link": "/"
-    }
+  {
+    "title": "ビギナー",
+    "description": "個人事業主や小規模事業者に最適なプラン",
+    "price": 15000,
+    "devCount": "5ページまで",
+    "support": "メールサポート",
+    "update": "月1回更新",
+    "action": "プランを選択",
+    "link": "#contact"
+  },
+  {
+    "title": "スタンダード",
+    "description": "中小企業に最適なバランスの取れたプラン",
+    "price": 25000,
+    "devCount": "10ページまで",
+    "support": "メール・チャットサポート",
+    "update": "月2回更新",
+    "action": "プランを選択",
+    "link": "#contact"
+  },
+  {
+    "title": "プレミアム",
+    "description": "大企業や成長企業向けの高機能プラン",
+    "price": 30000,
+    "devCount": "20ページまで",
+    "support": "電話・メールサポート",
+    "update": "月4回更新",
+    "action": "プランを選択",
+    "link": "#contact"
+  },
+  {
+    "title": "エンタープライズ",
+    "description": "大規模企業向けのカスタムプラン",
+    "price": 50000,
+    "devCount": "無制限",
+    "support": "専任コンサルタント",
+    "update": "無制限更新",
+    "action": "お問い合わせ",
+    "link": "#contact"
+  }
 ]
