@@ -1,10 +1,43 @@
 ---
-const { sectionTitle, description } = Astro.props;
+interface Props {
+  title: string;
+  description?: string;
+  subtitle?: string;
+  centered?: boolean;
+  className?: string;
+  id?: string;
+}
+
+const {
+  title,
+  description,
+  subtitle,
+  centered = true,
+  className = '',
+  id
+} = Astro.props;
+
+const containerClasses = [
+  'mb-16',
+  centered ? 'text-center' : 'text-left',
+  className
+].filter(Boolean).join(' ');
 ---
 
-<div class="flex flex-col items-center gap-10 mb-20 sm:flex-row">
-  <h2 class="greenhead text-center sm:text-left text-3xl sm:text-4xl">{sectionTitle}</h2>
-  <p class="w-auto text-center sm:text-left sm:w-[580px]">
-    {description}
-  </p>
+<div class={containerClasses} id={id}>
+  {subtitle && (
+    <p class="text-blue-600 font-semibold text-sm uppercase tracking-wide mb-2">
+      {subtitle}
+    </p>
+  )}
+  
+  <h2 class="text-4xl font-bold text-gray-900 mb-4">
+    {title}
+  </h2>
+  
+  {description && (
+    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+      {description}
+    </p>
+  )}
 </div>

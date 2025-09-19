@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  className?: string;
+  loading?: "lazy" | "eager";
+  priority?: boolean;
+  sizes?: string;
+}
+
+const {
+  src,
+  alt,
+  width = 800,
+  height = 600,
+  className = "",
+  loading = "lazy",
+  priority = false,
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+} = Astro.props;
+
+// 外部URLの場合は通常のimgタグを使用
+const isExternalUrl = src.startsWith('http') || src.startsWith('//');
+---
+
+{isExternalUrl ? (
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    class={className}
+    loading={loading}
+    decoding="async"
+    sizes={sizes}
+  />
+) : (
+  <Image
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    class={className}
+    loading={loading}
+    decoding="async"
+    sizes={sizes}
+    {...(priority && { fetchpriority: "high" })}
+  />
+)}

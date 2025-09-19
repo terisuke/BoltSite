@@ -1,15 +1,70 @@
 ---
-const { isUnderline } = Astro.props;
+import type { CardProps } from '../../types';
+import Button from './Button.astro';
+
+interface Props extends CardProps {
+  children?: any;
+}
+
+const {
+  title,
+  description,
+  image,
+  price,
+  features = [],
+  className = '',
+  id,
+  children,
+  ...rest
+} = Astro.props;
+
+const cardClasses = [
+  'bg-white rounded-2xl shadow-lg p-6 border-2 border-gray-200 hover:border-primary-300 transition-all duration-300',
+  className
+].filter(Boolean).join(' ');
 ---
 
-{
-  isUnderline ? (
-    <div class="rounded-[45px] border border-dark shadow-[0px_5px_0px_#191a23]">
-      <slot />
+<div class={cardClasses} id={id} {...rest}>
+  
+  {image && (
+    <div class="text-center mb-6">
+      <img src={image} alt={title || 'Card image'} class="w-16 h-16 mx-auto mb-4 rounded-full object-cover" />
     </div>
-  ) : (
-    <div class="rounded-[45px]">
-      <slot />
+  )}
+  
+  {title && (
+    <div class="text-center mb-6">
+      <h3 class="text-xl font-bold text-gray-900 mb-2">{title}</h3>
+      {price && (
+        <div class="text-3xl font-bold text-primary-600 mb-2">
+          {price.toLocaleString()}円
+        </div>
+      )}
+      {description && (
+        <div class="text-sm text-gray-600">{description}</div>
+      )}
     </div>
-  )
-}
+  )}
+  
+  {features.length > 0 && (
+    <ul class="space-y-3 mb-6">
+      {features.map((feature) => (
+        <li class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-secondary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+          </svg>
+          <span class="text-sm text-gray-700">{feature}</span>
+        </li>
+      ))}
+    </ul>
+  )}
+  
+  {children}
+</div>
+
+<style>
+  /* カードのホバー効果 */
+  .hover\:shadow-xl:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+</style>
