@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "home": "首页",
+    "services": "服务",
+    "pricing": "价格方案",
+    "about": "关于我们",
+    "contact": "联系我们",
+    "free_consultation": "免费咨询",
+    "features": "功能对比",
+    "performance": "性能",
+    "faq": "常见问题"
+  },
+  "hero": {
+    "title": "高性能网站制作服务",
+    "subtitle": "加速中小企业数字化转型",
+    "description": "保证PageSpeed 95分以上的极速网站，1个月内交付。零初始费用开始。",
+    "cta_primary": "免费咨询",
+    "cta_secondary": "查看服务详情",
+    "guarantee": "PageSpeed 95分保证"
+  },
+  "services": {
+    "title": "服务",
+    "subtitle": "加速您业务的解决方案",
+    "overview": "服务概览",
+    "pricing": "价格方案",
+    "features": "功能对比",
+    "performance": "性能保证",
+    "dx_package": "数字化转型包"
+  },
+  "pricing": {
+    "title": "价格方案",
+    "subtitle": "简单透明的价格体系",
+    "basic": {
+      "name": "基础版",
+      "price": "¥3,500",
+      "period": "/月",
+      "description": "适合小企业"
+    },
+    "pro": {
+      "name": "专业版",
+      "price": "¥7,000",
+      "period": "/月",
+      "description": "适合中型企业"
+    },
+    "enterprise": {
+      "name": "企业版",
+      "price": "定制",
+      "period": "",
+      "description": "适合大型企业"
+    }
+  },
+  "footer": {
+    "description": "高性能网站制作服务<br/>加速中小企业数字化转型",
+    "services": "服务",
+    "support": "支持",
+    "contact": "联系我们",
+    "faq": "常见问题",
+    "flow": "实施流程",
+    "company": "Cor.株式会社",
+    "partner_program": "共创合作伙伴优惠制度",
+    "partner_description": "对于使用Cor.株式会社其他服务的客户，我们基于长期合作伙伴关系提供特别价格。",
+    "partner_link": "了解更多",
+    "copyright": "© 2024 BoltSite by Cor.株式会社. 版权所有。",
+    "privacy": "隐私政策",
+    "terms": "服务条款"
+  },
+  "cta": {
+    "title": "准备开始了吗？",
+    "subtitle": "免费咨询，为您推荐最适合的解决方案",
+    "fast_site": "极速网站",
+    "fast_description": "0.3秒加载时间",
+    "start_now": "立即加速！",
+    "free_consultation": "免费咨询",
+    "contact": "联系我们",
+    "guarantees": {
+      "initial_cost": "零初始费用",
+      "delivery": "1个月内交付",
+      "pagespeed": "PageSpeed 95分保证",
+      "refund": "全额退款保证"
+    }
+  },
+  "common": {
+    "email": "contact@boltsite.com",
+    "phone": "+81-3-1234-5678",
+    "address": "东京都涩谷区",
+    "loading": "加载中...",
+    "error": "发生错误",
+    "success": "成功"
+  }
+}

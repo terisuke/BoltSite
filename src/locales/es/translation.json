@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "pricing": "Precios",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "free_consultation": "Consulta Gratuita",
+    "features": "Características",
+    "performance": "Rendimiento",
+    "faq": "Preguntas Frecuentes"
+  },
+  "hero": {
+    "title": "Servicio de Creación de Sitios Web de Alto Rendimiento",
+    "subtitle": "Acelerando la Transformación Digital para PYMES",
+    "description": "Entregamos sitios ultrarrápidos con garantía PageSpeed 95+ en 1 mes. Comience con costo inicial cero.",
+    "cta_primary": "Consulta Gratuita",
+    "cta_secondary": "Ver Detalles del Servicio",
+    "guarantee": "Garantía PageSpeed 95+"
+  },
+  "services": {
+    "title": "Servicios",
+    "subtitle": "Soluciones para acelerar su negocio",
+    "overview": "Resumen del Servicio",
+    "pricing": "Planes de Precios",
+    "features": "Comparación de Características",
+    "performance": "Garantía de Rendimiento",
+    "dx_package": "Paquete de Transformación Digital"
+  },
+  "pricing": {
+    "title": "Planes de Precios",
+    "subtitle": "Estructura de precios simple y transparente",
+    "basic": {
+      "name": "Básico",
+      "price": "$500",
+      "period": "/mes",
+      "description": "Para pequeñas empresas"
+    },
+    "pro": {
+      "name": "Pro",
+      "price": "$1,000",
+      "period": "/mes",
+      "description": "Para empresas medianas"
+    },
+    "enterprise": {
+      "name": "Empresarial",
+      "price": "Personalizado",
+      "period": "",
+      "description": "Para grandes empresas"
+    }
+  },
+  "footer": {
+    "description": "Servicio de Creación de Sitios Web de Alto Rendimiento<br/>Acelerando la Transformación Digital para PYMES",
+    "services": "Servicios",
+    "support": "Soporte",
+    "contact": "Contacto",
+    "faq": "Preguntas Frecuentes",
+    "flow": "Proceso de Implementación",
+    "company": "Cor. Inc.",
+    "partner_program": "Programa de Socios Co-creadores",
+    "partner_description": "Ofrecemos precios especiales basados en asociaciones a largo plazo para clientes que utilizan otros servicios de Cor. Inc.",
+    "partner_link": "Saber Más",
+    "copyright": "© 2024 BoltSite por Cor. Inc. Todos los derechos reservados.",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio"
+  },
+  "cta": {
+    "title": "¿Listo para comenzar?",
+    "subtitle": "Consulta gratuita para proponer la solución óptima para su negocio",
+    "fast_site": "Sitio Ultrarrápido",
+    "fast_description": "Tiempo de carga de 0.3 segundos",
+    "start_now": "¡Acelere Ahora!",
+    "free_consultation": "Consulta Gratuita",
+    "contact": "Contáctanos",
+    "guarantees": {
+      "initial_cost": "Costo Inicial Cero",
+      "delivery": "Entrega en 1 mes",
+      "pagespeed": "Garantía PageSpeed 95+",
+      "refund": "Garantía de Reembolso Total"
+    }
+  },
+  "common": {
+    "email": "contact@boltsite.com",
+    "phone": "+81-3-1234-5678",
+    "address": "Shibuya, Tokio",
+    "loading": "Cargando...",
+    "error": "Ocurrió un error",
+    "success": "Éxito"
+  }
+}

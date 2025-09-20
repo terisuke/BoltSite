@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "pricing": "Pricing",
+    "about": "About",
+    "contact": "Contact",
+    "free_consultation": "Free Consultation",
+    "features": "Features",
+    "performance": "Performance",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "title": "High-Performance Website Creation Service",
+    "subtitle": "Accelerating DX for Small and Medium Enterprises",
+    "description": "Deliver lightning-fast sites with PageSpeed 95+ guarantee within 1 month. Start with zero initial cost.",
+    "cta_primary": "Free Consultation",
+    "cta_secondary": "View Service Details",
+    "guarantee": "PageSpeed 95+ Guarantee"
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Solutions to accelerate your business",
+    "overview": "Service Overview",
+    "pricing": "Pricing Plans",
+    "features": "Feature Comparison",
+    "performance": "Performance Guarantee",
+    "dx_package": "DX Package"
+  },
+  "pricing": {
+    "title": "Pricing Plans",
+    "subtitle": "Simple and transparent pricing structure",
+    "basic": {
+      "name": "Basic",
+      "price": "$500",
+      "period": "/month",
+      "description": "For small businesses"
+    },
+    "pro": {
+      "name": "Pro",
+      "price": "$1,000",
+      "period": "/month",
+      "description": "For medium businesses"
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "price": "Custom",
+      "period": "",
+      "description": "For large businesses"
+    }
+  },
+  "footer": {
+    "description": "High-Performance Website Creation Service<br/>Accelerating DX for Small and Medium Enterprises",
+    "services": "Services",
+    "support": "Support",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "flow": "Implementation Process",
+    "company": "Cor. Inc.",
+    "partner_program": "Co-creation Partner Program",
+    "partner_description": "We offer special pricing based on long-term partnerships for customers using other Cor. Inc. services.",
+    "partner_link": "Learn More",
+    "copyright": "© 2024 BoltSite by Cor. Inc. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "cta": {
+    "title": "Ready to get started?",
+    "subtitle": "Free consultation to propose the optimal solution for your business",
+    "fast_site": "Lightning Fast Site",
+    "fast_description": "0.3 second load time",
+    "start_now": "Accelerate Now!",
+    "free_consultation": "Free Consultation",
+    "contact": "Contact Us",
+    "guarantees": {
+      "initial_cost": "Zero Initial Cost",
+      "delivery": "Delivery within 1 month",
+      "pagespeed": "PageSpeed 95+ Guarantee",
+      "refund": "Full Money-back Guarantee"
+    }
+  },
+  "common": {
+    "email": "contact@boltsite.com",
+    "phone": "+81-3-1234-5678",
+    "address": "Shibuya, Tokyo",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success"
+  }
+}
