@@ -46,7 +46,7 @@ const cardClasses = [
     </div>
   )}
   
-  {features.length > 0 && (
+  {Array.isArray(features) && features.length > 0 && (
     <ul class="space-y-3 mb-6">
       {features.map((feature) => (
         <li class="flex items-center gap-2">

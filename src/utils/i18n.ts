@@ -49,7 +49,7 @@ export async function loadTranslation(locale: Locales) {
 }
 
 // ネストされた翻訳キーを取得
-export function getTranslation(translations: any, key: string): string {
+export function getTranslation(translations: any, key: string): any {
   const keys = key.split('.');
   let value = translations;
   
@@ -61,7 +61,7 @@ export function getTranslation(translations: any, key: string): string {
     }
   }
   
-  return typeof value === 'string' ? value : key;
+  return value || key;
 }
 
 // 言語名を取得

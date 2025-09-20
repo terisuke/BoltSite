@@ -1,9 +1,10 @@
 ---
-import { loadTranslation, getLocaleFromPathname } from '../../utils/i18n';
+import { loadTranslation, getLocaleFromPathname, getTranslation } from '../../utils/i18n';
 
 const { currentPath } = Astro.props;
 const locale = getLocaleFromPathname(currentPath || Astro.url.pathname);
-const t = await loadTranslation(locale);
+const translations = await loadTranslation(locale);
+const t = (key: string) => getTranslation(translations, key);
 ---
 
 <section id="overview" class="py-20 bg-white">
@@ -13,9 +14,9 @@ const t = await loadTranslation(locale);
       <!-- セクションタイトル -->
       <div class="text-center mb-16">
         <h2 class="text-4xl font-bold text-gray-900 mb-4">
-          {t.services.title}
+          {t('services.title')}
         </h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto" set:html={t.services.subtitle}>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto" set:html={t('services.subtitle')}>
         </p>
       </div>
       
@@ -29,12 +30,12 @@ const t = await loadTranslation(locale);
               <div class="text-3xl font-bold text-blue-600 mb-2">
                 <span class="text-4xl">15,000</span>円<span class="text-lg">〜</span>
               </div>
-              <div class="text-lg text-gray-700 mb-4">{t.services.pricing_info.monthly}</div>
+              <div class="text-lg text-gray-700 mb-4">{t('services.pricing_info.monthly')}</div>
               <div class="text-2xl font-bold text-green-600 mb-2">
-                {t.services.pricing_info.initial_cost}<span class="text-3xl">0</span>円
+                {t('services.pricing_info.initial_cost')}<span class="text-3xl">0</span>円
               </div>
               <div class="text-sm text-gray-600">
-                {t.services.pricing_info.delivery}
+                {t('services.pricing_info.delivery')}
               </div>
             </div>
           </div>
@@ -48,8 +49,8 @@ const t = await loadTranslation(locale);
                 </svg>
               </div>
               <div>
-                <h3 class="text-lg font-semibold text-gray-900 mb-2">{t.services.features_list.fast_site.title}</h3>
-                <p class="text-gray-600">{t.services.features_list.fast_site.description}</p>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">{t('services.features_list.fast_site.title')}</h3>
+                <p class="text-gray-600">{t('services.features_list.fast_site.description')}</p>
               </div>
             </div>
             
@@ -60,8 +61,8 @@ const t = await loadTranslation(locale);
                 </svg>
               </div>
               <div>
-                <h3 class="text-lg font-semibold text-gray-900 mb-2">{t.services.features_list.seo_optimized.title}</h3>
-                <p class="text-gray-600">{t.services.features_list.seo_optimized.description}</p>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">{t('services.features_list.seo_optimized.title')}</h3>
+                <p class="text-gray-600">{t('services.features_list.seo_optimized.description')}</p>
               </div>
             </div>
             
@@ -72,8 +73,8 @@ const t = await loadTranslation(locale);
                 </svg>
               </div>
               <div>
-                <h3 class="text-lg font-semibold text-gray-900 mb-2">{t.services.features_list.security.title}</h3>
-                <p class="text-gray-600">{t.services.features_list.security.description}</p>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">{t('services.features_list.security.title')}</h3>
+                <p class="text-gray-600">{t('services.features_list.security.description')}</p>
               </div>
             </div>
           </div>
@@ -82,7 +83,7 @@ const t = await loadTranslation(locale);
         <!-- 右側: コスト比較グラフ -->
         <div>
           <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">
-            コスト比較（年間）
+            {t('comparison.cost_comparison')}
           </h3>
           
           <!-- 比較グラフ -->
@@ -90,48 +91,48 @@ const t = await loadTranslation(locale);
             <!-- WordPress -->
             <div class="bg-gray-50 rounded-lg p-6">
               <div class="flex justify-between items-center mb-4">
-                <h4 class="text-lg font-semibold text-gray-800">WordPress</h4>
-                <span class="text-2xl font-bold text-red-600">150万円</span>
+                <h4 class="text-lg font-semibold text-gray-800">{t('comparison.wordpress')}</h4>
+                <span class="text-2xl font-bold text-red-600">{t('comparison.wordpress_cost')}</span>
               </div>
               <div class="w-full bg-gray-200 rounded-full h-4">
                 <div class="bg-red-500 h-4 rounded-full" style="width: 100%"></div>
               </div>
               <div class="text-sm text-gray-600 mt-2">
-                サーバー代 + 保守 + セキュリティ + 開発費
+                {t('comparison.wordpress_description')}
               </div>
             </div>
             
             <!-- BoltSite -->
             <div class="bg-blue-50 rounded-lg p-6 border-2 border-blue-200">
               <div class="flex justify-between items-center mb-4">
-                <h4 class="text-lg font-semibold text-blue-800">BoltSite</h4>
-                <span class="text-2xl font-bold text-blue-600">18万円</span>
+                <h4 class="text-lg font-semibold text-blue-800">{t('comparison.boltsite')}</h4>
+                <span class="text-2xl font-bold text-blue-600">{t('comparison.boltsite_cost')}</span>
               </div>
               <div class="w-full bg-gray-200 rounded-full h-4">
                 <div class="bg-blue-500 h-4 rounded-full" style="width: 12%"></div>
               </div>
               <div class="text-sm text-blue-600 mt-2 font-semibold">
-                月額15,000円 × 12ヶ月 = 大企業の1/10のコスト
+                {t('comparison.boltsite_description')}
               </div>
             </div>
           </div>
           
           <!-- 実績例 -->
           <div class="mt-8 bg-white rounded-xl shadow-lg p-6 border border-gray-200">
-            <h4 class="text-lg font-semibold text-gray-900 mb-4">実績例</h4>
+            <h4 class="text-lg font-semibold text-gray-900 mb-4">{t('comparison.case_studies')}</h4>
             <div class="space-y-4">
               <div class="flex items-center gap-3">
                 <div class="w-3 h-3 bg-green-500 rounded-full"></div>
                 <div>
-                  <div class="font-semibold text-gray-800">nogyodata.com</div>
-                  <div class="text-sm text-gray-600">Firebase CMSで効率的なブログ運営</div>
+                  <div class="font-semibold text-gray-800">{t('comparison.nogyodata')}</div>
+                  <div class="text-sm text-gray-600">{t('comparison.nogyodata_desc')}</div>
                 </div>
               </div>
               <div class="flex items-center gap-3">
                 <div class="w-3 h-3 bg-green-500 rounded-full"></div>
                 <div>
-                  <div class="font-semibold text-gray-800">cor-jp.com</div>
-                  <div class="text-sm text-gray-600">多言語対応でグローバル展開</div>
+                  <div class="font-semibold text-gray-800">{t('comparison.cor_jp')}</div>
+                  <div class="text-sm text-gray-600">{t('comparison.cor_jp_desc')}</div>
                 </div>
               </div>
             </div>
@@ -142,7 +143,7 @@ const t = await loadTranslation(locale);
       <!-- 社会的価値 -->
       <div class="mt-16 bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8">
         <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">
-          社会的価値・解決する課題
+          {t('social_value.title')}
         </h3>
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div class="text-center">
@@ -152,8 +153,8 @@ const t = await loadTranslation(locale);
                 <path d="M20 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.67 0-5 1.34-5 4v3h10v-3c0-2.66-3.33-4-5-4z"/>
               </svg>
             </div>
-            <h4 class="font-semibold text-gray-900 mb-2">デジタル格差の解消</h4>
-            <p class="text-sm text-gray-600">中小企業でも大企業並みの高速サイトを実現</p>
+            <h4 class="font-semibold text-gray-900 mb-2">{t('social_value.digital_gap')}</h4>
+            <p class="text-sm text-gray-600">{t('social_value.digital_gap_desc')}</p>
           </div>
           
           <div class="text-center">
@@ -162,8 +163,8 @@ const t = await loadTranslation(locale);
                 <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
               </svg>
             </div>
-            <h4 class="font-semibold text-gray-900 mb-2">地方企業の競争力強化</h4>
-            <p class="text-sm text-gray-600">0.3秒表示、SEO満点で全国展開</p>
+            <h4 class="font-semibold text-gray-900 mb-2">{t('social_value.regional_competitiveness')}</h4>
+            <p class="text-sm text-gray-600">{t('social_value.regional_competitiveness_desc')}</p>
           </div>
           
           <div class="text-center">
@@ -172,8 +173,8 @@ const t = await loadTranslation(locale);
                 <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
               </svg>
             </div>
-            <h4 class="font-semibold text-gray-900 mb-2">アクセシビリティ向上</h4>
-            <p class="text-sm text-gray-600">高齢者も快適に閲覧できる高速表示</p>
+            <h4 class="font-semibold text-gray-900 mb-2">{t('social_value.accessibility')}</h4>
+            <p class="text-sm text-gray-600">{t('social_value.accessibility_desc')}</p>
           </div>
           
           <div class="text-center">
@@ -182,8 +183,8 @@ const t = await loadTranslation(locale);
                 <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <h4 class="font-semibold text-gray-900 mb-2">サイバーセキュリティ強化</h4>
-            <p class="text-sm text-gray-600">安心なデジタル環境を提供</p>
+            <h4 class="font-semibold text-gray-900 mb-2">{t('social_value.cybersecurity')}</h4>
+            <p class="text-sm text-gray-600">{t('social_value.cybersecurity_desc')}</p>
           </div>
         </div>
       </div>

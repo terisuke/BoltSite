@@ -1,9 +1,19 @@
 ---
-import { loadTranslation, getLocaleFromPathname } from '../../utils/i18n';
+import { getLocaleFromPathname, getTranslation } from '../../utils/i18n';
+import { translations } from '../../utils/translations';
+
+export interface Props {
+  currentPath?: string;
+}
 
 const { currentPath } = Astro.props;
-const locale = getLocaleFromPathname(currentPath || Astro.url.pathname);
-const t = await loadTranslation(locale);
+
+// 現在の言語を取得
+const currentLocale = getLocaleFromPathname(currentPath || Astro.url.pathname);
+const t = translations[currentLocale] || translations.ja;
+
+// 翻訳関数
+const translate = (key: string) => getTranslation(t, key);
 ---
 
 <section id="faq" class="py-20 bg-white">
@@ -13,10 +23,10 @@ const t = await loadTranslation(locale);
       <!-- セクションタイトル -->
       <div class="text-center mb-16">
         <h2 class="text-4xl font-bold text-gray-900 mb-4">
-          {t.nav.faq}
+          {translate('nav.faq')}
         </h2>
         <p class="text-xl text-gray-600">
-          {t.faq.subtitle}
+          {translate('faq.subtitle')}
         </p>
       </div>
       
@@ -27,7 +37,7 @@ const t = await loadTranslation(locale);
         <div class="bg-gray-50 rounded-lg overflow-hidden">
           <button class="w-full px-6 py-4 text-left bg-gray-100 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-between" onclick="toggleFAQ('faq1')">
             <h3 class="text-lg font-semibold text-gray-900">
-              {t.faq.questions.pagespeed.question}
+              {translate('faq.questions.pagespeed.question')}
             </h3>
             <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" id="faq1-icon" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -35,10 +45,10 @@ const t = await loadTranslation(locale);
           </button>
           <div class="hidden px-6 py-4" id="faq1-content">
             <p class="text-gray-700 mb-4">
-              {t.faq.questions.pagespeed.answer}
+              {translate('faq.questions.pagespeed.answer')}
             </p>
             <ul class="space-y-2 text-sm text-gray-600">
-              {t.faq.questions.pagespeed.features.map((feature) => (
+              {translate('faq.questions.pagespeed.features').map((feature) => (
                 <li class="flex items-center gap-2">
                   <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
@@ -48,7 +58,7 @@ const t = await loadTranslation(locale);
               ))}
             </ul>
             <p class="text-sm text-gray-600 mt-4">
-              目標未達成の場合は全額返金いたします。
+              {translate('faq.questions.pagespeed.guarantee')}
             </p>
           </div>
         </div>
@@ -57,7 +67,7 @@ const t = await loadTranslation(locale);
         <div class="bg-gray-50 rounded-lg overflow-hidden">
           <button class="w-full px-6 py-4 text-left bg-gray-100 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-between" onclick="toggleFAQ('faq2')">
             <h3 class="text-lg font-semibold text-gray-900">
-              月に何回まで更新できますか？
+              {translate('faq.questions.updates.question')}
             </h3>
             <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" id="faq2-icon" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -65,28 +75,28 @@ const t = await loadTranslation(locale);
           </button>
           <div class="hidden px-6 py-4" id="faq2-content">
             <p class="text-gray-700 mb-4">
-              プランによって更新回数が異なります：
+              {translate('faq.questions.updates.answer')}
             </p>
             <ul class="space-y-2 text-sm text-gray-600">
               <li class="flex items-center gap-2">
-                <span class="font-semibold text-blue-600">ビギナー:</span>
-                <span>月1回まで</span>
+                <span class="font-semibold text-blue-600">{translate('faq.questions.updates.plan_names.basic')}:</span>
+                <span>{translate('faq.questions.updates.plan_limits.basic')}</span>
               </li>
               <li class="flex items-center gap-2">
-                <span class="font-semibold text-blue-600">スタンダード:</span>
-                <span>月2回まで</span>
+                <span class="font-semibold text-blue-600">{translate('faq.questions.updates.plan_names.standard')}:</span>
+                <span>{translate('faq.questions.updates.plan_limits.standard')}</span>
               </li>
               <li class="flex items-center gap-2">
-                <span class="font-semibold text-blue-600">プレミアム:</span>
-                <span>月3回まで</span>
+                <span class="font-semibold text-blue-600">{translate('faq.questions.updates.plan_names.premium')}:</span>
+                <span>{translate('faq.questions.updates.plan_limits.premium')}</span>
               </li>
               <li class="flex items-center gap-2">
-                <span class="font-semibold text-blue-600">エンタープライズ:</span>
-                <span>無制限</span>
+                <span class="font-semibold text-blue-600">{translate('faq.questions.updates.plan_names.enterprise')}:</span>
+                <span>{translate('faq.questions.updates.plan_limits.enterprise')}</span>
               </li>
             </ul>
             <p class="text-sm text-gray-600 mt-4">
-              緊急の更新が必要な場合は、プレミアムプラン以上で緊急対応サービスをご利用いただけます。
+              {translate('faq.questions.updates.emergency')}
             </p>
           </div>
         </div>
@@ -95,7 +105,7 @@ const t = await loadTranslation(locale);
         <div class="bg-gray-50 rounded-lg overflow-hidden">
           <button class="w-full px-6 py-4 text-left bg-gray-100 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-between" onclick="toggleFAQ('faq3')">
             <h3 class="text-lg font-semibold text-gray-900">
-              返金条件について教えてください
+              {translate('faq.questions.refund.question')}
             </h3>
             <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" id="faq3-icon" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -103,30 +113,30 @@ const t = await loadTranslation(locale);
           </button>
           <div class="hidden px-6 py-4" id="faq3-content">
             <p class="text-gray-700 mb-4">
-              以下の場合に全額返金いたします：
+              {translate('faq.questions.refund.answer')}
             </p>
             <ul class="space-y-2 text-sm text-gray-600">
               <li class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
                 </svg>
-                PageSpeed 95点未達成
+                {translate('faq.questions.refund.conditions')[0]}
               </li>
               <li class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
                 </svg>
-                表示速度0.3秒未達成
+                {translate('faq.questions.refund.conditions')[1]}
               </li>
               <li class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
                 </svg>
-                1ヶ月以内の提供未達成
+                {translate('faq.questions.refund.conditions')[2]}
               </li>
             </ul>
             <p class="text-sm text-gray-600 mt-4">
-              返金は、目標未達成が確認された時点で即座に実行いたします。
+              {translate('faq.questions.refund.process')}
             </p>
           </div>
         </div>
@@ -135,7 +145,7 @@ const t = await loadTranslation(locale);
         <div class="bg-gray-50 rounded-lg overflow-hidden">
           <button class="w-full px-6 py-4 text-left bg-gray-100 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-between" onclick="toggleFAQ('faq4')">
             <h3 class="text-lg font-semibold text-gray-900">
-              解約ポリシーについて教えてください
+              {translate('faq.questions.cancellation.question')}
             </h3>
             <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" id="faq4-icon" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -143,32 +153,32 @@ const t = await loadTranslation(locale);
           </button>
           <div class="hidden px-6 py-4" id="faq4-content">
             <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
-              <p class="text-yellow-800 font-semibold mb-2">解約条件</p>
+              <p class="text-yellow-800 font-semibold mb-2">{translate('faq.questions.cancellation.condition_title')}</p>
               <p class="text-sm text-yellow-700">
-                1年以内の解約の場合は、1年分の料金をお支払いいただきます。
+                {translate('faq.questions.cancellation.condition_text')}
               </p>
             </div>
             <p class="text-gray-700 mb-4">
-              長期的なパートナーシップを推奨しております。理由は以下の通りです：
+              {translate('faq.questions.cancellation.reason')}
             </p>
             <ul class="space-y-2 text-sm text-gray-600">
               <li class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                継続的な最適化による効果向上
+                {translate('faq.questions.cancellation.benefits')[0]}
               </li>
               <li class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                技術進歩への対応
+                {translate('faq.questions.cancellation.benefits')[1]}
               </li>
               <li class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                安定したサポート体制
+                {translate('faq.questions.cancellation.benefits')[2]}
               </li>
             </ul>
           </div>
@@ -178,7 +188,7 @@ const t = await loadTranslation(locale);
         <div class="bg-gray-50 rounded-lg overflow-hidden">
           <button class="w-full px-6 py-4 text-left bg-gray-100 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-between" onclick="toggleFAQ('faq5')">
             <h3 class="text-lg font-semibold text-gray-900">
-              使用している技術スタックについて教えてください
+              {translate('faq.questions.tech_stack.question')}
             </h3>
             <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" id="faq5-icon" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -186,28 +196,28 @@ const t = await loadTranslation(locale);
           </button>
           <div class="hidden px-6 py-4" id="faq5-content">
             <p class="text-gray-700 mb-4">
-              BoltSiteは最新のJamstack技術を使用しています：
+              {translate('faq.questions.tech_stack.answer')}
             </p>
             <div class="grid md:grid-cols-2 gap-4">
               <div class="bg-white rounded-lg p-4 border border-gray-200">
-                <h4 class="font-semibold text-gray-900 mb-2">フロントエンド</h4>
+                <h4 class="font-semibold text-gray-900 mb-2">{translate('faq.questions.tech_stack.frontend.title')}</h4>
                 <ul class="space-y-1 text-sm text-gray-600">
-                  <li>• Astro.js（静的サイト生成）</li>
-                  <li>• Tailwind CSS（スタイリング）</li>
-                  <li>• TypeScript（型安全性）</li>
+                  <li>• {translate('faq.questions.tech_stack.frontend.items')[0]}</li>
+                  <li>• {translate('faq.questions.tech_stack.frontend.items')[1]}</li>
+                  <li>• {translate('faq.questions.tech_stack.frontend.items')[2]}</li>
                 </ul>
               </div>
               <div class="bg-white rounded-lg p-4 border border-gray-200">
-                <h4 class="font-semibold text-gray-900 mb-2">インフラ</h4>
+                <h4 class="font-semibold text-gray-900 mb-2">{translate('faq.questions.tech_stack.infrastructure.title')}</h4>
                 <ul class="space-y-1 text-sm text-gray-600">
-                  <li>• Firebase Hosting（配信）</li>
-                  <li>• Cloudflare CDN（最適化）</li>
-                  <li>• SSL証明書（セキュリティ）</li>
+                  <li>• {translate('faq.questions.tech_stack.infrastructure.items')[0]}</li>
+                  <li>• {translate('faq.questions.tech_stack.infrastructure.items')[1]}</li>
+                  <li>• {translate('faq.questions.tech_stack.infrastructure.items')[2]}</li>
                 </ul>
               </div>
             </div>
             <p class="text-sm text-gray-600 mt-4">
-              これらの技術により、WordPressの10倍以上の表示速度を実現しています。
+              {translate('faq.questions.tech_stack.note')}
             </p>
           </div>
         </div>
@@ -216,7 +226,7 @@ const t = await loadTranslation(locale);
         <div class="bg-gray-50 rounded-lg overflow-hidden">
           <button class="w-full px-6 py-4 text-left bg-gray-100 hover:bg-gray-200 transition-colors duration-300 flex items-center justify-between" onclick="toggleFAQ('faq6')">
             <h3 class="text-lg font-semibold text-gray-900">
-              多言語対応はどのプランで利用できますか？
+              {translate('faq.questions.multilingual.question')}
             </h3>
             <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" id="faq6-icon" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -224,24 +234,24 @@ const t = await loadTranslation(locale);
           </button>
           <div class="hidden px-6 py-4" id="faq6-content">
             <p class="text-gray-700 mb-4">
-              多言語対応はプレミアムプラン以上でご利用いただけます：
+              {translate('faq.questions.multilingual.answer')}
             </p>
             <ul class="space-y-2 text-sm text-gray-600">
               <li class="flex items-center gap-2">
-                <span class="font-semibold text-gray-900">対応言語:</span>
-                <span>日本語、英語、中国語（簡体字）、スペイン語</span>
+                <span class="font-semibold text-gray-900">{translate('faq.questions.multilingual.details.languages').split(':')[0]}:</span>
+                <span>{translate('faq.questions.multilingual.details.languages').split(':')[1]}</span>
               </li>
               <li class="flex items-center gap-2">
-                <span class="font-semibold text-gray-900">翻訳品質:</span>
-                <span>ネイティブチェック済み（外注50万円）</span>
+                <span class="font-semibold text-gray-900">{translate('faq.questions.multilingual.details.quality').split(':')[0]}:</span>
+                <span>{translate('faq.questions.multilingual.details.quality').split(':')[1]}</span>
               </li>
               <li class="flex items-center gap-2">
-                <span class="font-semibold text-gray-900">切り替え:</span>
-                <span>右上の言語切り替えボタン</span>
+                <span class="font-semibold text-gray-900">{translate('faq.questions.multilingual.details.switching').split(':')[0]}:</span>
+                <span>{translate('faq.questions.multilingual.details.switching').split(':')[1]}</span>
               </li>
             </ul>
             <p class="text-sm text-gray-600 mt-4">
-              グローバルビジネス展開をサポートいたします。
+              {translate('faq.questions.multilingual.support')}
             </p>
           </div>
         </div>
@@ -251,13 +261,13 @@ const t = await loadTranslation(locale);
       <div class="text-center mt-12">
         <div class="bg-blue-50 rounded-2xl p-8">
           <h3 class="text-xl font-bold text-gray-900 mb-4">
-            その他のご質問はありませんか？
+            {translate('faq.other_questions.title')}
           </h3>
           <p class="text-gray-600 mb-6">
-            無料相談でお気軽にお聞かせください
+            {translate('faq.other_questions.description')}
           </p>
           <a href="#contact" class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition-colors duration-300 inline-block">
-            無料相談を申し込む
+            {translate('faq.other_questions.button')}
           </a>
         </div>
       </div>

@@ -1,5 +1,20 @@
 ---
 // BoltSite 導入の流れセクション
+import { getLocaleFromPathname, getTranslation } from '../../utils/i18n';
+import { translations } from '../../utils/translations';
+
+export interface Props {
+  currentPath?: string;
+}
+
+const { currentPath } = Astro.props;
+
+// 現在の言語を取得
+const currentLocale = getLocaleFromPathname(currentPath || Astro.url.pathname);
+const t = translations[currentLocale] || translations.ja;
+
+// 翻訳関数
+const translate = (key: string) => getTranslation(t, key);
 ---
 
 <section id="flow" class="py-20 bg-gray-50">
@@ -9,10 +24,9 @@
       <!-- セクションタイトル -->
       <div class="text-center mb-16">
         <h2 class="text-4xl font-bold text-gray-900 mb-4">
-          導入の流れ
+          {translate('flow.title')}
         </h2>
-        <p class="text-xl text-gray-600">
-          <span class="font-bold text-blue-600">1ヶ月以内</span>に提供開始で、即時成果を
+        <p class="text-xl text-gray-600" set:html={translate('flow.subtitle')}>
         </p>
       </div>
       
@@ -32,31 +46,31 @@
                     <span class="text-2xl font-bold text-white">1</span>
                   </div>
                   <div>
-                    <h3 class="text-2xl font-bold text-gray-900">無料相談</h3>
-                    <p class="text-blue-600 font-semibold">30分</p>
+                    <h3 class="text-2xl font-bold text-gray-900">{translate('flow.step1.title')}</h3>
+                    <p class="text-blue-600 font-semibold">{translate('flow.step1.duration')}</p>
                   </div>
                 </div>
                 <p class="text-gray-600 mb-4">
-                  現在の課題やご要望をお聞かせください。最適なプランをご提案いたします。
+                  {translate('flow.step1.description')}
                 </p>
                 <ul class="space-y-2 text-sm text-gray-600">
                   <li class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
-                    課題ヒアリング
+                    {translate('flow.step1.features.hearing')}
                   </li>
                   <li class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
-                    速度体験
+                    {translate('flow.step1.features.experience')}
                   </li>
                   <li class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
-                    プラン提案
+                    {translate('flow.step1.features.proposal')}
                   </li>
                 </ul>
               </div>
@@ -72,8 +86,8 @@
             <div class="lg:w-1/2 lg:pl-8">
               <div class="text-center lg:text-left">
                 <div class="text-sm text-gray-500 mb-2">Step 1</div>
-                <h4 class="text-lg font-semibold text-gray-900">無料相談申し込み</h4>
-                <p class="text-gray-600">まずはお気軽にご相談ください</p>
+                <h4 class="text-lg font-semibold text-gray-900">{translate('flow.step1.step_title')}</h4>
+                <p class="text-gray-600">{translate('flow.step1.step_description')}</p>
               </div>
             </div>
           </div>
@@ -87,31 +101,31 @@
                     <span class="text-2xl font-bold text-blue-800">2</span>
                   </div>
                   <div>
-                    <h3 class="text-2xl font-bold text-gray-900">デモサイト作成</h3>
-                    <p class="text-green-600 font-semibold">3日</p>
+                    <h3 class="text-2xl font-bold text-gray-900">{translate('flow.step2.title')}</h3>
+                    <p class="text-green-600 font-semibold">{translate('flow.step2.duration')}</p>
                   </div>
                 </div>
                 <p class="text-gray-600 mb-4">
-                  お客様の業界に合わせたデモサイトを作成し、実際の速度を体験していただきます。
+                  {translate('flow.step2.description')}
                 </p>
                 <ul class="space-y-2 text-sm text-gray-600">
                   <li class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
-                    業界特化デザイン
+                    {translate('flow.step2.features.design')}
                   </li>
                   <li class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
-                    0.3秒表示体験
+                    {translate('flow.step2.features.speed')}
                   </li>
                   <li class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
-                    モバイル最適化確認
+                    {translate('flow.step2.features.mobile')}
                   </li>
                 </ul>
               </div>
@@ -128,8 +142,8 @@
             <div class="lg:w-1/2 lg:pr-8">
               <div class="text-center lg:text-right">
                 <div class="text-sm text-gray-500 mb-2">Step 2</div>
-                <h4 class="text-lg font-semibold text-gray-900">デモサイト体験</h4>
-                <p class="text-gray-600">実際の速度を体感してください</p>
+                <h4 class="text-lg font-semibold text-gray-900">{translate('flow.step2.step_title')}</h4>
+                <p class="text-gray-600">{translate('flow.step2.step_description')}</p>
               </div>
             </div>
           </div>
@@ -143,31 +157,31 @@
                     <span class="text-2xl font-bold text-white">3</span>
                   </div>
                   <div>
-                    <h3 class="text-2xl font-bold text-gray-900">プラン選定</h3>
-                    <p class="text-purple-600 font-semibold">即日</p>
+                    <h3 class="text-2xl font-bold text-gray-900">{translate('flow.step3.title')}</h3>
+                    <p class="text-purple-600 font-semibold">{translate('flow.step3.duration')}</p>
                   </div>
                 </div>
                 <p class="text-gray-600 mb-4">
-                  デモサイトを確認いただき、最適なプランを選択していただきます。
+                  {translate('flow.step3.description')}
                 </p>
                 <ul class="space-y-2 text-sm text-gray-600">
                   <li class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
-                    ビギナー: 15,000円〜
+                    {translate('flow.step3.features.basic')}
                   </li>
                   <li class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
-                    スタンダード: 25,000円〜
+                    {translate('flow.step3.features.standard')}
                   </li>
                   <li class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
-                    プレミアム: 30,000円〜
+                    {translate('flow.step3.features.premium')}
                   </li>
                 </ul>
               </div>
@@ -183,8 +197,8 @@
             <div class="lg:w-1/2 lg:pl-8">
               <div class="text-center lg:text-left">
                 <div class="text-sm text-gray-500 mb-2">Step 3</div>
-                <h4 class="text-lg font-semibold text-gray-900">プラン決定</h4>
-                <p class="text-gray-600">最適なプランをお選びください</p>
+                <h4 class="text-lg font-semibold text-gray-900">{translate('flow.step3.step_title')}</h4>
+                <p class="text-gray-600">{translate('flow.step3.step_description')}</p>
               </div>
             </div>
           </div>
@@ -198,31 +212,31 @@
                     <span class="text-2xl font-bold text-white">4</span>
                   </div>
                   <div>
-                    <h3 class="text-2xl font-bold text-gray-900">デザイン制作</h3>
-                    <p class="text-orange-600 font-semibold">2週間</p>
+                    <h3 class="text-2xl font-bold text-gray-900">{translate('flow.step4.title')}</h3>
+                    <p class="text-orange-600 font-semibold">{translate('flow.step4.duration')}</p>
                   </div>
                 </div>
                 <p class="text-gray-600 mb-4">
-                  お客様のブランドに合わせたオリジナルデザインを作成いたします。
+                  {translate('flow.step4.description')}
                 </p>
                 <ul class="space-y-2 text-sm text-gray-600">
                   <li class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
-                    ブランドカラー適用
+                    {translate('flow.step4.features.brand')}
                   </li>
                   <li class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
-                    レスポンシブ対応
+                    {translate('flow.step4.features.responsive')}
                   </li>
                   <li class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
-                    コンテンツ制作
+                    {translate('flow.step4.features.content')}
                   </li>
                 </ul>
               </div>
@@ -238,8 +252,8 @@
             <div class="lg:w-1/2 lg:pr-8">
               <div class="text-center lg:text-right">
                 <div class="text-sm text-gray-500 mb-2">Step 4</div>
-                <h4 class="text-lg font-semibold text-gray-900">デザイン制作</h4>
-                <p class="text-gray-600">オリジナルデザインを作成</p>
+                <h4 class="text-lg font-semibold text-gray-900">{translate('flow.step4.step_title')}</h4>
+                <p class="text-gray-600">{translate('flow.step4.step_description')}</p>
               </div>
             </div>
           </div>
@@ -253,31 +267,31 @@
                     <span class="text-2xl font-bold text-white">5</span>
                   </div>
                   <div>
-                    <h3 class="text-2xl font-bold text-gray-900">公開・運用開始</h3>
-                    <p class="text-red-600 font-semibold">1ヶ月以内</p>
+                    <h3 class="text-2xl font-bold text-gray-900">{translate('flow.step5.title')}</h3>
+                    <p class="text-red-600 font-semibold">{translate('flow.step5.duration')}</p>
                   </div>
                 </div>
                 <p class="text-gray-600 mb-4">
-                  サイトを公開し、継続的な運用サポートを開始いたします。
+                  {translate('flow.step5.description')}
                 </p>
                 <ul class="space-y-2 text-sm text-gray-600">
                   <li class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
-                    サイト公開
+                    {translate('flow.step5.features.launch')}
                   </li>
                   <li class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
-                    運用サポート開始
+                    {translate('flow.step5.features.support')}
                   </li>
                   <li class="flex items-center gap-2">
                     <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
-                    パフォーマンス監視
+                    {translate('flow.step5.features.monitoring')}
                   </li>
                 </ul>
               </div>
@@ -294,8 +308,8 @@
             <div class="lg:w-1/2 lg:pl-8">
               <div class="text-center lg:text-left">
                 <div class="text-sm text-gray-500 mb-2">Step 5</div>
-                <h4 class="text-lg font-semibold text-gray-900">運用開始</h4>
-                <p class="text-gray-600">継続的なサポートを提供</p>
+                <h4 class="text-lg font-semibold text-gray-900">{translate('flow.step5.step_title')}</h4>
+                <p class="text-gray-600">{translate('flow.step5.step_description')}</p>
               </div>
             </div>
           </div>

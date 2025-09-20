@@ -1,5 +1,10 @@
 ---
-// BoltSite 機能比較表セクション
+import { loadTranslation, getLocaleFromPathname, getTranslation } from '../../utils/i18n';
+
+const { currentPath } = Astro.props;
+const locale = getLocaleFromPathname(currentPath || Astro.url.pathname);
+const translations = await loadTranslation(locale);
+const t = (key: string) => getTranslation(translations, key);
 ---
 
 <section id="features" class="py-20 bg-white">
@@ -9,10 +14,10 @@
       <!-- セクションタイトル -->
       <div class="text-center mb-16">
         <h2 class="text-4xl font-bold text-gray-900 mb-4">
-          機能比較表
+          {t('features.title')}
         </h2>
         <p class="text-xl text-gray-600">
-          各プランで利用可能な機能を詳しく比較
+          {t('features.subtitle')}
         </p>
       </div>
       
@@ -28,7 +33,7 @@
                   <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
                 </svg>
               </div>
-              基本機能
+              {t('features.basic_features')}
             </h3>
             <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" id="basic-icon" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -39,37 +44,37 @@
               <table class="w-full text-sm">
                 <thead>
                   <tr class="border-b border-gray-200">
-                    <th class="text-left py-3 px-4 font-semibold text-gray-900">機能</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">ビギナー</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">スタンダード</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">プレミアム</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">エンタープライズ</th>
+                    <th class="text-left py-3 px-4 font-semibold text-gray-900">{t('features.feature')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.beginner')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.standard')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.premium')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.enterprise')}</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">ページ数</td>
-                    <td class="py-3 px-4 text-center">5ページ</td>
-                    <td class="py-3 px-4 text-center">10ページ</td>
-                    <td class="py-3 px-4 text-center">20ページ</td>
-                    <td class="py-3 px-4 text-center">無制限</td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.pages')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.pages_5')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.pages_10')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.pages_20')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.unlimited')}</td>
                   </tr>
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">デザイン</td>
-                    <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
-                    <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
-                    <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
-                    <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
-                  </tr>
-                  <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">レスポンシブ対応</td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.design')}</td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                   </tr>
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">SSL証明書</td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.responsive')}</td>
+                    <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
+                    <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
+                    <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
+                    <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.ssl')}</td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
@@ -90,7 +95,7 @@
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
               </div>
-              パフォーマンス
+              {t('features.performance')}
             </h3>
             <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" id="performance-icon" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -101,37 +106,37 @@
               <table class="w-full text-sm">
                 <thead>
                   <tr class="border-b border-gray-200">
-                    <th class="text-left py-3 px-4 font-semibold text-gray-900">機能</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">ビギナー</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">スタンダード</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">プレミアム</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">エンタープライズ</th>
+                    <th class="text-left py-3 px-4 font-semibold text-gray-900">{t('features.feature')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.beginner')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.standard')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.premium')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.enterprise')}</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">PageSpeed 95点以上</td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.pagespeed')}</td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                   </tr>
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">CDN配信</td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.cdn')}</td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                   </tr>
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">画像最適化</td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.image_optimization')}</td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                   </tr>
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">リアルタイムバックアップ</td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.backup')}</td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
@@ -142,7 +147,7 @@
             </div>
             <div class="mt-4 p-4 bg-blue-50 rounded-lg">
               <p class="text-sm text-blue-800">
-                <strong>注記:</strong> 全プランでリアルタイムバックアップ（Cloudflare Firebase Hosting）を提供
+                <strong>{t('features.note')}</strong> {t('features.backup_note')}
               </p>
             </div>
           </div>
@@ -157,7 +162,7 @@
                   <path d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-2 0c0 .993-.241 1.929-.668 2.754l-1.524-1.525a3.997 3.997 0 00.078-2.183l1.562-1.562C15.759 8.071 16 9.007 16 10zm-5.165 3.913l1.58 1.58A5.98 5.98 0 0110 16a5.976 5.976 0 01-2.516-.552l1.562-1.562a4.006 4.006 0 001.789.027zm-4.677-2.796a3.996 3.996 0 01-.061-2.183l1.562-1.562C6.241 8.071 6 9.007 6 10c0 .993.241 1.929.668 2.754l1.524-1.525zm11.33-4.713C16.759 6.071 15.993 6 15 6a5.976 5.976 0 00-2.516.552l1.562 1.562a4.006 4.006 0 001.789-.027zM6 10c0-.993.241-1.929.668-2.754l1.524 1.525a3.996 3.996 0 00.078 2.183l-1.562 1.562C6.241 11.929 6 10.993 6 10z"></path>
                 </svg>
               </div>
-              更新・サポート
+              {t('features.support')}
             </h3>
             <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" id="support-icon" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -168,39 +173,39 @@
               <table class="w-full text-sm">
                 <thead>
                   <tr class="border-b border-gray-200">
-                    <th class="text-left py-3 px-4 font-semibold text-gray-900">機能</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">ビギナー</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">スタンダード</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">プレミアム</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">エンタープライズ</th>
+                    <th class="text-left py-3 px-4 font-semibold text-gray-900">{t('features.feature')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.beginner')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.standard')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.premium')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.enterprise')}</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">月次更新</td>
-                    <td class="py-3 px-4 text-center">1回</td>
-                    <td class="py-3 px-4 text-center">2回</td>
-                    <td class="py-3 px-4 text-center">3回</td>
-                    <td class="py-3 px-4 text-center">無制限</td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.monthly_updates')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.once')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.twice')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.three_times')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.unlimited')}</td>
                   </tr>
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">緊急対応</td>
-                    <td class="py-3 px-4 text-center">-</td>
-                    <td class="py-3 px-4 text-center">-</td>
-                    <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
-                    <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
-                  </tr>
-                  <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">バックアップ</td>
-                    <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
-                    <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.emergency')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                   </tr>
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">電話サポート</td>
-                    <td class="py-3 px-4 text-center">-</td>
-                    <td class="py-3 px-4 text-center">-</td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.backup_support')}</td>
+                    <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
+                    <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
+                    <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
+                    <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.phone_support')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                   </tr>
@@ -219,7 +224,7 @@
                   <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
                 </svg>
               </div>
-              マーケティング
+              {t('features.marketing')}
             </h3>
             <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" id="marketing-icon" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -230,37 +235,37 @@
               <table class="w-full text-sm">
                 <thead>
                   <tr class="border-b border-gray-200">
-                    <th class="text-left py-3 px-4 font-semibold text-gray-900">機能</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">ビギナー</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">スタンダード</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">プレミアム</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">エンタープライズ</th>
+                    <th class="text-left py-3 px-4 font-semibold text-gray-900">{t('features.feature')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.beginner')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.standard')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.premium')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.enterprise')}</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">ブログ</td>
-                    <td class="py-3 px-4 text-center">-</td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.blog')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                   </tr>
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">フォーム</td>
-                    <td class="py-3 px-4 text-center">-</td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.form')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                   </tr>
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">Analytics</td>
-                    <td class="py-3 px-4 text-center">-</td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.analytics')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                   </tr>
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">SEO最適化</td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.seo')}</td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
@@ -281,7 +286,7 @@
                   <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"></path>
                 </svg>
               </div>
-              コンテンツサポート
+              {t('features.content_support')}
             </h3>
             <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" id="content-icon" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -292,33 +297,33 @@
               <table class="w-full text-sm">
                 <thead>
                   <tr class="border-b border-gray-200">
-                    <th class="text-left py-3 px-4 font-semibold text-gray-900">機能</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">ビギナー</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">スタンダード</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">プレミアム</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">エンタープライズ</th>
+                    <th class="text-left py-3 px-4 font-semibold text-gray-900">{t('features.feature')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.beginner')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.standard')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.premium')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.enterprise')}</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">記事作成</td>
-                    <td class="py-3 px-4 text-center">-</td>
-                    <td class="py-3 px-4 text-center">-</td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.article_creation')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                   </tr>
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">撮影</td>
-                    <td class="py-3 px-4 text-center">-</td>
-                    <td class="py-3 px-4 text-center">-</td>
-                    <td class="py-3 px-4 text-center">-</td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.photography')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                   </tr>
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">動画制作</td>
-                    <td class="py-3 px-4 text-center">-</td>
-                    <td class="py-3 px-4 text-center">-</td>
-                    <td class="py-3 px-4 text-center">-</td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.video_production')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                   </tr>
                 </tbody>
@@ -336,7 +341,7 @@
                   <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
                 </svg>
               </div>
-              分析・改善
+              {t('features.analysis')}
             </h3>
             <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" id="analysis-icon" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -347,40 +352,40 @@
               <table class="w-full text-sm">
                 <thead>
                   <tr class="border-b border-gray-200">
-                    <th class="text-left py-3 px-4 font-semibold text-gray-900">機能</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">ビギナー</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">スタンダード</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">プレミアム</th>
-                    <th class="text-center py-3 px-4 font-semibold text-gray-900">エンタープライズ</th>
+                    <th class="text-left py-3 px-4 font-semibold text-gray-900">{t('features.feature')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.beginner')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.standard')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.premium')}</th>
+                    <th class="text-center py-3 px-4 font-semibold text-gray-900">{t('features.enterprise')}</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">レポート</td>
-                    <td class="py-3 px-4 text-center">-</td>
-                    <td class="py-3 px-4 text-center">-</td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.report')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                   </tr>
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">提案</td>
-                    <td class="py-3 px-4 text-center">-</td>
-                    <td class="py-3 px-4 text-center">-</td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.proposal')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                   </tr>
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">A/Bテスト</td>
-                    <td class="py-3 px-4 text-center">-</td>
-                    <td class="py-3 px-4 text-center">-</td>
-                    <td class="py-3 px-4 text-center">-</td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.ab_test')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                   </tr>
                   <tr>
-                    <td class="py-3 px-4 font-medium text-gray-900">CRO最適化</td>
-                    <td class="py-3 px-4 text-center">-</td>
-                    <td class="py-3 px-4 text-center">-</td>
-                    <td class="py-3 px-4 text-center">-</td>
+                    <td class="py-3 px-4 font-medium text-gray-900">{t('features.cro')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
+                    <td class="py-3 px-4 text-center">{t('features.not_available')}</td>
                     <td class="py-3 px-4 text-center"><span class="text-green-600">✓</span></td>
                   </tr>
                 </tbody>

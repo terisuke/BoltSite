@@ -1,9 +1,10 @@
 ---
-import { loadTranslation, getLocaleFromPathname } from '../../utils/i18n';
+import { loadTranslation, getLocaleFromPathname, getTranslation } from '../../utils/i18n';
 
 const { currentPath } = Astro.props;
 const locale = getLocaleFromPathname(currentPath || Astro.url.pathname);
-const t = await loadTranslation(locale);
+const translations = await loadTranslation(locale);
+const t = (key: string) => getTranslation(translations, key);
 ---
 
 <section class="relative min-h-screen bg-gradient-to-br from-white via-blue-50 to-beige-100 flex items-center justify-center overflow-hidden">
@@ -18,20 +19,20 @@ const t = await loadTranslation(locale);
         <div class="text-center lg:text-left">
           <!-- スローガン -->
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            {t.hero.title}
+            {t('hero.title')}
           </h1>
           
           <!-- サブタイトル -->
-          <p class="text-xl text-gray-600 mb-8 leading-relaxed" set:html={t.hero.description}>
+          <p class="text-xl text-gray-600 mb-8 leading-relaxed" set:html={t('hero.description')}>
           </p>
           
           <!-- CTAボタン -->
           <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <a href="#contact" class="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-              {t.hero.cta_primary}
+              {t('hero.cta_primary')}
             </a>
             <a href="#pricing" class="border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300">
-              {t.hero.cta_secondary}
+              {t('hero.cta_secondary')}
             </a>
           </div>
           
@@ -39,15 +40,15 @@ const t = await loadTranslation(locale);
           <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-gray-500">
             <div class="flex items-center gap-2">
               <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-              <span>{t.cta.guarantees.initial_cost}</span>
+              <span>{t('cta.guarantees.initial_cost')}</span>
             </div>
             <div class="flex items-center gap-2">
               <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-              <span>{t.cta.guarantees.delivery}</span>
+              <span>{t('cta.guarantees.delivery')}</span>
             </div>
             <div class="flex items-center gap-2">
               <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-              <span>{t.cta.guarantees.pagespeed}</span>
+              <span>{t('cta.guarantees.pagespeed')}</span>
             </div>
           </div>
         </div>
@@ -57,7 +58,7 @@ const t = await loadTranslation(locale);
           <!-- 速度測定アニメーション -->
           <div class="relative bg-white rounded-2xl shadow-2xl p-8 mb-6">
             <div class="text-center">
-              <h3 class="text-lg font-semibold text-gray-800 mb-4">サイト表示速度</h3>
+              <h3 class="text-lg font-semibold text-gray-800 mb-4">{t('performance.site_speed')}</h3>
               <div class="relative w-48 h-48 mx-auto mb-4">
                 <!-- 速度計のアニメーション -->
                 <div class="absolute inset-0 rounded-full border-8 border-gray-200"></div>
@@ -70,7 +71,7 @@ const t = await loadTranslation(locale);
                       </svg>
                     </div>
                     <div class="text-3xl font-bold text-primary-600">0.3s</div>
-                    <div class="text-sm text-gray-600">爆速表示</div>
+                    <div class="text-sm text-gray-600">{t('performance.blazing_fast')}</div>
                   </div>
                 </div>
               </div>
@@ -108,7 +109,7 @@ const t = await loadTranslation(locale);
           
           <!-- 速度データバッジ -->
           <div class="absolute -bottom-4 -left-4 bg-secondary-500 text-white px-4 py-2 rounded-full shadow-lg">
-            <div class="text-sm font-bold">爆速: 72ms</div>
+            <div class="text-sm font-bold">{t('performance.speed_badge')}</div>
           </div>
         </div>
       </div>

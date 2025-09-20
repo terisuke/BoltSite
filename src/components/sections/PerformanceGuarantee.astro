@@ -1,5 +1,10 @@
 ---
-// BoltSite パフォーマンス保証セクション
+import { loadTranslation, getLocaleFromPathname, getTranslation } from '../../utils/i18n';
+
+const { currentPath } = Astro.props;
+const locale = getLocaleFromPathname(currentPath || Astro.url.pathname);
+const translations = await loadTranslation(locale);
+const t = (key: string) => getTranslation(translations, key);
 ---
 
 <section id="performance" class="py-20 bg-white">
@@ -9,10 +14,10 @@
       <!-- セクションタイトル -->
       <div class="text-center mb-16">
         <h2 class="text-4xl font-bold text-gray-900 mb-4">
-          パフォーマンス保証
+          {t('performance_guarantee.title')}
         </h2>
         <p class="text-xl text-gray-600">
-          Google PageSpeed 95点以上を保証。目標未達成時は全額返金
+          {t('performance_guarantee.subtitle')}
         </p>
       </div>
       
@@ -28,8 +33,10 @@
               </svg>
             </div>
             <h3 class="text-lg font-semibold text-gray-900 mb-2">LCP</h3>
-            <div class="text-2xl font-bold text-secondary-600 mb-2">&lt; 1.0秒</div>
-            <p class="text-sm text-gray-600">Largest Contentful Paint</p>
+            <div class="text-2xl font-bold text-secondary-600 mb-2 min-h-[2.5rem] flex items-center justify-center">
+              &lt; 1.0{t('performance_guarantee.lcp_seconds')}
+            </div>
+            <p class="text-sm text-gray-600 leading-tight">Largest Contentful Paint</p>
           </div>
         </div>
         
@@ -42,8 +49,10 @@
               </svg>
             </div>
             <h3 class="text-lg font-semibold text-gray-900 mb-2">FID</h3>
-            <div class="text-2xl font-bold text-primary-600 mb-2">&lt; 50ms</div>
-            <p class="text-sm text-gray-600">First Input Delay</p>
+            <div class="text-2xl font-bold text-primary-600 mb-2 min-h-[2.5rem] flex items-center justify-center">
+              &lt; 50{t('performance_guarantee.fid_milliseconds')}
+            </div>
+            <p class="text-sm text-gray-600 leading-tight">First Input Delay</p>
           </div>
         </div>
         
@@ -56,8 +65,10 @@
               </svg>
             </div>
             <h3 class="text-lg font-semibold text-gray-900 mb-2">CLS</h3>
-            <div class="text-2xl font-bold text-accent-600 mb-2">&lt; 0.05</div>
-            <p class="text-sm text-gray-600">Cumulative Layout Shift</p>
+            <div class="text-2xl font-bold text-accent-600 mb-2 min-h-[2.5rem] flex items-center justify-center">
+              &lt; 0.05
+            </div>
+            <p class="text-sm text-gray-600 leading-tight">Cumulative Layout Shift</p>
           </div>
         </div>
         
@@ -70,27 +81,62 @@
               </svg>
             </div>
             <h3 class="text-lg font-semibold text-gray-900 mb-2">PageSpeed</h3>
-            <div class="text-2xl font-bold text-secondary-600 mb-2">95+</div>
-            <p class="text-sm text-gray-600">Overall Score</p>
+            <div class="text-2xl font-bold text-secondary-600 mb-2 min-h-[2.5rem] flex items-center justify-center">
+              95{t('performance_guarantee.pagespeed_score')}
+            </div>
+            <p class="text-sm text-gray-600 leading-tight">Overall Score</p>
           </div>
         </div>
       </div>
       
       <!-- Lighthouseスコア表示 -->
       <div class="bg-gray-50 rounded-2xl p-8 mb-12">
-        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">実際のLighthouseスコア</h3>
+        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">{t('performance_guarantee.actual_lighthouse_score')}</h3>
         <div class="flex justify-center">
           <div class="bg-white rounded-xl shadow-lg p-6 border-2 border-secondary-200 max-w-md">
             <div class="text-center">
-              <div class="text-sm text-gray-600 mb-4">Lighthouse Score</div>
-              <img 
-                src="/lighthouse-score.png" 
-                alt="Lighthouseスコア: Performance 98, Accessibility 99, Best Practices 100, SEO 100"
-                class="w-full h-auto rounded-lg mb-4"
-                loading="lazy"
-              />
+              <div class="text-sm text-gray-600 mb-4">{t('performance_guarantee.lighthouse_score')}</div>
+              
+              <!-- HTML版Lighthouseスコア -->
+              <div class="bg-white rounded-xl border border-green-200 p-6 mb-4">
+                <div class="text-center mb-4">
+                  <h4 class="text-lg font-semibold text-gray-900 mb-2">{t('performance_guarantee.lighthouse_score')}</h4>
+                </div>
+                
+                <!-- スコアバッジ -->
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                  <div class="text-center">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <span class="text-white font-bold text-lg">98</span>
+                    </div>
+                    <div class="text-sm text-gray-700 leading-tight min-h-[2rem] flex items-center justify-center">{t('performance_guarantee.performance')}</div>
+                  </div>
+                  
+                  <div class="text-center">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <span class="text-white font-bold text-lg">99</span>
+                    </div>
+                    <div class="text-sm text-gray-700 leading-tight min-h-[2rem] flex items-center justify-center">{t('performance_guarantee.accessibility')}</div>
+                  </div>
+                  
+                  <div class="text-center">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <span class="text-white font-bold text-lg">100</span>
+                    </div>
+                    <div class="text-sm text-gray-700 leading-tight min-h-[2rem] flex items-center justify-center">{t('performance_guarantee.best_practices')}</div>
+                  </div>
+                  
+                  <div class="text-center">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <span class="text-white font-bold text-lg">100</span>
+                    </div>
+                    <div class="text-sm text-gray-700 leading-tight min-h-[2rem] flex items-center justify-center">{t('performance_guarantee.seo')}</div>
+                  </div>
+                </div>
+              </div>
+              
               <div class="text-sm text-gray-500">
-                実際の測定結果（2025年9月17日）
+                {t('performance_guarantee.actual_measurement_date')}
               </div>
             </div>
           </div>
@@ -100,45 +146,45 @@
       <!-- 速度データグラフ -->
       <div class="grid lg:grid-cols-2 gap-12 mb-12">
         <div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-6">実際の速度データ</h3>
+          <h3 class="text-2xl font-bold text-gray-900 mb-6">{t('performance_guarantee.actual_speed_data')}</h3>
           <div class="space-y-4">
             <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
               <div class="flex items-center justify-between mb-4">
-                <h4 class="font-semibold text-gray-900">完了時間</h4>
+                <h4 class="font-semibold text-gray-900">{t('performance_guarantee.completion_time')}</h4>
                 <span class="bg-secondary-100 text-secondary-800 px-3 py-1 rounded-full text-sm font-semibold">72ms</span>
               </div>
               <div class="w-full bg-gray-200 rounded-full h-3">
                 <div class="bg-secondary-500 h-3 rounded-full" style="width: 7.2%"></div>
               </div>
-              <p class="text-sm text-gray-600 mt-2">ページの完全読み込み時間</p>
+              <p class="text-sm text-gray-600 mt-2">{t('performance_guarantee.page_load_time')}</p>
             </div>
             
             <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
               <div class="flex items-center justify-between mb-4">
-                <h4 class="font-semibold text-gray-900">DOMContentLoaded</h4>
+                <h4 class="font-semibold text-gray-900">{t('performance_guarantee.dom_content_loaded')}</h4>
                 <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-semibold">38ms</span>
               </div>
               <div class="w-full bg-gray-200 rounded-full h-3">
                 <div class="bg-primary-500 h-3 rounded-full" style="width: 3.8%"></div>
               </div>
-              <p class="text-sm text-gray-600 mt-2">DOM構築完了時間</p>
+              <p class="text-sm text-gray-600 mt-2">{t('performance_guarantee.dom_build_time')}</p>
             </div>
             
             <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
               <div class="flex items-center justify-between mb-4">
-                <h4 class="font-semibold text-gray-900">Load</h4>
+                <h4 class="font-semibold text-gray-900">{t('performance_guarantee.load')}</h4>
                 <span class="bg-accent-100 text-accent-800 px-3 py-1 rounded-full text-sm font-semibold">42ms</span>
               </div>
               <div class="w-full bg-gray-200 rounded-full h-3">
                 <div class="bg-accent-500 h-3 rounded-full" style="width: 4.2%"></div>
               </div>
-              <p class="text-sm text-gray-600 mt-2">リソース読み込み完了時間</p>
+              <p class="text-sm text-gray-600 mt-2">{t('performance_guarantee.resource_load_time')}</p>
             </div>
           </div>
         </div>
         
         <div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-6">保証内容</h3>
+          <h3 class="text-2xl font-bold text-gray-900 mb-6">{t('performance_guarantee.guarantee_content')}</h3>
           <div class="space-y-6">
             <div class="bg-secondary-50 border border-secondary-200 rounded-lg p-6">
               <div class="flex items-start gap-3">
@@ -146,8 +192,8 @@
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
                 <div>
-                  <h4 class="font-semibold text-secondary-800 mb-2">Core Web Vitals保証</h4>
-                  <p class="text-sm text-secondary-700">LCP、FID、CLSの全ての指標でGoogleの推奨値を上回ることを保証</p>
+                  <h4 class="font-semibold text-secondary-800 mb-2">{t('performance_guarantee.core_web_vitals_guarantee')}</h4>
+                  <p class="text-sm text-secondary-700">{t('performance_guarantee.core_web_vitals_desc')}</p>
                 </div>
               </div>
             </div>
@@ -158,8 +204,8 @@
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
                 <div>
-                  <h4 class="font-semibold text-primary-800 mb-2">PageSpeed 95点保証</h4>
-                  <p class="text-sm text-primary-700">Google PageSpeed Insightsで95点以上を保証</p>
+                  <h4 class="font-semibold text-primary-800 mb-2">{t('performance_guarantee.pagespeed_guarantee')}</h4>
+                  <p class="text-sm text-primary-700">{t('performance_guarantee.pagespeed_desc')}</p>
                 </div>
               </div>
             </div>
@@ -170,8 +216,8 @@
                   <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
                 </svg>
                 <div>
-                  <h4 class="font-semibold text-red-800 mb-2">全額返金保証</h4>
-                  <p class="text-sm text-red-700">目標未達成時は全額返金いたします</p>
+                  <h4 class="font-semibold text-red-800 mb-2">{t('performance_guarantee.full_refund_guarantee')}</h4>
+                  <p class="text-sm text-red-700">{t('performance_guarantee.full_refund_desc')}</p>
                 </div>
               </div>
             </div>
@@ -181,7 +227,7 @@
       
       <!-- 測定方法 -->
       <div class="bg-gray-50 rounded-2xl p-8">
-        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">測定方法</h3>
+        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">{t('performance_guarantee.measurement_method')}</h3>
         <div class="grid md:grid-cols-3 gap-6">
           <div class="text-center">
             <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -189,8 +235,8 @@
                 <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
               </svg>
             </div>
-            <h4 class="font-semibold text-gray-900 mb-2">Google PageSpeed Insights</h4>
-            <p class="text-sm text-gray-600">Googleの公式ツールで測定</p>
+            <h4 class="font-semibold text-gray-900 mb-2">{t('performance_guarantee.google_pagespeed_insights')}</h4>
+            <p class="text-sm text-gray-600">{t('performance_guarantee.google_official_tool')}</p>
           </div>
           
           <div class="text-center">
@@ -199,8 +245,8 @@
                 <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            <h4 class="font-semibold text-gray-900 mb-2">Core Web Vitals</h4>
-            <p class="text-sm text-gray-600">Googleの重要指標で評価</p>
+            <h4 class="font-semibold text-gray-900 mb-2">{t('performance_guarantee.core_web_vitals')}</h4>
+            <p class="text-sm text-gray-600">{t('performance_guarantee.google_important_metrics')}</p>
           </div>
           
           <div class="text-center">
@@ -209,8 +255,8 @@
                 <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
               </svg>
             </div>
-            <h4 class="font-semibold text-gray-900 mb-2">実機テスト</h4>
-            <p class="text-sm text-gray-600">実際のデバイスで検証</p>
+            <h4 class="font-semibold text-gray-900 mb-2">{t('performance_guarantee.real_device_test')}</h4>
+            <p class="text-sm text-gray-600">{t('performance_guarantee.actual_device_verification')}</p>
           </div>
         </div>
       </div>
