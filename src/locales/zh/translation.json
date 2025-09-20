@@ -58,12 +58,7 @@
       "price": "¥100",
       "period": "/月",
       "description": "月费（含税）",
-      "features": [
-        "最多5页",
-        "响应式设计",
-        "SSL证书",
-        "每月更新"
-      ]
+      "features": ["最多5页", "响应式设计", "SSL证书", "每月更新"]
     },
     "standard": {
       "name": "标准版",
@@ -83,13 +78,7 @@
       "price": "¥340",
       "period": "/月",
       "description": "月费（含税）",
-      "features": [
-        "最多20页",
-        "电商功能",
-        "会员功能",
-        "API集成",
-        "每周更新"
-      ]
+      "features": ["最多20页", "电商功能", "会员功能", "API集成", "每周更新"]
     },
     "enterprise": {
       "name": "企业版",
@@ -167,7 +156,7 @@
     "partner_program": "共创合作伙伴优惠制度",
     "partner_description": "对于使用Cor.株式会社其他服务的客户，我们基于长期合作伙伴关系提供特别价格。",
     "partner_link": "了解更多",
-    "copyright": "© 2024 BoltSite by Cor.株式会社. 版权所有。",
+    "copyright": "© 2025 BoltSite by Cor.株式会社. 版权所有。",
     "privacy": "隐私政策",
     "terms": "服务条款"
   },
@@ -232,9 +221,9 @@
     }
   },
   "common": {
-    "email": "contact@boltsite.com",
-    "phone": "+81-3-1234-5678",
-    "address": "东京都涩谷区",
+    "email": "company@cor-jp.com",
+    "phone": "",
+    "address": "",
     "loading": "加载中...",
     "error": "发生错误",
     "success": "成功"
@@ -515,5 +504,15 @@
     "mobile_abandonment_description": "手机用户流失率高的企业",
     "dx_acceleration": "希望加速数字化转型",
     "dx_acceleration_description": "希望推进数字化转型的企业"
+  },
+  "terms": {
+    "title": "使用条款",
+    "last_updated": "最后更新：2025年9月20日",
+    "description": "本使用条款规定了BoltSite by Cor.Inc（以下简称“本公司”）提供的BoltSite服务（以下简称“本服务”）的使用条件。"
+  },
+  "privacy": {
+    "title": "隐私政策",
+    "last_updated": "最后更新：2025年9月20日",
+    "description": "BoltSite by Cor.Inc（以下简称“本公司”）认为保护客户的个人信息是重要责任，并制定了以下隐私政策。"
   }
 }

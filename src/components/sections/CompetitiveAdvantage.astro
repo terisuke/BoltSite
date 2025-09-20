@@ -1,5 +1,5 @@
 ---
-import { loadTranslation, getLocaleFromPathname, getTranslation } from '../../utils/i18n';
+import { getLocaleFromPathname, getTranslation, loadTranslation } from '../../utils/i18n';
 
 const { currentPath } = Astro.props;
 const locale = getLocaleFromPathname(currentPath || Astro.url.pathname);
@@ -28,7 +28,12 @@ const t = (key: string) => getTranslation(translations, key);
             <thead class="bg-gray-100">
               <tr>
                 <th class="text-left py-4 px-6 font-semibold text-gray-900">{t('competitive.comparison_items')}</th>
-                <th class="text-center py-4 px-4 font-semibold text-blue-600" set:html={t('competitive.boltsite_company')}></th>
+                <th class="text-center py-4 px-4 font-semibold text-blue-600">
+                  <div class="flex flex-col items-center gap-1">
+                    <img src="/logo.png" alt="BoltSite" class="w-8 h-8 object-contain" />
+                    <span class="text-xs text-gray-500">(Cor.inc)</span>
+                  </div>
+                </th>
                 <th class="text-center py-4 px-4 font-semibold text-gray-700">{t('competitive.major_companies')}</th>
                 <th class="text-center py-4 px-4 font-semibold text-gray-700">{t('competitive.freelance')}</th>
                 <th class="text-center py-4 px-4 font-semibold text-gray-700">{t('competitive.wordpress')}</th>

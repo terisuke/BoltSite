@@ -1,5 +1,5 @@
 ---
-import { loadTranslation, getLocaleFromPathname } from '../../utils/i18n';
+import { getLocaleFromPathname, loadTranslation } from '../../utils/i18n';
 
 const { currentPath } = Astro.props;
 const locale = getLocaleFromPathname(currentPath || Astro.url.pathname);
@@ -22,10 +22,8 @@ const t = await loadTranslation(locale);
         <!-- 高速サイト画像とCTA -->
         <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
           <div class="text-center">
-            <div class="w-32 h-32 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
+            <div class="w-32 h-32 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4 overflow-hidden">
+              <img src="/logowithtxt.png" alt="BoltSite" class="w-full h-full object-cover" />
             </div>
             <h3 class="text-2xl font-bold mb-2">{t.cta.fast_site}</h3>
             <p class="opacity-90">{t.cta.fast_description}</p>
@@ -34,11 +32,8 @@ const t = await loadTranslation(locale);
           <div class="text-center">
             <h3 class="text-3xl font-bold mb-4">{t.cta.start_now}</h3>
             <div class="space-y-4">
-              <a href="https://forms.gle/your-consultation-form" target="_blank" class="block bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300 shadow-lg">
+              <a href="https://cor-jp.com/contact" target="_blank" class="block bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300 shadow-lg">
                 {t.cta.free_consultation}
-              </a>
-              <a href={`mailto:${t.common.email}`} class="block border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300">
-                {t.cta.contact}
               </a>
             </div>
           </div>

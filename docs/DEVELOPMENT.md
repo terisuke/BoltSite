@@ -120,7 +120,7 @@ export interface PricingPlan {
 ```
 
 ```json
-// data/priceDats.json
+// data/priceData.json
 [
   {
     "title": "ビギナー",
