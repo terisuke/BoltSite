@@ -1,88 +1,89 @@
-// i18n utility functions for dynamic language switching
+import type { Locales } from '../types';
 
-import { translations, type Language, availableLanguages } from './translations';
+// サポートされている言語
+export const SUPPORTED_LOCALES: Locales[] = ['ja', 'en', 'zh', 'es'];
 
-export interface TranslationData {
-  [key: string]: any;
+// デフォルト言語
+export const DEFAULT_LOCALE: Locales = 'ja';
+
+// パスから言語コードを取得
+export function getLocaleFromPathname(pathname: string): Locales {
+  const segments = pathname.split('/').filter(Boolean);
+  const firstSegment = segments[0];
+  
+  if (SUPPORTED_LOCALES.includes(firstSegment as Locales)) {
+    return firstSegment as Locales;
+  }
+  
+  return DEFAULT_LOCALE;
 }
 
-// 翻訳データを格納する変数
-let currentLanguage: Language = 'ja';
-
-// 翻訳データを初期化
-export function initTranslations(language: Language = 'ja') {
-  currentLanguage = language;
+// 言語コードからパスプレフィックスを取得
+export function getPathPrefix(locale: Locales): string {
+  return locale === DEFAULT_LOCALE ? '' : `/${locale}`;
 }
 
-// 翻訳を取得する関数
-export function t(key: string, fallback?: string): string {
+// 現在のパスから言語を除いたパスを取得
+export function getPathWithoutLocale(pathname: string): string {
+  const locale = getLocaleFromPathname(pathname);
+  const prefix = getPathPrefix(locale);
+  
+  if (prefix && pathname.startsWith(prefix)) {
+    return pathname.slice(prefix.length) || '/';
+  }
+  
+  return pathname;
+}
+
+// 翻訳ファイルを読み込み
+export async function loadTranslation(locale: Locales) {
+  try {
+    const translation = await import(`../locales/${locale}/translation.json`);
+    return translation.default;
+  } catch (error) {
+    console.warn(`Failed to load translation for locale: ${locale}`, error);
+    // フォールバックとしてデフォルト言語の翻訳を読み込み
+    const fallbackTranslation = await import(`../locales/${DEFAULT_LOCALE}/translation.json`);
+    return fallbackTranslation.default;
+  }
+}
+
+// ネストされた翻訳キーを取得
+export function getTranslation(translations: any, key: string): string {
   const keys = key.split('.');
-  let value: any = translations[currentLanguage];
+  let value = translations;
   
   for (const k of keys) {
     if (value && typeof value === 'object' && k in value) {
       value = value[k];
     } else {
-      // フォールバックとして日本語を試す
-      if (currentLanguage !== 'ja') {
-        let fallbackValue: any = translations['ja'];
-        for (const fallbackKey of keys) {
-          if (fallbackValue && typeof fallbackValue === 'object' && fallbackKey in fallbackValue) {
-            fallbackValue = fallbackValue[fallbackKey];
-          } else {
-            fallbackValue = undefined;
-            break;
-          }
-        }
-        if (fallbackValue) {
-          return fallbackValue;
-        }
-      }
-      return fallback || key;
+      return key; // キーが見つからない場合はキー自体を返す
     }
   }
   
-  return typeof value === 'string' ? value : (fallback || key);
+  return typeof value === 'string' ? value : key;
 }
 
-// 言語を変更する関数
-export function changeLanguage(language: Language) {
-  currentLanguage = language;
+// 言語名を取得
+export function getLanguageName(locale: Locales): string {
+  const names: Record<Locales, string> = {
+    ja: '日本語',
+    en: 'English',
+    zh: '中文',
+    es: 'Español'
+  };
   
-  // ページ内のすべてのi18n要素を更新
-  updatePageTranslations();
+  return names[locale] || locale;
+}
+
+// 言語フラグを取得
+export function getLanguageFlag(locale: Locales): string {
+  const flags: Record<Locales, string> = {
+    ja: '🇯🇵',
+    en: '🇺🇸',
+    zh: '🇨🇳',
+    es: '🇪🇸'
+  };
   
-  // カスタムイベントを発火
-  window.dispatchEvent(new CustomEvent('languageChanged', {
-    detail: { language }
-  }));
+  return flags[locale] || '🌐';
 }
-
-// ページ内の翻訳を更新する関数
-export function updatePageTranslations() {
-  const elements = document.querySelectorAll('[data-i18n-key]');
-  
-  elements.forEach((element) => {
-    const key = element.getAttribute('data-i18n-key');
-    if (key) {
-      const translation = t(key);
-      if (element.tagName === 'INPUT' && element.getAttribute('type') === 'text') {
-        (element as HTMLInputElement).placeholder = translation;
-      } else {
-        element.textContent = translation;
-      }
-    }
-  });
-}
-
-// 現在の言語を取得
-export function getCurrentLanguage(): Language {
-  return currentLanguage;
-}
-
-// 初期化時に翻訳データを読み込む
-document.addEventListener('DOMContentLoaded', () => {
-  const savedLanguage = (localStorage.getItem('selectedLanguage') as Language) || 'ja';
-  initTranslations(savedLanguage);
-  updatePageTranslations();
-});

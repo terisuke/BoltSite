@@ -1,5 +1,9 @@
 ---
-// BoltSite 最終CTAセクション
+import { loadTranslation, getLocaleFromPathname } from '../../utils/i18n';
+
+const { currentPath } = Astro.props;
+const locale = getLocaleFromPathname(currentPath || Astro.url.pathname);
+const t = await loadTranslation(locale);
 ---
 
 <section id="contact" class="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 text-white">
@@ -9,10 +13,10 @@
       <!-- メインCTA -->
       <div class="mb-16">
         <h2 class="text-4xl md:text-5xl font-bold mb-6">
-          今すぐ始めませんか？
+          {t.cta.title}
         </h2>
         <p class="text-xl md:text-2xl mb-8 opacity-90">
-          無料相談で、あなたのビジネスに最適なソリューションをご提案
+          {t.cta.subtitle}
         </p>
         
         <!-- 高速サイト画像とCTA -->
@@ -23,18 +27,18 @@
                 <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            <h3 class="text-2xl font-bold mb-2">爆速サイト</h3>
-            <p class="opacity-90">0.3秒表示を実現</p>
+            <h3 class="text-2xl font-bold mb-2">{t.cta.fast_site}</h3>
+            <p class="opacity-90">{t.cta.fast_description}</p>
           </div>
           
           <div class="text-center">
-            <h3 class="text-3xl font-bold mb-4">今すぐ加速！</h3>
+            <h3 class="text-3xl font-bold mb-4">{t.cta.start_now}</h3>
             <div class="space-y-4">
               <a href="https://forms.gle/your-consultation-form" target="_blank" class="block bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300 shadow-lg">
-                無料相談申し込み <span class="text-red-500 font-bold">(30分)</span>
+                {t.cta.free_consultation}
               </a>
-              <a href="mailto:contact@boltsite.com" class="block border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300">
-                お問い合わせ
+              <a href={`mailto:${t.common.email}`} class="block border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300">
+                {t.cta.contact}
               </a>
             </div>
           </div>
@@ -46,25 +50,25 @@
             <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
             </svg>
-            <span>初期費用0円</span>
+            <span>{t.cta.guarantees.initial_cost}</span>
           </div>
           <div class="flex items-center gap-2">
             <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
             </svg>
-            <span>1ヶ月以内提供</span>
+            <span>{t.cta.guarantees.delivery}</span>
           </div>
           <div class="flex items-center gap-2">
             <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
             </svg>
-            <span>PageSpeed 95点保証</span>
+            <span>{t.cta.guarantees.pagespeed}</span>
           </div>
           <div class="flex items-center gap-2">
             <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
             </svg>
-            <span>全額返金保証</span>
+            <span>{t.cta.guarantees.refund}</span>
           </div>
         </div>
       </div>

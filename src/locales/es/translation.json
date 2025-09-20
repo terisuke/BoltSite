@@ -19,34 +19,90 @@
     "guarantee": "Garantía PageSpeed 95+"
   },
   "services": {
-    "title": "Servicios",
-    "subtitle": "Soluciones para acelerar su negocio",
+    "title": "Servicio de Creación de Sitios Web de Alto Rendimiento",
+    "subtitle": "Supere WordPress y sitios de plantillas con rendimiento y transformación digital,<br/>fortaleciendo la competitividad de las pequeñas y medianas empresas",
     "overview": "Resumen del Servicio",
     "pricing": "Planes de Precios",
     "features": "Comparación de Características",
     "performance": "Garantía de Rendimiento",
-    "dx_package": "Paquete de Transformación Digital"
+    "dx_package": "Paquete de Transformación Digital",
+    "features_list": {
+      "fast_site": {
+        "title": "Sitio Ultrarrápido de 0.3s",
+        "description": "Logre velocidad de carga de nivel empresarial con tecnología Jamstack"
+      },
+      "seo_optimized": {
+        "title": "Optimización SEO Perfecta",
+        "description": "SEO técnico para lograr los primeros lugares en motores de búsqueda"
+      },
+      "mobile_first": {
+        "title": "Diseño Mobile-First",
+        "description": "Experiencia de usuario perfecta comenzando desde smartphones"
+      },
+      "security": {
+        "title": "Seguridad de Nivel Empresarial",
+        "description": "Seguro y confiable con certificados SSL y medidas de seguridad"
+      }
+    },
+    "pricing_info": {
+      "monthly": "Tarifa Mensual (Impuestos Incluidos)",
+      "initial_cost": "Costo Inicial",
+      "delivery": "Inicie la entrega en 1 mes para resultados inmediatos"
+    }
   },
   "pricing": {
-    "title": "Planes de Precios",
-    "subtitle": "Estructura de precios simple y transparente",
+    "title": "Planes de Precios Detallados",
+    "subtitle": "Comience fácilmente con costo inicial cero y facturación mensual",
     "basic": {
-      "name": "Básico",
-      "price": "$500",
+      "name": "Principiante",
+      "price": "$100",
       "period": "/mes",
-      "description": "Para pequeñas empresas"
+      "description": "Mensual (Impuestos Incluidos)",
+      "features": [
+        "Hasta 5 páginas",
+        "Diseño responsivo",
+        "Certificado SSL",
+        "Actualizaciones mensuales"
+      ]
     },
-    "pro": {
-      "name": "Pro",
-      "price": "$1,000",
+    "standard": {
+      "name": "Estándar",
+      "price": "$170",
       "period": "/mes",
-      "description": "Para empresas medianas"
+      "description": "Mensual (Impuestos Incluidos)",
+      "features": [
+        "Hasta 10 páginas",
+        "Funcionalidad de blog",
+        "Formulario de contacto",
+        "Integración con Google Analytics",
+        "Actualizaciones quincenales"
+      ]
+    },
+    "premium": {
+      "name": "Premium",
+      "price": "$340",
+      "period": "/mes",
+      "description": "Mensual (Impuestos Incluidos)",
+      "features": [
+        "Hasta 20 páginas",
+        "Funcionalidad de comercio electrónico",
+        "Características de membresía",
+        "Integración de API",
+        "Actualizaciones semanales"
+      ]
     },
     "enterprise": {
       "name": "Empresarial",
       "price": "Personalizado",
       "period": "",
-      "description": "Para grandes empresas"
+      "description": "Para grandes empresas",
+      "features": [
+        "Páginas ilimitadas",
+        "Desarrollo de características personalizadas",
+        "Soporte dedicado",
+        "Monitoreo 24/7",
+        "Actualizaciones diarias"
+      ]
     }
   },
   "footer": {
@@ -77,6 +133,51 @@
       "delivery": "Entrega en 1 mes",
       "pagespeed": "Garantía PageSpeed 95+",
       "refund": "Garantía de Reembolso Total"
+    }
+  },
+  "faq": {
+    "subtitle": "Respondemos preguntas frecuentes de nuestros clientes",
+    "questions": {
+      "pagespeed": {
+        "question": "¿Cómo se garantiza PageSpeed 95+?",
+        "answer": "BoltSite utiliza tecnología Jamstack (Astro.js + Firebase Hosting + Cloudflare CDN) para garantizar 95+ puntos en Google PageSpeed Insights.",
+        "features": [
+          "Visualización rápida a través de generación de sitios estáticos",
+          "Optimización a través de entrega CDN",
+          "Optimización de imágenes y soporte WebP",
+          "División de código y carga diferida"
+        ]
+      },
+      "delivery": {
+        "question": "¿Cuánto tiempo toma completar el sitio?",
+        "answer": "Típicamente entregamos el sitio dentro de 1 mes. Para casos urgentes, podemos entregar dentro de 2 semanas.",
+        "features": [
+          "Semana 1: Definición de requisitos y diseño",
+          "Semana 2: Desarrollo y creación de contenido",
+          "Semana 3: Pruebas y ajustes",
+          "Semana 4: Lanzamiento en producción"
+        ]
+      },
+      "cost": {
+        "question": "¿El costo inicial es realmente $0?",
+        "answer": "Sí, el costo inicial es completamente $0. Puede usar nuestro servicio solo con tarifas mensuales.",
+        "features": [
+          "Costo inicial: $0",
+          "Tarifa mensual: $100~",
+          "Sin tarifas adicionales",
+          "Sin penalizaciones por cancelación"
+        ]
+      },
+      "support": {
+        "question": "¿Cómo es el sistema de soporte?",
+        "answer": "Proporcionamos soporte por correo electrónico, chat y teléfono. Para emergencias, respondemos dentro de 24 horas.",
+        "features": [
+          "Soporte por correo: Días laborables 9-18",
+          "Soporte por chat: Días laborables 9-21",
+          "Soporte telefónico: Días laborables 10-17",
+          "Respuesta de emergencia: Dentro de 24 horas"
+        ]
+      }
     }
   },
   "common": {

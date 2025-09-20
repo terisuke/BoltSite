@@ -19,34 +19,90 @@
     "guarantee": "PageSpeed 95分保证"
   },
   "services": {
-    "title": "服务",
-    "subtitle": "加速您业务的解决方案",
+    "title": "高性能网站制作服务",
+    "subtitle": "超越WordPress和模板网站的性能和数字化转型，<br/>增强中小企业的竞争力",
     "overview": "服务概览",
     "pricing": "价格方案",
     "features": "功能对比",
     "performance": "性能保证",
-    "dx_package": "数字化转型包"
+    "dx_package": "数字化转型包",
+    "features_list": {
+      "fast_site": {
+        "title": "0.3秒极速网站",
+        "description": "通过Jamstack技术实现企业级加载速度"
+      },
+      "seo_optimized": {
+        "title": "完美SEO优化",
+        "description": "技术SEO实现搜索引擎排名前列"
+      },
+      "mobile_first": {
+        "title": "移动优先设计",
+        "description": "从智能手机开始提供完美用户体验"
+      },
+      "security": {
+        "title": "企业级安全",
+        "description": "SSL证书和安全措施确保安全可靠"
+      }
+    },
+    "pricing_info": {
+      "monthly": "月费（含税）",
+      "initial_cost": "初始费用",
+      "delivery": "1个月内开始交付，立即见效"
+    }
   },
   "pricing": {
-    "title": "价格方案",
-    "subtitle": "简单透明的价格体系",
+    "title": "详细价格方案",
+    "subtitle": "零初始费用，月付制轻松开始",
     "basic": {
-      "name": "基础版",
-      "price": "¥3,500",
+      "name": "入门版",
+      "price": "¥100",
       "period": "/月",
-      "description": "适合小企业"
+      "description": "月费（含税）",
+      "features": [
+        "最多5页",
+        "响应式设计",
+        "SSL证书",
+        "每月更新"
+      ]
     },
-    "pro": {
-      "name": "专业版",
-      "price": "¥7,000",
+    "standard": {
+      "name": "标准版",
+      "price": "¥170",
       "period": "/月",
-      "description": "适合中型企业"
+      "description": "月费（含税）",
+      "features": [
+        "最多10页",
+        "博客功能",
+        "联系表单",
+        "Google Analytics集成",
+        "双周更新"
+      ]
+    },
+    "premium": {
+      "name": "高级版",
+      "price": "¥340",
+      "period": "/月",
+      "description": "月费（含税）",
+      "features": [
+        "最多20页",
+        "电商功能",
+        "会员功能",
+        "API集成",
+        "每周更新"
+      ]
     },
     "enterprise": {
       "name": "企业版",
       "price": "定制",
       "period": "",
-      "description": "适合大型企业"
+      "description": "适合大型企业",
+      "features": [
+        "无限页面",
+        "定制功能开发",
+        "专属支持",
+        "24小时监控",
+        "每日更新"
+      ]
     }
   },
   "footer": {
@@ -77,6 +133,51 @@
       "delivery": "1个月内交付",
       "pagespeed": "PageSpeed 95分保证",
       "refund": "全额退款保证"
+    }
+  },
+  "faq": {
+    "subtitle": "我们回答客户经常提出的问题",
+    "questions": {
+      "pagespeed": {
+        "question": "如何保证PageSpeed 95分以上？",
+        "answer": "BoltSite使用Jamstack技术（Astro.js + Firebase Hosting + Cloudflare CDN）来保证Google PageSpeed Insights 95分以上。",
+        "features": [
+          "通过静态网站生成实现快速显示",
+          "通过CDN分发进行优化",
+          "图像优化和WebP支持",
+          "代码分割和延迟加载"
+        ]
+      },
+      "delivery": {
+        "question": "网站完成需要多长时间？",
+        "answer": "我们通常在1个月内交付网站。紧急情况下，我们可以在2周内交付。",
+        "features": [
+          "第1周：需求定义和设计",
+          "第2周：开发和内容创建",
+          "第3周：测试和调整",
+          "第4周：生产发布"
+        ]
+      },
+      "cost": {
+        "question": "初始费用真的是0元吗？",
+        "answer": "是的，初始费用完全为0元。您只需支付月费即可使用我们的服务。",
+        "features": [
+          "初始费用：0元",
+          "月费：100元起",
+          "无额外费用",
+          "取消时无违约金"
+        ]
+      },
+      "support": {
+        "question": "支持体系如何？",
+        "answer": "我们提供邮件支持、聊天支持和电话支持。紧急情况下，我们会在24小时内回复。",
+        "features": [
+          "邮件支持：工作日9-18时",
+          "聊天支持：工作日9-21时",
+          "电话支持：工作日10-17时",
+          "紧急响应：24小时内"
+        ]
+      }
     }
   },
   "common": {

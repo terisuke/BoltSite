@@ -19,34 +19,90 @@
     "guarantee": "PageSpeed 95+ Guarantee"
   },
   "services": {
-    "title": "Services",
-    "subtitle": "Solutions to accelerate your business",
+    "title": "High-Performance Website Creation Service",
+    "subtitle": "Exceed WordPress and template sites with performance and DX,<br/>strengthening the competitiveness of small and medium enterprises",
     "overview": "Service Overview",
     "pricing": "Pricing Plans",
     "features": "Feature Comparison",
     "performance": "Performance Guarantee",
-    "dx_package": "DX Package"
+    "dx_package": "DX Package",
+    "features_list": {
+      "fast_site": {
+        "title": "0.3s Lightning Fast Site",
+        "description": "Achieve enterprise-level loading speed with Jamstack technology"
+      },
+      "seo_optimized": {
+        "title": "Perfect SEO Optimization",
+        "description": "Technical SEO to achieve top search engine rankings"
+      },
+      "mobile_first": {
+        "title": "Mobile-First Design",
+        "description": "Perfect user experience starting from smartphones"
+      },
+      "security": {
+        "title": "Enterprise-Level Security",
+        "description": "Safe and secure with SSL certificates and security measures"
+      }
+    },
+    "pricing_info": {
+      "monthly": "Monthly Fee (Tax Included)",
+      "initial_cost": "Initial Cost",
+      "delivery": "Start delivery within 1 month for immediate results"
+    }
   },
   "pricing": {
-    "title": "Pricing Plans",
-    "subtitle": "Simple and transparent pricing structure",
+    "title": "Detailed Pricing Plans",
+    "subtitle": "Start easily with zero initial cost and monthly billing",
     "basic": {
-      "name": "Basic",
-      "price": "$500",
+      "name": "Beginner",
+      "price": "$100",
       "period": "/month",
-      "description": "For small businesses"
+      "description": "Monthly (Tax Included)",
+      "features": [
+        "Up to 5 pages",
+        "Responsive design",
+        "SSL certificate",
+        "Monthly updates"
+      ]
     },
-    "pro": {
-      "name": "Pro",
-      "price": "$1,000",
+    "standard": {
+      "name": "Standard",
+      "price": "$170",
       "period": "/month",
-      "description": "For medium businesses"
+      "description": "Monthly (Tax Included)",
+      "features": [
+        "Up to 10 pages",
+        "Blog functionality",
+        "Contact form",
+        "Google Analytics integration",
+        "Bi-weekly updates"
+      ]
+    },
+    "premium": {
+      "name": "Premium",
+      "price": "$340",
+      "period": "/month",
+      "description": "Monthly (Tax Included)",
+      "features": [
+        "Up to 20 pages",
+        "E-commerce functionality",
+        "Member features",
+        "API integration",
+        "Weekly updates"
+      ]
     },
     "enterprise": {
       "name": "Enterprise",
       "price": "Custom",
       "period": "",
-      "description": "For large businesses"
+      "description": "For large businesses",
+      "features": [
+        "Unlimited pages",
+        "Custom feature development",
+        "Dedicated support",
+        "24/7 monitoring",
+        "Daily updates"
+      ]
     }
   },
   "footer": {
@@ -77,6 +133,51 @@
       "delivery": "Delivery within 1 month",
       "pagespeed": "PageSpeed 95+ Guarantee",
       "refund": "Full Money-back Guarantee"
+    }
+  },
+  "faq": {
+    "subtitle": "We answer frequently asked questions from our customers",
+    "questions": {
+      "pagespeed": {
+        "question": "How is PageSpeed 95+ guaranteed?",
+        "answer": "BoltSite uses Jamstack technology (Astro.js + Firebase Hosting + Cloudflare CDN) to guarantee 95+ points on Google PageSpeed Insights.",
+        "features": [
+          "Fast display through static site generation",
+          "Optimization through CDN delivery",
+          "Image optimization and WebP support",
+          "Code splitting and lazy loading"
+        ]
+      },
+      "delivery": {
+        "question": "How long does it take to complete the site?",
+        "answer": "We typically deliver the site within 1 month. For urgent cases, we can deliver within 2 weeks.",
+        "features": [
+          "Week 1: Requirements definition and design",
+          "Week 2: Development and content creation",
+          "Week 3: Testing and adjustments",
+          "Week 4: Production release"
+        ]
+      },
+      "cost": {
+        "question": "Is the initial cost really $0?",
+        "answer": "Yes, the initial cost is completely $0. You can use our service with monthly fees only.",
+        "features": [
+          "Initial cost: $0",
+          "Monthly fee: $100~",
+          "No additional fees",
+          "No cancellation penalties"
+        ]
+      },
+      "support": {
+        "question": "What is the support system like?",
+        "answer": "We provide email support, chat support, and phone support. For emergencies, we respond within 24 hours.",
+        "features": [
+          "Email support: Weekdays 9-18",
+          "Chat support: Weekdays 9-21",
+          "Phone support: Weekdays 10-17",
+          "Emergency response: Within 24 hours"
+        ]
+      }
     }
   },
   "common": {

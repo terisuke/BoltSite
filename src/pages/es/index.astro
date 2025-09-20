@@ -1,0 +1,31 @@
+---
+import BoltHero from "../../components/sections/BoltHero.astro";
+import ServiceOverview from "../../components/sections/ServiceOverview.astro";
+import PricingPlans from "../../components/sections/PricingPlans.astro";
+import FeatureComparison from "../../components/sections/FeatureComparison.astro";
+import CompetitiveAdvantage from "../../components/sections/CompetitiveAdvantage.astro";
+import PerformanceGuarantee from "../../components/sections/PerformanceGuarantee.astro";
+import BusinessImpact from "../../components/sections/BusinessImpact.astro";
+import DXPackage from "../../components/sections/DXPackage.astro";
+import IntroductionFlow from "../../components/sections/IntroductionFlow.astro";
+import FAQ from "../../components/sections/FAQ.astro";
+import FinalCTA from "../../components/sections/FinalCTA.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout
+  title="BoltSite - Creación de Sitios Web de Alto Rendimiento | 0.3s Carga・SEO Perfecto"
+  description="BoltSite: Jamstack con 0.3s de tiempo de carga, SEO perfecto. Acelera la transformación digital para PYMES con servicio de creación de sitios web de alto rendimiento desde $500/mes."
+>
+  <BoltHero currentPath={Astro.url.pathname} />
+  <ServiceOverview currentPath={Astro.url.pathname} />
+  <PricingPlans currentPath={Astro.url.pathname} />
+  <FeatureComparison currentPath={Astro.url.pathname} />
+  <CompetitiveAdvantage currentPath={Astro.url.pathname} />
+  <PerformanceGuarantee currentPath={Astro.url.pathname} />
+  <BusinessImpact currentPath={Astro.url.pathname} />
+  <DXPackage currentPath={Astro.url.pathname} />
+  <IntroductionFlow currentPath={Astro.url.pathname} />
+  <FAQ currentPath={Astro.url.pathname} />
+  <FinalCTA currentPath={Astro.url.pathname} />
+</MainLayout>

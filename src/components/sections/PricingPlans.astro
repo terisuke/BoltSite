@@ -2,8 +2,12 @@
 import SectionTitle from '../ui/SectionTitle.astro';
 import Card from '../ui/Card.astro';
 import pricingData from '../../data/priceDats.json';
+import { loadTranslation, getLocaleFromPathname } from '../../utils/i18n';
 import type { PricingPlan } from '../../types';
 
+const { currentPath } = Astro.props;
+const locale = getLocaleFromPathname(currentPath || Astro.url.pathname);
+const t = await loadTranslation(locale);
 const plans: PricingPlan[] = pricingData;
 ---
 
@@ -13,8 +17,8 @@ const plans: PricingPlan[] = pricingData;
       
       <!-- セクションタイトル -->
       <SectionTitle
-        title="料金プラン詳細"
-        description="初期費用0円、月額制でお気軽にスタート"
+        title={t.pricing.title}
+        description={t.pricing.subtitle}
       />
       
       <!-- プラン比較カード -->
@@ -22,57 +26,34 @@ const plans: PricingPlan[] = pricingData;
         
         <!-- ビギナープラン -->
         <Card
-          title="ビギナー"
-          description="月額（税込）"
+          title={t.pricing.basic.name}
+          description={t.pricing.basic.description}
           price={15000}
-          features={[
-            "5ページまで",
-            "レスポンシブデザイン",
-            "SSL証明書",
-            "月1回更新"
-          ]}
+          features={t.pricing.basic.features}
         />
         
         <!-- スタンダードプラン -->
         <Card
-          title="スタンダード"
-          description="月額（税込）"
+          title={t.pricing.standard.name}
+          description={t.pricing.standard.description}
           price={25000}
-          features={[
-            "10ページまで",
-            "ブログ機能",
-            "お問い合わせフォーム",
-            "Google Analytics連携",
-            "月2回更新"
-          ]}
+          features={t.pricing.standard.features}
         />
         
         <!-- プレミアムプラン -->
         <Card
-          title="プレミアム"
-          description="月額（税込）"
+          title={t.pricing.premium.name}
+          description={t.pricing.premium.description}
           price={30000}
-          features={[
-            "20ページまで",
-            "多言語対応（4言語）",
-            "記事作成サポート",
-            "緊急対応",
-            "電話サポート"
-          ]}
+          features={t.pricing.premium.features}
         />
         
         <!-- エンタープライズプラン -->
         <Card
-          title="エンタープライズ"
-          description="月額（税込）"
+          title={t.pricing.enterprise.name}
+          description={t.pricing.enterprise.description}
           price={50000}
-          features={[
-            "無制限ページ",
-            "専任コンサルタント",
-            "データ駆動改善",
-            "API連携",
-            "優先開発"
-          ]}
+          features={t.pricing.enterprise.features}
         />
       </div>
       

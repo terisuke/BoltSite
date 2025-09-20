@@ -1,5 +1,9 @@
 ---
-// BoltSite ヒーローセクション
+import { loadTranslation, getLocaleFromPathname } from '../../utils/i18n';
+
+const { currentPath } = Astro.props;
+const locale = getLocaleFromPathname(currentPath || Astro.url.pathname);
+const t = await loadTranslation(locale);
 ---
 
 <section class="relative min-h-screen bg-gradient-to-br from-white via-blue-50 to-beige-100 flex items-center justify-center overflow-hidden">
@@ -13,25 +17,21 @@
         <!-- 左側: メインコンテンツ -->
         <div class="text-center lg:text-left">
           <!-- スローガン -->
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight" data-translate="hero-title">
-            速さ・品質・コストで<br>
-            <span class="text-primary-600">成長を加速</span>。<br>
-            <span class="text-primary-500">BoltSite</span>でビジネスを変革。
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            {t.hero.title}
           </h1>
           
           <!-- サブタイトル -->
-          <p class="text-xl text-gray-600 mb-8 leading-relaxed" data-translate="hero-subtitle">
-            中小企業でも大企業並みの高速サイトを実現。<br>
-            <span class="font-semibold text-primary-600">0.3秒表示</span>で顧客満足度を向上させませんか？
+          <p class="text-xl text-gray-600 mb-8 leading-relaxed" set:html={t.hero.description}>
           </p>
           
           <!-- CTAボタン -->
           <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <a href="#contact" class="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-              <span data-translate="hero-cta">無料相談申し込み</span> <span class="text-red-400 font-bold" data-translate="hero-cta-sub">(30分)</span>
+              {t.hero.cta_primary}
             </a>
-            <a href="#pricing" class="border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300" data-translate="hero-cta-secondary">
-              料金プランを見る
+            <a href="#pricing" class="border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300">
+              {t.hero.cta_secondary}
             </a>
           </div>
           
@@ -39,15 +39,15 @@
           <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-gray-500">
             <div class="flex items-center gap-2">
               <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-              <span>初期費用0円</span>
+              <span>{t.cta.guarantees.initial_cost}</span>
             </div>
             <div class="flex items-center gap-2">
               <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-              <span>1ヶ月以内提供</span>
+              <span>{t.cta.guarantees.delivery}</span>
             </div>
             <div class="flex items-center gap-2">
               <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-              <span>PageSpeed 95点保証</span>
+              <span>{t.cta.guarantees.pagespeed}</span>
             </div>
           </div>
         </div>

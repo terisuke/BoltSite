@@ -19,34 +19,90 @@
     "guarantee": "PageSpeed 95点保証"
   },
   "services": {
-    "title": "サービス",
-    "subtitle": "あなたのビジネスを加速するソリューション",
+    "title": "高性能ホームページ制作サービス",
+    "subtitle": "WordPressやテンプレートサイトを超えるパフォーマンスとDXで、<br/>中小企業の競争力を強化します",
     "overview": "サービス概要",
     "pricing": "料金プラン",
     "features": "機能比較",
     "performance": "パフォーマンス保証",
-    "dx_package": "DXパッケージ"
+    "dx_package": "DXパッケージ",
+    "features_list": {
+      "fast_site": {
+        "title": "0.3秒表示の高速サイト",
+        "description": "Jamstack技術で大企業並みの表示速度を実現"
+      },
+      "seo_optimized": {
+        "title": "SEO満点の最適化",
+        "description": "検索エンジンで上位表示を実現する技術的SEO"
+      },
+      "mobile_first": {
+        "title": "モバイルファースト設計",
+        "description": "スマートフォンから完璧なユーザー体験を提供"
+      },
+      "security": {
+        "title": "企業レベルのセキュリティ",
+        "description": "SSL証明書とセキュリティ対策で安心・安全"
+      }
+    },
+    "pricing_info": {
+      "monthly": "月額料金（税込）",
+      "initial_cost": "初期費用",
+      "delivery": "1ヶ月以内に提供開始で、即時成果を"
+    }
   },
   "pricing": {
-    "title": "料金プラン",
-    "subtitle": "シンプルで透明性の高い料金体系",
+    "title": "料金プラン詳細",
+    "subtitle": "初期費用0円、月額制でお気軽にスタート",
     "basic": {
-      "name": "ベーシック",
+      "name": "ビギナー",
+      "price": "¥15,000",
+      "period": "/月",
+      "description": "月額（税込）",
+      "features": [
+        "5ページまで",
+        "レスポンシブデザイン",
+        "SSL証明書",
+        "月1回更新"
+      ]
+    },
+    "standard": {
+      "name": "スタンダード",
+      "price": "¥25,000",
+      "period": "/月",
+      "description": "月額（税込）",
+      "features": [
+        "10ページまで",
+        "ブログ機能",
+        "お問い合わせフォーム",
+        "Google Analytics連携",
+        "月2回更新"
+      ]
+    },
+    "premium": {
+      "name": "プレミアム",
       "price": "¥50,000",
       "period": "/月",
-      "description": "小規模ビジネス向け"
-    },
-    "pro": {
-      "name": "プロ",
-      "price": "¥100,000",
-      "period": "/月",
-      "description": "中規模ビジネス向け"
+      "description": "月額（税込）",
+      "features": [
+        "20ページまで",
+        "EC機能",
+        "会員機能",
+        "API連携",
+        "週1回更新"
+      ]
     },
     "enterprise": {
       "name": "エンタープライズ",
       "price": "カスタム",
       "period": "",
-      "description": "大規模ビジネス向け"
+      "description": "大規模ビジネス向け",
+      "features": [
+        "無制限ページ",
+        "カスタム機能開発",
+        "専任サポート",
+        "24時間監視",
+        "日次更新"
+      ]
     }
   },
   "footer": {
@@ -77,6 +133,51 @@
       "delivery": "1ヶ月以内提供",
       "pagespeed": "PageSpeed 95点保証",
       "refund": "全額返金保証"
+    }
+  },
+  "faq": {
+    "subtitle": "お客様からよくいただく質問にお答えします",
+    "questions": {
+      "pagespeed": {
+        "question": "PageSpeed 95点以上はどのように保証されていますか？",
+        "answer": "BoltSiteはJamstack技術（Astro.js + Firebase Hosting + Cloudflare CDN）を使用することで、Google PageSpeed Insightsで95点以上を保証しています。",
+        "features": [
+          "静的サイト生成による高速表示",
+          "CDN配信による最適化",
+          "画像最適化とWebP対応",
+          "コード分割と遅延読み込み"
+        ]
+      },
+      "delivery": {
+        "question": "どのくらいの期間でサイトが完成しますか？",
+        "answer": "通常1ヶ月以内にサイトを提供いたします。緊急の場合は2週間での提供も可能です。",
+        "features": [
+          "1週間目：要件定義とデザイン",
+          "2週間目：開発とコンテンツ作成",
+          "3週間目：テストと調整",
+          "4週間目：本番リリース"
+        ]
+      },
+      "cost": {
+        "question": "初期費用は本当に0円ですか？",
+        "answer": "はい、初期費用は完全に0円です。月額料金のみでサービスをご利用いただけます。",
+        "features": [
+          "初期費用：0円",
+          "月額料金：15,000円〜",
+          "追加費用なし",
+          "解約時の違約金なし"
+        ]
+      },
+      "support": {
+        "question": "サポート体制はどうなっていますか？",
+        "answer": "メールサポート、チャットサポート、電話サポートを提供しています。緊急時は24時間以内に回答いたします。",
+        "features": [
+          "メールサポート：平日9-18時",
+          "チャットサポート：平日9-21時",
+          "電話サポート：平日10-17時",
+          "緊急対応：24時間以内"
+        ]
+      }
     }
   },
   "common": {

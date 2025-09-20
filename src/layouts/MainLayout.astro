@@ -2,12 +2,14 @@
 import Footer from "../components/ui/Footer.astro";
 import Navbar from "../components/ui/Navbar.astro";
 import MainHead from "./MainHead.astro";
+import { getLocaleFromPathname } from "../utils/i18n";
 import "../styles/global.css";
 
 const { ...props } = Astro.props;
+const locale = getLocaleFromPathname(Astro.url.pathname);
 ---
 
-<html lang="en">
+<html lang={locale}>
   <MainHead {...props} />
   <style>
     html.lenis {
@@ -31,9 +33,9 @@ const { ...props } = Astro.props;
   </script>
   <body class="bg-white font-grotesk">
     <main>
-      <Navbar />
+      <Navbar currentPath={Astro.url.pathname} />
       <slot />
-      <Footer />
+      <Footer currentPath={Astro.url.pathname} />
     </main>
   </body>
 </html>

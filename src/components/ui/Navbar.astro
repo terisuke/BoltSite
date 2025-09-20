@@ -1,17 +1,22 @@
 ---
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 import LanguageSwitcher from "./LanguageSwitcher.astro";
-import type { NavigationItem } from '../../types';
+import { loadTranslation, getLocaleFromPathname } from '../../utils/i18n';
+import type { NavigationItem, Locales } from '../../types';
+
+const { currentPath } = Astro.props;
+const locale = getLocaleFromPathname(currentPath || Astro.url.pathname);
+const t = await loadTranslation(locale);
 
 const menuitems: NavigationItem[] = [
-  { href: '#overview', label: 'サービス概要' },
-  { href: '#pricing', label: '料金プラン' },
-  { href: '#features', label: '機能比較' },
-  { href: '#performance', label: 'パフォーマンス' },
-  { href: '#faq', label: 'FAQ' },
+  { href: '#overview', label: t.services.overview },
+  { href: '#pricing', label: t.nav.pricing },
+  { href: '#features', label: t.nav.features },
+  { href: '#performance', label: t.nav.performance },
+  { href: '#faq', label: t.nav.faq },
 ];
 
-const navButton: NavigationItem = { href: '#contact', label: '無料相談' };
+const navButton: NavigationItem = { href: '#contact', label: t.nav.free_consultation };
 ---
 
 <div class="mt-20">
@@ -55,7 +60,10 @@ const navButton: NavigationItem = { href: '#contact', label: '無料相談' };
                 </a>
               </li>
             ))}
-            <div class="lg:hidden flex items-center justify-center mt-3 gap-4">
+            <div class="lg:hidden flex flex-col items-center justify-center mt-3 gap-4 px-4">
+              <div class="w-full max-w-sm">
+                <LanguageSwitcher currentPath={currentPath} />
+              </div>
               <a 
                 class="mobile-nav-link px-9 py-5 rounded-2xl border border-zinc-900 bg-white hover:bg-black text-black hover:text-white inline-flex" 
                 href={navButton.href}
@@ -70,7 +78,7 @@ const navButton: NavigationItem = { href: '#contact', label: '無料相談' };
 
       <div>
         <div class="hidden lg:flex items-center gap-4">
-          <LanguageSwitcher />
+          <LanguageSwitcher currentPath={currentPath} />
           <a class="px-9 py-5 rounded-2xl border border-zinc-900 bg-white hover:bg-black text-black hover:text-white inline-flex" href={navButton.href}>
             <h2 class="text-center text-xl font-normal leading-7">{navButton.label}</h2>
           </a>

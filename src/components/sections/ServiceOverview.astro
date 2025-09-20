@@ -1,5 +1,9 @@
 ---
-// BoltSite サービス概要セクション
+import { loadTranslation, getLocaleFromPathname } from '../../utils/i18n';
+
+const { currentPath } = Astro.props;
+const locale = getLocaleFromPathname(currentPath || Astro.url.pathname);
+const t = await loadTranslation(locale);
 ---
 
 <section id="overview" class="py-20 bg-white">
@@ -9,11 +13,9 @@
       <!-- セクションタイトル -->
       <div class="text-center mb-16">
         <h2 class="text-4xl font-bold text-gray-900 mb-4">
-          高性能ホームページ制作サービス
+          {t.services.title}
         </h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          WordPressやテンプレートサイトを超えるパフォーマンスとDXで、<br>
-          中小企業の競争力を強化します
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto" set:html={t.services.subtitle}>
         </p>
       </div>
       
@@ -27,12 +29,12 @@
               <div class="text-3xl font-bold text-blue-600 mb-2">
                 <span class="text-4xl">15,000</span>円<span class="text-lg">〜</span>
               </div>
-              <div class="text-lg text-gray-700 mb-4">月額料金（税込）</div>
+              <div class="text-lg text-gray-700 mb-4">{t.services.pricing_info.monthly}</div>
               <div class="text-2xl font-bold text-green-600 mb-2">
-                初期費用<span class="text-3xl">0</span>円
+                {t.services.pricing_info.initial_cost}<span class="text-3xl">0</span>円
               </div>
               <div class="text-sm text-gray-600">
-                1ヶ月以内に提供開始で、即時成果を
+                {t.services.pricing_info.delivery}
               </div>
             </div>
           </div>
@@ -46,8 +48,8 @@
                 </svg>
               </div>
               <div>
-                <h3 class="text-lg font-semibold text-gray-900 mb-2">0.3秒表示の高速サイト</h3>
-                <p class="text-gray-600">Jamstack技術で大企業並みの表示速度を実現</p>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">{t.services.features_list.fast_site.title}</h3>
+                <p class="text-gray-600">{t.services.features_list.fast_site.description}</p>
               </div>
             </div>
             
@@ -58,8 +60,8 @@
                 </svg>
               </div>
               <div>
-                <h3 class="text-lg font-semibold text-gray-900 mb-2">SEO満点の最適化</h3>
-                <p class="text-gray-600">Google PageSpeed 95点以上を保証</p>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">{t.services.features_list.seo_optimized.title}</h3>
+                <p class="text-gray-600">{t.services.features_list.seo_optimized.description}</p>
               </div>
             </div>
             
@@ -70,8 +72,8 @@
                 </svg>
               </div>
               <div>
-                <h3 class="text-lg font-semibold text-gray-900 mb-2">完全なサイバーセキュリティ</h3>
-                <p class="text-gray-600">Firebase Hosting + Cloudflare CDNで防御</p>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">{t.services.features_list.security.title}</h3>
+                <p class="text-gray-600">{t.services.features_list.security.description}</p>
               </div>
             </div>
           </div>

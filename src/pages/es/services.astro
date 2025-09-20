@@ -1,0 +1,11 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import ServiceOverview from "../../components/sections/ServiceOverview.astro";
+---
+
+<MainLayout
+  title="Servicios - BoltSite"
+  description="Servicio de creación de sitios web de alto rendimiento con garantía PageSpeed 95+."
+>
+  <ServiceOverview currentPath={Astro.url.pathname} />
+</MainLayout>
