@@ -1,5 +1,11 @@
 ---
 import type { FooterLink, SocialLink } from '../../types';
+import { loadTranslation, getLocaleFromPathname, getPathPrefix } from '../../utils/i18n';
+
+const { currentPath } = Astro.props;
+const locale = getLocaleFromPathname(currentPath || Astro.url.pathname);
+const t = await loadTranslation(locale);
+const pathPrefix = getPathPrefix(locale);
 
 const socialLinks: SocialLink[] = [
   { name: "Twitter", src: "/src/assets/twitter.svg", link: "https://twitter.com/boltsite" },
@@ -8,18 +14,18 @@ const socialLinks: SocialLink[] = [
 ];
 
 const servicesLinks: FooterLink[] = [
-  { name: "サービス概要", href: "/services" },
-  { name: "料金プラン", href: "/pricing" },
-  { name: "機能比較", href: "/services#features" },
-  { name: "パフォーマンス保証", href: "/#performance" },
-  { name: "DXパッケージ", href: "/#dx-package" },
+  { name: t.services.overview, href: `${pathPrefix}/services` },
+  { name: t.nav.pricing, href: `${pathPrefix}/pricing` },
+  { name: t.nav.features, href: `${pathPrefix}/services#features` },
+  { name: t.nav.performance, href: `${pathPrefix}/#performance` },
+  { name: t.services.dx_package, href: `${pathPrefix}/#dx-package` },
 ];
 
 const supportLinks: FooterLink[] = [
-  { name: "よくある質問", href: "/#faq" },
-  { name: "導入の流れ", href: "/#introduction-flow" },
-  { name: "お問い合わせ", href: "/#contact" },
-  { name: "Cor.株式会社", href: "https://cor-jp.com" },
+  { name: t.footer.faq, href: `${pathPrefix}/#faq` },
+  { name: t.footer.flow, href: `${pathPrefix}/#introduction-flow` },
+  { name: t.nav.contact, href: `${pathPrefix}/#contact` },
+  { name: t.footer.company, href: "https://cor-jp.com" },
 ];
 ---
 
@@ -34,10 +40,7 @@ const supportLinks: FooterLink[] = [
           <!-- ロゴと説明 -->
           <div>
             <h2 class="text-xl font-bold text-white mb-4">BoltSite</h2>
-            <p class="text-gray-300 mb-4 text-sm leading-relaxed">
-              高性能ホームページ制作サービス<br/>
-              中小企業のDXを加速します
-            </p>
+            <p class="text-gray-300 mb-4 text-sm leading-relaxed" set:html={t.footer.description}></p>
             <div class="flex gap-3">
               {socialLinks.map((social) => (
                 <a
@@ -62,7 +65,7 @@ const supportLinks: FooterLink[] = [
           
           <!-- サービス -->
           <div>
-            <h3 class="text-base font-semibold mb-4">サービス</h3>
+            <h3 class="text-base font-semibold mb-4">{t.footer.services}</h3>
             <ul class="space-y-2">
               {servicesLinks.map((link) => (
                 <li>
@@ -79,7 +82,7 @@ const supportLinks: FooterLink[] = [
 
           <!-- サポート -->
           <div>
-            <h3 class="text-base font-semibold mb-4">サポート</h3>
+            <h3 class="text-base font-semibold mb-4">{t.footer.support}</h3>
             <ul class="space-y-2">
               {supportLinks.map((link) => (
                 <li>
@@ -98,23 +101,23 @@ const supportLinks: FooterLink[] = [
           
           <!-- お問い合わせ -->
           <div>
-            <h3 class="text-base font-semibold mb-4">お問い合わせ</h3>
+            <h3 class="text-base font-semibold mb-4">{t.footer.contact}</h3>
             <div class="space-y-3 text-sm">
               <div class="flex items-start gap-2">
                 <span class="text-gray-400">✉</span>
-                <a href="mailto:contact@boltsite.com" class="text-gray-400 hover:text-white transition-colors duration-300">
-                  contact@boltsite.com
+                <a href={`mailto:${t.common.email}`} class="text-gray-400 hover:text-white transition-colors duration-300">
+                  {t.common.email}
                 </a>
               </div>
               <div class="flex items-start gap-2">
                 <span class="text-gray-400">📞</span>
-                <a href="tel:03-1234-5678" class="text-gray-400 hover:text-white transition-colors duration-300">
-                  03-1234-5678
+                <a href={`tel:${t.common.phone}`} class="text-gray-400 hover:text-white transition-colors duration-300">
+                  {t.common.phone}
                 </a>
               </div>
               <div class="flex items-start gap-2">
                 <span class="text-gray-400">📍</span>
-                <span class="text-gray-400">東京都渋谷区</span>
+                <span class="text-gray-400">{t.common.address}</span>
               </div>
             </div>
           </div>
@@ -125,12 +128,12 @@ const supportLinks: FooterLink[] = [
       <div class="my-8">
         <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-6">
           <div class="text-center">
-            <h3 class="text-lg font-bold text-white mb-2">共創パートナー優待制度</h3>
+            <h3 class="text-lg font-bold text-white mb-2">{t.footer.partner_program}</h3>
             <p class="text-white/90 mb-4 text-sm">
-              Cor.株式会社の他のサービスをご利用のお客様には、長期的なパートナーシップに基づく特別料金をご提供いたします。
+              {t.footer.partner_description}
             </p>
-            <a href="#" class="inline-block bg-white text-blue-600 px-6 py-2 rounded-full text-sm font-semibold hover:bg-blue-50 transition-colors duration-300">
-              詳細はこちら
+            <a href="https://cor-jp.com" class="inline-block bg-white text-blue-600 px-6 py-2 rounded-full text-sm font-semibold hover:bg-blue-50 transition-colors duration-300">
+              {t.footer.partner_link}
             </a>
           </div>
         </div>
@@ -142,15 +145,15 @@ const supportLinks: FooterLink[] = [
       <!-- コピーライト -->
       <div class="py-6 text-center">
         <div class="text-gray-400 text-sm mb-3">
-          © 2024 BoltSite by Cor.株式会社. All rights reserved.
+          {t.footer.copyright}
         </div>
         <div class="flex justify-center gap-6 text-sm">
-          <a href="/privacy" class="text-gray-400 hover:text-white transition-colors duration-300">
-            プライバシーポリシー
+          <a href={`${pathPrefix}/privacy`} class="text-gray-400 hover:text-white transition-colors duration-300">
+            {t.footer.privacy}
           </a>
           <span class="text-gray-600">|</span>
-          <a href="/terms" class="text-gray-400 hover:text-white transition-colors duration-300">
-            利用規約
+          <a href={`${pathPrefix}/terms`} class="text-gray-400 hover:text-white transition-colors duration-300">
+            {t.footer.terms}
           </a>
         </div>
       </div>

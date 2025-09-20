@@ -1,5 +1,10 @@
 ---
-// BoltSite 競合優位性セクション
+import { loadTranslation, getLocaleFromPathname, getTranslation } from '../../utils/i18n';
+
+const { currentPath } = Astro.props;
+const locale = getLocaleFromPathname(currentPath || Astro.url.pathname);
+const translations = await loadTranslation(locale);
+const t = (key: string) => getTranslation(translations, key);
 ---
 
 <section id="competitive" class="py-20 bg-gray-50">
@@ -9,10 +14,10 @@
       <!-- セクションタイトル -->
       <div class="text-center mb-16">
         <h2 class="text-4xl font-bold text-gray-900 mb-4">
-          競合優位性
+          {t('competitive.title')}
         </h2>
         <p class="text-xl text-gray-600">
-          なぜBoltSiteが選ばれるのか？他社との違いを比較
+          {t('competitive.subtitle')}
         </p>
       </div>
       
@@ -22,103 +27,103 @@
           <table class="w-full text-sm">
             <thead class="bg-gray-100">
               <tr>
-                <th class="text-left py-4 px-6 font-semibold text-gray-900">比較項目</th>
-                <th class="text-center py-4 px-4 font-semibold text-blue-600">BoltSite<br><span class="text-xs text-gray-500">(Cor.inc)</span></th>
-                <th class="text-center py-4 px-4 font-semibold text-gray-700">大手制作会社</th>
-                <th class="text-center py-4 px-4 font-semibold text-gray-700">フリーランス</th>
-                <th class="text-center py-4 px-4 font-semibold text-gray-700">WordPress</th>
-                <th class="text-center py-4 px-4 font-semibold text-gray-700">Wix</th>
-                <th class="text-center py-4 px-4 font-semibold text-gray-700">Jimdo</th>
+                <th class="text-left py-4 px-6 font-semibold text-gray-900">{t('competitive.comparison_items')}</th>
+                <th class="text-center py-4 px-4 font-semibold text-blue-600" set:html={t('competitive.boltsite_company')}></th>
+                <th class="text-center py-4 px-4 font-semibold text-gray-700">{t('competitive.major_companies')}</th>
+                <th class="text-center py-4 px-4 font-semibold text-gray-700">{t('competitive.freelance')}</th>
+                <th class="text-center py-4 px-4 font-semibold text-gray-700">{t('competitive.wordpress')}</th>
+                <th class="text-center py-4 px-4 font-semibold text-gray-700">{t('competitive.wix')}</th>
+                <th class="text-center py-4 px-4 font-semibold text-gray-700">{t('competitive.jimdo')}</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200">
               <tr>
-                <td class="py-4 px-6 font-medium text-gray-900">初期費用</td>
+                <td class="py-4 px-6 font-medium text-gray-900">{t('competitive_details.initial_cost')}</td>
                 <td class="py-4 px-4 text-center">
-                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">0円</span>
+                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">{t('competitive_details.zero_yen')}</span>
                 </td>
-                <td class="py-4 px-4 text-center text-red-600 font-semibold">100万円〜</td>
-                <td class="py-4 px-4 text-center text-red-600 font-semibold">50万円〜</td>
-                <td class="py-4 px-4 text-center text-red-600 font-semibold">30万円〜</td>
-                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">5万円〜</td>
-                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">3万円〜</td>
+                <td class="py-4 px-4 text-center text-red-600 font-semibold">{t('competitive_details.one_million_yen')}</td>
+                <td class="py-4 px-4 text-center text-red-600 font-semibold">{t('competitive_details.five_hundred_thousand_yen')}</td>
+                <td class="py-4 px-4 text-center text-red-600 font-semibold">{t('competitive_details.three_hundred_thousand_yen')}</td>
+                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">{t('competitive_details.fifty_thousand_yen')}</td>
+                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">{t('competitive_details.thirty_thousand_yen')}</td>
               </tr>
               <tr class="bg-gray-50">
-                <td class="py-4 px-6 font-medium text-gray-900">月額料金</td>
+                <td class="py-4 px-6 font-medium text-gray-900">{t('competitive_details.monthly_fee')}</td>
                 <td class="py-4 px-4 text-center">
-                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">15,000円〜</span>
+                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">{t('competitive_details.fifteen_thousand_yen')}</span>
                 </td>
-                <td class="py-4 px-4 text-center text-red-600 font-semibold">10万円〜</td>
-                <td class="py-4 px-4 text-center text-red-600 font-semibold">5万円〜</td>
-                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">2万円〜</td>
-                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">1万円〜</td>
-                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">8,000円〜</td>
+                <td class="py-4 px-4 text-center text-red-600 font-semibold">{t('competitive_details.one_hundred_thousand_yen')}</td>
+                <td class="py-4 px-4 text-center text-red-600 font-semibold">{t('competitive_details.fifty_thousand_yen')}</td>
+                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">{t('competitive_details.twenty_thousand_yen')}</td>
+                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">{t('competitive_details.ten_thousand_yen')}</td>
+                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">{t('competitive_details.eight_thousand_yen')}</td>
               </tr>
               <tr>
-                <td class="py-4 px-6 font-medium text-gray-900">表示速度</td>
+                <td class="py-4 px-6 font-medium text-gray-900">{t('competitive_details.display_speed')}</td>
                 <td class="py-4 px-4 text-center">
-                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">0.3秒</span>
+                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">{t('competitive_details.zero_point_three_seconds')}</span>
                 </td>
-                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">1-3秒</td>
-                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">1-5秒</td>
-                <td class="py-4 px-4 text-center text-red-600 font-semibold">3-10秒</td>
-                <td class="py-4 px-4 text-center text-red-600 font-semibold">2-8秒</td>
-                <td class="py-4 px-4 text-center text-red-600 font-semibold">2-6秒</td>
+                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">{t('competitive_details.one_to_three_seconds')}</td>
+                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">{t('competitive_details.one_to_five_seconds')}</td>
+                <td class="py-4 px-4 text-center text-red-600 font-semibold">{t('competitive_details.three_to_ten_seconds')}</td>
+                <td class="py-4 px-4 text-center text-red-600 font-semibold">{t('competitive_details.two_to_eight_seconds')}</td>
+                <td class="py-4 px-4 text-center text-red-600 font-semibold">{t('competitive_details.two_to_six_seconds')}</td>
               </tr>
               <tr class="bg-gray-50">
-                <td class="py-4 px-6 font-medium text-gray-900">セキュリティ</td>
+                <td class="py-4 px-6 font-medium text-gray-900">{t('competitive_details.security')}</td>
                 <td class="py-4 px-4 text-center">
-                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">最高レベル</span>
+                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">{t('competitive_details.highest_level')}</span>
                 </td>
-                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">高</td>
-                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">中</td>
-                <td class="py-4 px-4 text-center text-red-600 font-semibold">低</td>
-                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">中</td>
-                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">中</td>
+                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">{t('competitive_details.high')}</td>
+                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">{t('competitive_details.medium')}</td>
+                <td class="py-4 px-4 text-center text-red-600 font-semibold">{t('competitive_details.low')}</td>
+                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">{t('competitive_details.medium')}</td>
+                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">{t('competitive_details.medium')}</td>
               </tr>
               <tr>
-                <td class="py-4 px-6 font-medium text-gray-900">カスタマイズ性</td>
+                <td class="py-4 px-6 font-medium text-gray-900">{t('competitive_details.customizability')}</td>
                 <td class="py-4 px-4 text-center">
-                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">完全対応</span>
+                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">{t('competitive_details.full_support')}</span>
                 </td>
-                <td class="py-4 px-4 text-center text-green-600 font-semibold">完全対応</td>
-                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">制限あり</td>
-                <td class="py-4 px-4 text-center text-green-600 font-semibold">完全対応</td>
-                <td class="py-4 px-4 text-center text-red-600 font-semibold">制限大</td>
-                <td class="py-4 px-4 text-center text-red-600 font-semibold">制限大</td>
+                <td class="py-4 px-4 text-center text-green-600 font-semibold">{t('competitive_details.full_support')}</td>
+                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">{t('competitive_details.limited')}</td>
+                <td class="py-4 px-4 text-center text-green-600 font-semibold">{t('competitive_details.full_support')}</td>
+                <td class="py-4 px-4 text-center text-red-600 font-semibold">{t('competitive_details.very_limited')}</td>
+                <td class="py-4 px-4 text-center text-red-600 font-semibold">{t('competitive_details.very_limited')}</td>
               </tr>
               <tr class="bg-gray-50">
-                <td class="py-4 px-6 font-medium text-gray-900">サポート</td>
+                <td class="py-4 px-6 font-medium text-gray-900">{t('competitive_details.support')}</td>
                 <td class="py-4 px-4 text-center">
-                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">24時間対応</span>
+                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">{t('competitive_details.twenty_four_hours')}</span>
                 </td>
-                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">営業時間内</td>
-                <td class="py-4 px-4 text-center text-red-600 font-semibold">個人依存</td>
-                <td class="py-4 px-4 text-center text-red-600 font-semibold">コミュニティ</td>
-                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">営業時間内</td>
-                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">営業時間内</td>
+                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">{t('competitive_details.business_hours')}</td>
+                <td class="py-4 px-4 text-center text-red-600 font-semibold">{t('competitive_details.personal_dependent')}</td>
+                <td class="py-4 px-4 text-center text-red-600 font-semibold">{t('competitive_details.community')}</td>
+                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">{t('competitive_details.business_hours')}</td>
+                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">{t('competitive_details.business_hours')}</td>
               </tr>
               <tr>
-                <td class="py-4 px-6 font-medium text-gray-900">スケーラビリティ</td>
+                <td class="py-4 px-6 font-medium text-gray-900">{t('competitive_details.scalability')}</td>
                 <td class="py-4 px-4 text-center">
-                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">無制限</span>
+                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">{t('competitive_details.unlimited')}</span>
                 </td>
-                <td class="py-4 px-4 text-center text-green-600 font-semibold">高</td>
-                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">中</td>
-                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">中</td>
-                <td class="py-4 px-4 text-center text-red-600 font-semibold">低</td>
-                <td class="py-4 px-4 text-center text-red-600 font-semibold">低</td>
+                <td class="py-4 px-4 text-center text-green-600 font-semibold">{t('competitive_details.high')}</td>
+                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">{t('competitive_details.medium')}</td>
+                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">{t('competitive_details.medium')}</td>
+                <td class="py-4 px-4 text-center text-red-600 font-semibold">{t('competitive_details.low')}</td>
+                <td class="py-4 px-4 text-center text-red-600 font-semibold">{t('competitive_details.low')}</td>
               </tr>
               <tr class="bg-gray-50">
-                <td class="py-4 px-6 font-medium text-gray-900">保守コスト</td>
+                <td class="py-4 px-6 font-medium text-gray-900">{t('competitive_details.maintenance_cost')}</td>
                 <td class="py-4 px-4 text-center">
-                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">月額のみ</span>
+                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">{t('competitive_details.monthly_only')}</span>
                 </td>
-                <td class="py-4 px-4 text-center text-red-600 font-semibold">高額</td>
-                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">変動</td>
-                <td class="py-4 px-4 text-center text-red-600 font-semibold">高額</td>
-                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">中</td>
-                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">中</td>
+                <td class="py-4 px-4 text-center text-red-600 font-semibold">{t('competitive_details.expensive')}</td>
+                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">{t('competitive_details.variable')}</td>
+                <td class="py-4 px-4 text-center text-red-600 font-semibold">{t('competitive_details.expensive')}</td>
+                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">{t('competitive_details.medium')}</td>
+                <td class="py-4 px-4 text-center text-yellow-600 font-semibold">{t('competitive_details.medium')}</td>
               </tr>
             </tbody>
           </table>
@@ -128,7 +133,7 @@
       <!-- 採用技術 -->
       <div class="grid lg:grid-cols-2 gap-12 mb-12">
         <div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-6">採用技術</h3>
+          <h3 class="text-2xl font-bold text-gray-900 mb-6">{t('tech_stack.title')}</h3>
           <div class="space-y-4">
             <div class="flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm">
               <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
@@ -138,7 +143,7 @@
               </div>
               <div>
                 <h4 class="font-semibold text-gray-900">Astro.js</h4>
-                <p class="text-sm text-gray-600">静的サイト生成で最高のパフォーマンス</p>
+                <p class="text-sm text-gray-600">{t('tech_stack.astro_desc')}</p>
               </div>
             </div>
             
@@ -150,7 +155,7 @@
               </div>
               <div>
                 <h4 class="font-semibold text-gray-900">Firebase Hosting</h4>
-                <p class="text-sm text-gray-600">Googleのインフラで安定した配信</p>
+                <p class="text-sm text-gray-600">{t('tech_stack.firebase_desc')}</p>
               </div>
             </div>
             
@@ -162,32 +167,32 @@
               </div>
               <div>
                 <h4 class="font-semibold text-gray-900">Cloudflare CDN</h4>
-                <p class="text-sm text-gray-600">世界最大級のCDNで高速配信</p>
+                <p class="text-sm text-gray-600">{t('tech_stack.cloudflare_desc')}</p>
               </div>
             </div>
           </div>
         </div>
         
         <div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-6">実績例</h3>
+          <h3 class="text-2xl font-bold text-gray-900 mb-6">{t('case_studies.title')}</h3>
           <div class="space-y-6">
             <div class="bg-white rounded-lg p-6 shadow-sm border-l-4 border-blue-500">
               <h4 class="font-semibold text-gray-900 mb-2">cor-jp.com</h4>
-              <p class="text-sm text-gray-600 mb-3">多言語対応でグローバル展開</p>
+              <p class="text-sm text-gray-600 mb-3">{t('case_studies.cor_jp_desc')}</p>
               <div class="flex items-center gap-2 text-sm">
-                <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full">0.3秒表示</span>
-                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">4言語対応</span>
-                <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full">SEO満点</span>
+                <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full">{t('case_studies.zero_point_three_seconds_display')}</span>
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">{t('case_studies.four_language_support')}</span>
+                <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full">{t('case_studies.seo_perfect')}</span>
               </div>
             </div>
             
             <div class="bg-white rounded-lg p-6 shadow-sm border-l-4 border-green-500">
               <h4 class="font-semibold text-gray-900 mb-2">nogyodata.com</h4>
-              <p class="text-sm text-gray-600 mb-3">Firebase CMSで効率的なブログ運営</p>
+              <p class="text-sm text-gray-600 mb-3">{t('case_studies.nogyodata_desc')}</p>
               <div class="flex items-center gap-2 text-sm">
-                <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full">高速表示</span>
-                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">CMS連携</span>
-                <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full">保守性向上</span>
+                <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full">{t('case_studies.high_speed_display')}</span>
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">{t('case_studies.cms_integration')}</span>
+                <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full">{t('case_studies.maintainability_improvement')}</span>
               </div>
             </div>
           </div>
@@ -196,52 +201,52 @@
       
       <!-- なぜ速いのか？ -->
       <div class="bg-white rounded-2xl shadow-lg p-8">
-        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">なぜ速いのか？</h3>
+        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">{t('why_fast.title')}</h3>
         
         <div class="grid md:grid-cols-2 gap-8">
           <!-- WordPress vs BoltSite -->
           <div>
-            <h4 class="text-lg font-semibold text-gray-900 mb-4">WordPress vs BoltSite</h4>
+            <h4 class="text-lg font-semibold text-gray-900 mb-4">{t('why_fast.wordpress_vs_boltsite')}</h4>
             <div class="space-y-4">
               <div class="flex items-center justify-between p-3 bg-red-50 rounded-lg">
                 <span class="text-sm font-medium text-gray-700">WordPress</span>
-                <span class="text-sm text-red-600 font-semibold">3-10秒</span>
+                <span class="text-sm text-red-600 font-semibold">{t('competitive_details.three_to_ten_seconds')}</span>
               </div>
               <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg">
                 <span class="text-sm font-medium text-gray-700">BoltSite</span>
-                <span class="text-sm text-green-600 font-semibold">0.3秒</span>
+                <span class="text-sm text-green-600 font-semibold">{t('competitive_details.zero_point_three_seconds')}</span>
               </div>
             </div>
             
             <div class="mt-4 text-sm text-gray-600">
-              <p><strong>WordPress:</strong> データベース読み込み、PHP処理、プラグイン実行</p>
-              <p><strong>BoltSite:</strong> 静的ファイル配信、CDN最適化、Jamstack</p>
+              <p><strong>WordPress:</strong> {t('why_fast.wordpress_details')}</p>
+              <p><strong>BoltSite:</strong> {t('why_fast.boltsite_details')}</p>
             </div>
           </div>
           
           <!-- 技術スタック比較 -->
           <div>
-            <h4 class="text-lg font-semibold text-gray-900 mb-4">技術スタック比較</h4>
+            <h4 class="text-lg font-semibold text-gray-900 mb-4">{t('why_fast.tech_comparison')}</h4>
             <div class="space-y-3">
               <div class="flex items-center gap-3">
                 <div class="w-3 h-3 bg-red-500 rounded-full"></div>
                 <div class="text-sm">
                   <span class="font-medium text-gray-900">WordPress:</span>
-                  <span class="text-gray-600"> PHP + MySQL + サーバー処理</span>
+                  <span class="text-gray-600"> {t('why_fast.wordpress_stack')}</span>
                 </div>
               </div>
               <div class="flex items-center gap-3">
                 <div class="w-3 h-3 bg-green-500 rounded-full"></div>
                 <div class="text-sm">
                   <span class="font-medium text-gray-900">BoltSite:</span>
-                  <span class="text-gray-600"> Astro.js + Firebase + CDN</span>
+                  <span class="text-gray-600"> {t('why_fast.boltsite_stack')}</span>
                 </div>
               </div>
             </div>
             
             <div class="mt-4 p-4 bg-blue-50 rounded-lg">
               <p class="text-sm text-blue-800">
-                <strong>結果:</strong> BoltSiteはWordPressの<strong>10倍以上高速</strong>で表示されます
+                <strong>{t('why_fast.result')}</strong> {t('why_fast.result_desc')}
               </p>
             </div>
           </div>

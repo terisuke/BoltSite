@@ -1,5 +1,10 @@
 ---
-// BoltSite DX化パッケージ提案セクション
+import { loadTranslation, getLocaleFromPathname, getTranslation } from '../../utils/i18n';
+
+const { currentPath } = Astro.props;
+const locale = getLocaleFromPathname(currentPath || Astro.url.pathname);
+const translations = await loadTranslation(locale);
+const t = (key: string) => getTranslation(translations, key);
 ---
 
 <section id="dx-package" class="py-20 bg-white">
@@ -9,17 +14,17 @@
       <!-- セクションタイトル -->
       <div class="text-center mb-16">
         <h2 class="text-4xl font-bold text-gray-900 mb-4">
-          DX化パッケージ提案
+          {t('dx_package.title')}
         </h2>
         <p class="text-xl text-gray-600">
-          名刺からホームページ、IoTまで一貫したDXソリューション
+          {t('dx_package.subtitle')}
         </p>
       </div>
       
       <!-- 統合フロー図 -->
       <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 mb-12">
         <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">
-          統合フロー図
+          {t('dx_package.integrated_flow_diagram')}
         </h3>
         
         <div class="flex flex-col md:flex-row items-center justify-center gap-8">
@@ -31,8 +36,8 @@
               </svg>
             </div>
             <h4 class="font-bold text-gray-900 mb-2">TapForge</h4>
-            <p class="text-sm text-gray-600 mb-2">NFCデジタル名刺</p>
-            <div class="text-xs text-blue-600 font-semibold">月額3,000円〜</div>
+            <p class="text-sm text-gray-600 mb-2">{t('dx_package.nfc_digital_business_card')}</p>
+            <div class="text-xs text-blue-600 font-semibold">{t('dx_package.tapforge_price')}</div>
           </div>
           
           <!-- 矢印 -->
@@ -50,8 +55,8 @@
               </svg>
             </div>
             <h4 class="font-bold text-gray-900 mb-2">BoltSite</h4>
-            <p class="text-sm text-gray-600 mb-2">高性能ホームページ</p>
-            <div class="text-xs text-green-600 font-semibold">月額15,000円〜</div>
+            <p class="text-sm text-gray-600 mb-2">{t('dx_package.high_performance_website')}</p>
+            <div class="text-xs text-green-600 font-semibold">{t('dx_package.boltsite_price')}</div>
           </div>
           
           <!-- 矢印 -->
@@ -69,17 +74,17 @@
               </svg>
             </div>
             <h4 class="font-bold text-gray-900 mb-2">IoTRealm</h4>
-            <p class="text-sm text-gray-600 mb-2">デジタル現実融合</p>
-            <div class="text-xs text-purple-600 font-semibold">月額50,000円〜</div>
+            <p class="text-sm text-gray-600 mb-2">{t('dx_package.digital_reality_fusion')}</p>
+            <div class="text-xs text-purple-600 font-semibold">{t('dx_package.iotrealm_price')}</div>
           </div>
         </div>
         
         <div class="mt-8 text-center">
           <p class="text-lg font-semibold text-gray-800 mb-2">
-            共創によるビジネス革新
+            {t('dx_package.business_innovation')}
           </p>
           <p class="text-gray-600">
-            名刺からホームページ、IoTまで一貫したDXで顧客体験を向上
+            {t('dx_package.customer_experience_improvement')}
           </p>
         </div>
       </div>
@@ -87,7 +92,7 @@
       <!-- エンタープライズプランの追加サービス -->
       <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
         <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">
-          エンタープライズプランの追加サービス
+          {t('dx_package.enterprise_plan_additional_services')}
         </h3>
         
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -97,8 +102,8 @@
                 <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
               </svg>
             </div>
-            <h4 class="font-semibold text-gray-900 mb-2">専任コンサルタント</h4>
-            <p class="text-sm text-gray-600">個別サポート</p>
+            <h4 class="font-semibold text-gray-900 mb-2">{t('dx_package.dedicated_consultant')}</h4>
+            <p class="text-sm text-gray-600">{t('dx_package.individual_support')}</p>
           </div>
           
           <div class="text-center p-6 bg-white rounded-lg">
@@ -108,8 +113,8 @@
                 <path fill-rule="evenodd" d="M4 5a2 2 0 012-2v1a1 1 0 102 0V3a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <h4 class="font-semibold text-gray-900 mb-2">A/Bテスト</h4>
-            <p class="text-sm text-gray-600">データ駆動改善</p>
+            <h4 class="font-semibold text-gray-900 mb-2">{t('dx_package.ab_testing')}</h4>
+            <p class="text-sm text-gray-600">{t('dx_package.data_driven_improvement')}</p>
           </div>
           
           <div class="text-center p-6 bg-purple-50 rounded-lg">
@@ -118,8 +123,8 @@
                 <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
               </svg>
             </div>
-            <h4 class="font-semibold text-gray-900 mb-2">CRO最適化</h4>
-            <p class="text-sm text-gray-600">コンバージョン向上</p>
+            <h4 class="font-semibold text-gray-900 mb-2">{t('dx_package.cro_optimization')}</h4>
+            <p class="text-sm text-gray-600">{t('dx_package.conversion_improvement')}</p>
           </div>
           
           <div class="text-center p-6 bg-orange-50 rounded-lg">
@@ -128,8 +133,8 @@
                 <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
               </svg>
             </div>
-            <h4 class="font-semibold text-gray-900 mb-2">競合分析</h4>
-            <p class="text-sm text-gray-600">市場調査</p>
+            <h4 class="font-semibold text-gray-900 mb-2">{t('dx_package.competitive_analysis')}</h4>
+            <p class="text-sm text-gray-600">{t('dx_package.market_research')}</p>
           </div>
           
           <div class="text-center p-6 bg-red-50 rounded-lg">
@@ -138,8 +143,8 @@
                 <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
               </svg>
             </div>
-            <h4 class="font-semibold text-gray-900 mb-2">API連携</h4>
-            <p class="text-sm text-gray-600">システム統合</p>
+            <h4 class="font-semibold text-gray-900 mb-2">{t('dx_package.api_integration')}</h4>
+            <p class="text-sm text-gray-600">{t('dx_package.system_integration')}</p>
           </div>
           
           <div class="text-center p-6 bg-indigo-50 rounded-lg">
@@ -148,8 +153,8 @@
                 <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
               </svg>
             </div>
-            <h4 class="font-semibold text-gray-900 mb-2">マルチサイト管理</h4>
-            <p class="text-sm text-gray-600">一元管理</p>
+            <h4 class="font-semibold text-gray-900 mb-2">{t('dx_package.multi_site_management')}</h4>
+            <p class="text-sm text-gray-600">{t('dx_package.centralized_management')}</p>
           </div>
           
           <div class="text-center p-6 bg-pink-50 rounded-lg">
@@ -158,8 +163,8 @@
                 <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            <h4 class="font-semibold text-gray-900 mb-2">優先開発</h4>
-            <p class="text-sm text-gray-600">迅速対応</p>
+            <h4 class="font-semibold text-gray-900 mb-2">{t('dx_package.priority_development')}</h4>
+            <p class="text-sm text-gray-600">{t('dx_package.rapid_response')}</p>
           </div>
           
           <div class="text-center p-6 bg-teal-50 rounded-lg">
@@ -168,8 +173,8 @@
                 <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
               </svg>
             </div>
-            <h4 class="font-semibold text-gray-900 mb-2">カスタム開発</h4>
-            <p class="text-sm text-gray-600">個別要件対応</p>
+            <h4 class="font-semibold text-gray-900 mb-2">{t('dx_package.custom_development')}</h4>
+            <p class="text-sm text-gray-600">{t('dx_package.individual_requirements')}</p>
           </div>
         </div>
       </div>
@@ -177,7 +182,7 @@
       <!-- おすすめ企業 -->
       <div class="bg-gray-50 rounded-2xl p-8">
         <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">
-          おすすめ企業
+          {t('dx_package.recommended_companies')}
         </h3>
         
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -188,9 +193,9 @@
                   <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
                 </svg>
               </div>
-              <h4 class="font-semibold text-gray-900">WordPressの遅さに悩んでいる</h4>
+              <h4 class="font-semibold text-gray-900">{t('dx_package.wordpress_slow_concern')}</h4>
             </div>
-            <p class="text-sm text-gray-600">表示速度が3秒以上かかり、顧客離れを心配している企業</p>
+            <p class="text-sm text-gray-600">{t('dx_package.wordpress_slow_description')}</p>
           </div>
           
           <div class="bg-white rounded-lg p-6 shadow-sm">
@@ -200,9 +205,9 @@
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
               </div>
-              <h4 class="font-semibold text-gray-900">SEOランキング向上を目指す</h4>
+              <h4 class="font-semibold text-gray-900">{t('dx_package.seo_ranking_improvement')}</h4>
             </div>
-            <p class="text-sm text-gray-600">検索順位を上げて、オーガニック流入を増やしたい企業</p>
+            <p class="text-sm text-gray-600">{t('dx_package.seo_ranking_description')}</p>
           </div>
           
           <div class="bg-white rounded-lg p-6 shadow-sm">
@@ -212,9 +217,9 @@
                   <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
               </div>
-              <h4 class="font-semibold text-gray-900">セキュリティリスクを最小化</h4>
+              <h4 class="font-semibold text-gray-900">{t('dx_package.security_risk_minimization')}</h4>
             </div>
-            <p class="text-sm text-gray-600">サイバー攻撃から企業を守りたい企業</p>
+            <p class="text-sm text-gray-600">{t('dx_package.security_risk_description')}</p>
           </div>
           
           <div class="bg-white rounded-lg p-6 shadow-sm">
@@ -224,9 +229,9 @@
                   <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4zM18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"></path>
                 </svg>
               </div>
-              <h4 class="font-semibold text-gray-900">運用コストを削減したい</h4>
+              <h4 class="font-semibold text-gray-900">{t('dx_package.operational_cost_reduction')}</h4>
             </div>
-            <p class="text-sm text-gray-600">月額制で予算を安定させたい企業</p>
+            <p class="text-sm text-gray-600">{t('dx_package.operational_cost_description')}</p>
           </div>
           
           <div class="bg-white rounded-lg p-6 shadow-sm">
@@ -236,9 +241,9 @@
                   <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
                 </svg>
               </div>
-              <h4 class="font-semibold text-gray-900">モバイル離脱を防ぎたい</h4>
+              <h4 class="font-semibold text-gray-900">{t('dx_package.mobile_abandonment_prevention')}</h4>
             </div>
-            <p class="text-sm text-gray-600">スマホユーザーの離脱率が高い企業</p>
+            <p class="text-sm text-gray-600">{t('dx_package.mobile_abandonment_description')}</p>
           </div>
           
           <div class="bg-white rounded-lg p-6 shadow-sm">
@@ -248,9 +253,9 @@
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
               </div>
-              <h4 class="font-semibold text-gray-900">DXを加速したい</h4>
+              <h4 class="font-semibold text-gray-900">{t('dx_package.dx_acceleration')}</h4>
             </div>
-            <p class="text-sm text-gray-600">デジタル変革を推進したい企業</p>
+            <p class="text-sm text-gray-600">{t('dx_package.dx_acceleration_description')}</p>
           </div>
         </div>
       </div>

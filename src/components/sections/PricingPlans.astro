@@ -2,8 +2,13 @@
 import SectionTitle from '../ui/SectionTitle.astro';
 import Card from '../ui/Card.astro';
 import pricingData from '../../data/priceDats.json';
+import { loadTranslation, getLocaleFromPathname, getTranslation } from '../../utils/i18n';
 import type { PricingPlan } from '../../types';
 
+const { currentPath } = Astro.props;
+const locale = getLocaleFromPathname(currentPath || Astro.url.pathname);
+const translations = await loadTranslation(locale);
+const t = (key: string) => getTranslation(translations, key);
 const plans: PricingPlan[] = pricingData;
 ---
 
@@ -13,8 +18,8 @@ const plans: PricingPlan[] = pricingData;
       
       <!-- セクションタイトル -->
       <SectionTitle
-        title="料金プラン詳細"
-        description="初期費用0円、月額制でお気軽にスタート"
+        title={t('pricing.title')}
+        description={t('pricing.subtitle')}
       />
       
       <!-- プラン比較カード -->
@@ -22,57 +27,34 @@ const plans: PricingPlan[] = pricingData;
         
         <!-- ビギナープラン -->
         <Card
-          title="ビギナー"
-          description="月額（税込）"
+          title={t('pricing.basic.name')}
+          description={t('pricing.basic.description')}
           price={15000}
-          features={[
-            "5ページまで",
-            "レスポンシブデザイン",
-            "SSL証明書",
-            "月1回更新"
-          ]}
+          features={t('pricing.basic.features')}
         />
         
         <!-- スタンダードプラン -->
         <Card
-          title="スタンダード"
-          description="月額（税込）"
+          title={t('pricing.standard.name')}
+          description={t('pricing.standard.description')}
           price={25000}
-          features={[
-            "10ページまで",
-            "ブログ機能",
-            "お問い合わせフォーム",
-            "Google Analytics連携",
-            "月2回更新"
-          ]}
+          features={t('pricing.standard.features')}
         />
         
         <!-- プレミアムプラン -->
         <Card
-          title="プレミアム"
-          description="月額（税込）"
+          title={t('pricing.premium.name')}
+          description={t('pricing.premium.description')}
           price={30000}
-          features={[
-            "20ページまで",
-            "多言語対応（4言語）",
-            "記事作成サポート",
-            "緊急対応",
-            "電話サポート"
-          ]}
+          features={t('pricing.premium.features')}
         />
         
         <!-- エンタープライズプラン -->
         <Card
-          title="エンタープライズ"
-          description="月額（税込）"
+          title={t('pricing.enterprise.name')}
+          description={t('pricing.enterprise.description')}
           price={50000}
-          features={[
-            "無制限ページ",
-            "専任コンサルタント",
-            "データ駆動改善",
-            "API連携",
-            "優先開発"
-          ]}
+          features={t('pricing.enterprise.features')}
         />
       </div>
       
@@ -82,25 +64,21 @@ const plans: PricingPlan[] = pricingData;
           <svg class="w-5 h-5 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
           </svg>
-          <span class="text-sm font-semibold text-yellow-800">解約ポリシー</span>
+          <span class="text-sm font-semibold text-yellow-800">{t('policies.cancellation_policy')}</span>
         </div>
-        <p class="text-sm text-yellow-700">
-          1年以内の解約の場合は1年分の料金をお支払いいただきます。<br>
-          <span class="font-semibold">長期的なパートナーシップを推奨</span>しております。
+        <p class="text-sm text-yellow-700" set:html={t('policies.cancellation_text')}>
         </p>
       </div>
       
       <!-- 共創パートナー優待制度 -->
       <div class="mt-12 bg-gradient-to-r from-primary-50 to-accent-50 rounded-2xl p-8 text-center">
         <h3 class="text-2xl font-bold text-gray-900 mb-4">
-          共創パートナー優待制度
+          {t('policies.partner_program')}
         </h3>
-        <p class="text-gray-700 mb-6">
-          Cor.Incの他のサービスをご利用のお客様には、<br>
-          長期的なパートナーシップに基づく特別料金をご提供いたします。
+        <p class="text-gray-700 mb-6" set:html={t('policies.partner_description')}>
         </p>
         <a href="https://cor-jp.com" target="_blank" class="inline-block bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-full font-semibold transition-colors duration-300">
-          詳細はこちら
+          {t('policies.partner_link')}
         </a>
       </div>
     </div>

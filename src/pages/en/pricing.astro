@@ -1,0 +1,11 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import PricingPlans from "../../components/sections/PricingPlans.astro";
+---
+
+<MainLayout
+  title="Pricing Plans - BoltSite"
+  description="Simple and transparent pricing structure for high-performance website creation service."
+>
+  <PricingPlans currentPath={Astro.url.pathname} />
+</MainLayout>

@@ -1,5 +1,10 @@
 ---
-// BoltSite ビジネスインパクトセクション
+import { loadTranslation, getLocaleFromPathname, getTranslation } from '../../utils/i18n';
+
+const { currentPath } = Astro.props;
+const locale = getLocaleFromPathname(currentPath || Astro.url.pathname);
+const translations = await loadTranslation(locale);
+const t = (key: string) => getTranslation(translations, key);
 ---
 
 <section id="impact" class="py-20 bg-gray-50">
@@ -9,60 +14,60 @@
       <!-- セクションタイトル -->
       <div class="text-center mb-16">
         <h2 class="text-4xl font-bold text-gray-900 mb-4">
-          ビジネスインパクト
+          {t('business_impact.title')}
         </h2>
         <p class="text-xl text-gray-600">
-          サイト速度最適化がもたらす具体的な効果
+          {t('business_impact.subtitle')}
         </p>
       </div>
       
       <!-- 効果データ表 -->
       <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
         <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
-          <h3 class="text-2xl font-bold text-center">サイト速度最適化効果</h3>
+          <h3 class="text-2xl font-bold text-center">{t('business_impact.optimization_effects')}</h3>
         </div>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead class="bg-gray-100">
               <tr>
-                <th class="text-left py-4 px-6 font-semibold text-gray-900">指標</th>
-                <th class="text-center py-4 px-4 font-semibold text-gray-900">改善効果</th>
-                <th class="text-center py-4 px-4 font-semibold text-gray-900">具体的な数値</th>
-                <th class="text-center py-4 px-4 font-semibold text-gray-900">ビジネスへの影響</th>
+                <th class="text-left py-4 px-6 font-semibold text-gray-900">{t('business_impact.metrics')}</th>
+                <th class="text-center py-4 px-4 font-semibold text-gray-900">{t('business_impact.improvement_effects')}</th>
+                <th class="text-center py-4 px-4 font-semibold text-gray-900">{t('business_impact.specific_values')}</th>
+                <th class="text-center py-4 px-4 font-semibold text-gray-900">{t('business_impact.business_impact')}</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200">
               <tr>
-                <td class="py-4 px-6 font-medium text-gray-900">コンバージョン率</td>
+                <td class="py-4 px-6 font-medium text-gray-900">{t('business_impact.conversion_rate')}</td>
                 <td class="py-4 px-4 text-center">
                   <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">+15-25%</span>
                 </td>
-                <td class="py-4 px-4 text-center text-gray-700">月間売上向上</td>
-                <td class="py-4 px-4 text-center text-gray-700">直接的な収益増加</td>
+                <td class="py-4 px-4 text-center text-gray-700">{t('business_impact.monthly_sales_improvement')}</td>
+                <td class="py-4 px-4 text-center text-gray-700">{t('business_impact.direct_revenue_increase')}</td>
               </tr>
               <tr class="bg-gray-50">
-                <td class="py-4 px-6 font-medium text-gray-900">離脱率</td>
+                <td class="py-4 px-6 font-medium text-gray-900">{t('business_impact.bounce_rate')}</td>
                 <td class="py-4 px-4 text-center">
                   <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">-20-30%</span>
                 </td>
-                <td class="py-4 px-4 text-center text-gray-700">ユーザー滞在時間延長</td>
-                <td class="py-4 px-4 text-center text-gray-700">エンゲージメント向上</td>
+                <td class="py-4 px-4 text-center text-gray-700">{t('business_impact.extended_user_stay')}</td>
+                <td class="py-4 px-4 text-center text-gray-700">{t('business_impact.engagement_improvement')}</td>
               </tr>
               <tr>
-                <td class="py-4 px-6 font-medium text-gray-900">SEOランキング</td>
+                <td class="py-4 px-6 font-medium text-gray-900">{t('business_impact.seo_ranking')}</td>
                 <td class="py-4 px-4 text-center">
-                  <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-semibold">+5-10位</span>
+                  <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-semibold">{t('business_impact.seo_ranking_improvement_value')}</span>
                 </td>
-                <td class="py-4 px-4 text-center text-gray-700">検索順位向上</td>
-                <td class="py-4 px-4 text-center text-gray-700">オーガニック流入増加</td>
+                <td class="py-4 px-4 text-center text-gray-700">{t('business_impact.search_ranking_improvement')}</td>
+                <td class="py-4 px-4 text-center text-gray-700">{t('business_impact.organic_traffic_increase')}</td>
               </tr>
               <tr class="bg-gray-50">
-                <td class="py-4 px-6 font-medium text-gray-900">顧客満足度</td>
+                <td class="py-4 px-6 font-medium text-gray-900">{t('business_impact.customer_satisfaction')}</td>
                 <td class="py-4 px-4 text-center">
                   <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-semibold">+30%</span>
                 </td>
-                <td class="py-4 px-4 text-center text-gray-700">ユーザー体験向上</td>
-                <td class="py-4 px-4 text-center text-gray-700">リピート率・口コミ向上</td>
+                <td class="py-4 px-4 text-center text-gray-700">{t('business_impact.user_experience_improvement')}</td>
+                <td class="py-4 px-4 text-center text-gray-700">{t('business_impact.repeat_rate_improvement')}</td>
               </tr>
             </tbody>
           </table>
@@ -72,7 +77,7 @@
       <!-- 調査データ -->
       <div class="grid lg:grid-cols-2 gap-12 mb-12">
         <div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-6">業界調査データ</h3>
+          <h3 class="text-2xl font-bold text-gray-900 mb-6">{t('business_impact.industry_research_data')}</h3>
           
           <!-- Amazon調査 -->
           <div class="bg-white rounded-xl p-6 shadow-sm border-l-4 border-orange-500 mb-6">
@@ -83,12 +88,12 @@
                 </svg>
               </div>
               <div>
-                <h4 class="font-semibold text-gray-900 mb-2">Amazon調査結果</h4>
+                <h4 class="font-semibold text-gray-900 mb-2">{t('business_impact.amazon_research')}</h4>
                 <p class="text-sm text-gray-600 mb-3">
-                  ページ表示が1秒遅れるごとにコンバージョン率が7%減少
+                  {t('business_impact.amazon_finding')}
                 </p>
                 <a href="https://www.amazon.science/publications/amazon-finds-100ms-of-latency-costs-1-in-sales" target="_blank" class="text-blue-600 text-sm hover:underline">
-                  詳細はこちら →
+                  {t('business_impact.details_here')} →
                 </a>
               </div>
             </div>
@@ -106,12 +111,12 @@
                 </svg>
               </div>
               <div>
-                <h4 class="font-semibold text-gray-900 mb-2">Google調査結果</h4>
+                <h4 class="font-semibold text-gray-900 mb-2">{t('business_impact.google_research')}</h4>
                 <p class="text-sm text-gray-600 mb-3">
-                  3秒以上かかるサイトの53%が離脱
+                  {t('business_impact.google_finding')}
                 </p>
                 <a href="https://web.dev/why-speed-matters/" target="_blank" class="text-blue-600 text-sm hover:underline">
-                  詳細はこちら →
+                  {t('business_impact.details_here')} →
                 </a>
               </div>
             </div>
@@ -119,34 +124,34 @@
         </div>
         
         <div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-6">ROI計算例</h3>
+          <h3 class="text-2xl font-bold text-gray-900 mb-6">{t('business_impact.roi_calculation_example')}</h3>
           
           <div class="bg-white rounded-xl p-6 shadow-sm">
-            <h4 class="font-semibold text-gray-900 mb-4">月間売上1,000万円の企業の場合</h4>
+            <h4 class="font-semibold text-gray-900 mb-4">{t('business_impact.company_case')}</h4>
             
             <div class="space-y-4">
               <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                <span class="text-sm text-gray-700">現在のコンバージョン率</span>
+                <span class="text-sm text-gray-700">{t('business_impact.current_conversion_rate')}</span>
                 <span class="font-semibold text-gray-900">2.0%</span>
               </div>
               
               <div class="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                <span class="text-sm text-gray-700">改善後のコンバージョン率</span>
+                <span class="text-sm text-gray-700">{t('business_impact.improved_conversion_rate')}</span>
                 <span class="font-semibold text-green-600">2.4% (+20%)</span>
               </div>
               
               <div class="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                <span class="text-sm text-gray-700">月間売上増加</span>
+                <span class="text-sm text-gray-700">{t('business_impact.monthly_sales_increase')}</span>
                 <span class="font-semibold text-blue-600">+200万円</span>
               </div>
               
               <div class="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
-                <span class="text-sm text-gray-700">年間売上増加</span>
+                <span class="text-sm text-gray-700">{t('business_impact.annual_sales_increase')}</span>
                 <span class="font-semibold text-purple-600">+2,400万円</span>
               </div>
               
               <div class="flex justify-between items-center p-3 bg-orange-50 rounded-lg">
-                <span class="text-sm text-gray-700">BoltSite月額料金</span>
+                <span class="text-sm text-gray-700">{t('business_impact.boltsite_monthly_fee')}</span>
                 <span class="font-semibold text-orange-600">25,000円</span>
               </div>
               
@@ -156,7 +161,7 @@
                   <span class="text-2xl font-bold text-green-600">8,000%</span>
                 </div>
                 <p class="text-sm text-gray-600 mt-2">
-                  投資対効果：月額25,000円で月間200万円の売上増加
+                  {t('business_impact.roi_description')}
                 </p>
               </div>
             </div>
@@ -166,7 +171,7 @@
       
       <!-- 成功事例 -->
       <div class="bg-white rounded-2xl shadow-lg p-8">
-        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">成功事例</h3>
+        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">{t('business_impact.success_cases')}</h3>
         
         <div class="grid md:grid-cols-2 gap-8">
           <div class="border border-gray-200 rounded-lg p-6">
@@ -174,19 +179,19 @@
               <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
                 <span class="text-white font-bold">A</span>
               </div>
-              <h4 class="font-semibold text-gray-900">IT企業（従業員50名）</h4>
+              <h4 class="font-semibold text-gray-900">{t('business_impact.it_company')}</h4>
             </div>
             <div class="space-y-3">
               <div class="flex justify-between">
-                <span class="text-sm text-gray-600">表示速度</span>
+                <span class="text-sm text-gray-600">{t('business_impact.display_speed')}</span>
                 <span class="text-sm font-semibold text-green-600">5秒 → 0.3秒</span>
               </div>
               <div class="flex justify-between">
-                <span class="text-sm text-gray-600">コンバージョン率</span>
+                <span class="text-sm text-gray-600">{t('business_impact.conversion_rate')}</span>
                 <span class="text-sm font-semibold text-green-600">+22%</span>
               </div>
               <div class="flex justify-between">
-                <span class="text-sm text-gray-600">月間売上</span>
+                <span class="text-sm text-gray-600">{t('business_impact.monthly_sales')}</span>
                 <span class="text-sm font-semibold text-green-600">+180万円</span>
               </div>
             </div>
@@ -197,19 +202,19 @@
               <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
                 <span class="text-white font-bold">B</span>
               </div>
-              <h4 class="font-semibold text-gray-900">コンサルティング会社（従業員30名）</h4>
+              <h4 class="font-semibold text-gray-900">{t('business_impact.consulting_company')}</h4>
             </div>
             <div class="space-y-3">
               <div class="flex justify-between">
-                <span class="text-sm text-gray-600">表示速度</span>
+                <span class="text-sm text-gray-600">{t('business_impact.display_speed')}</span>
                 <span class="text-sm font-semibold text-green-600">8秒 → 0.3秒</span>
               </div>
               <div class="flex justify-between">
-                <span class="text-sm text-gray-600">離脱率</span>
+                <span class="text-sm text-gray-600">{t('business_impact.bounce_rate')}</span>
                 <span class="text-sm font-semibold text-green-600">-28%</span>
               </div>
               <div class="flex justify-between">
-                <span class="text-sm text-gray-600">問い合わせ数</span>
+                <span class="text-sm text-gray-600">{t('business_impact.inquiry_count')}</span>
                 <span class="text-sm font-semibold text-green-600">+35%</span>
               </div>
             </div>

@@ -17,15 +17,15 @@ import MainLayout from "../layouts/MainLayout.astro";
   title="BoltSite - 高性能ホームページ制作 | 0.3秒表示・SEO満点"
   description="BoltSite: Jamstackで0.3秒表示、SEO満点。月額15,000円~でDXを加速。中小企業向け高性能ホームページ制作サービス。"
 >
-  <BoltHero />
-  <ServiceOverview />
-  <PricingPlans />
-  <FeatureComparison />
-  <CompetitiveAdvantage />
-  <PerformanceGuarantee />
-  <BusinessImpact />
-  <DXPackage />
-  <IntroductionFlow />
-  <FAQ />
-  <FinalCTA />
+  <BoltHero currentPath={Astro.url.pathname} />
+  <ServiceOverview currentPath={Astro.url.pathname} />
+  <PricingPlans currentPath={Astro.url.pathname} />
+  <FeatureComparison currentPath={Astro.url.pathname} />
+  <CompetitiveAdvantage currentPath={Astro.url.pathname} />
+  <PerformanceGuarantee currentPath={Astro.url.pathname} />
+  <BusinessImpact currentPath={Astro.url.pathname} />
+  <DXPackage currentPath={Astro.url.pathname} />
+  <IntroductionFlow currentPath={Astro.url.pathname} />
+  <FAQ currentPath={Astro.url.pathname} />
+  <FinalCTA currentPath={Astro.url.pathname} />
 </MainLayout>
