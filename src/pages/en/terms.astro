@@ -1,17 +1,71 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import { loadTranslation, getTranslation } from "../../utils/i18n";
+
+const locale = 'en';
+const translations = await loadTranslation(locale);
+const t = (key: string) => getTranslation(translations, key);
 ---
 
 <MainLayout
-  title="Terms of Service - BoltSite"
+  title={`${t('terms.title')} - BoltSite`}
   description="Terms of service for BoltSite high-performance website creation service."
 >
   <div class="container mx-auto px-4 py-20">
     <div class="max-w-4xl mx-auto">
-      <h1 class="text-4xl font-bold text-gray-900 mb-8">Terms of Service</h1>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">{t('terms.title')}</h1>
+      <p class="text-gray-600 mb-8">{t('terms.last_updated')}</p>
       <div class="prose prose-lg max-w-none">
-        <p>These are the terms of service for BoltSite. Please read them carefully before using our service.</p>
-        <!-- Add more terms of service content here -->
+        <p class="mb-6">{t('terms.description')}</p>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">1. Acceptance of Terms</h2>
+          <p>By using the BoltSite service, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our service.</p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">2. Service Description</h2>
+          <p>BoltSite provides high-performance website creation services utilizing Jamstack technology, including:</p>
+          <ul class="list-disc pl-6 mt-2">
+            <li>Ultra-fast website performance (0.3 second loading time)</li>
+            <li>SEO optimization (Google PageSpeed 95+ guarantee)</li>
+            <li>Responsive design</li>
+            <li>SSL certificates</li>
+            <li>Regular site updates and maintenance</li>
+          </ul>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">3. Pricing and Payment</h2>
+          <p>Service fees are charged monthly as displayed on our pricing page. Initial setup fee is 0 yen. Payment can be made via credit card or bank transfer.</p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">4. User Obligations</h2>
+          <p>Users must not engage in any activities that violate laws, infringe on third-party rights, or disrupt our service operations.</p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">5. Intellectual Property</h2>
+          <p>All content provided through BoltSite remains the property of the respective owners. Users retain rights to their own content.</p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">6. Limitation of Liability</h2>
+          <p>BoltSite shall not be liable for any indirect, incidental, special, or consequential damages arising from the use of our service.</p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">7. Modifications</h2>
+          <p>We reserve the right to modify these terms at any time. Users will be notified of significant changes.</p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">8. Contact Information</h2>
+          <p>For questions about these Terms of Service, please contact us at:</p>
+          <p>Email: company@cor-jp.com<br/>
+          Phone: +81-070-8561-1659</p>
+        </section>
       </div>
     </div>
   </div>

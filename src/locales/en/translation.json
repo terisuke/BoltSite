@@ -167,7 +167,7 @@
     "partner_program": "Co-creation Partner Program",
     "partner_description": "We offer special pricing based on long-term partnerships for customers using other Cor. Inc. services.",
     "partner_link": "Learn More",
-    "copyright": "© 2024 BoltSite by Cor. Inc. All rights reserved.",
+    "copyright": "© 2025 BoltSite by Cor. Inc. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
   },
@@ -232,9 +232,9 @@
     }
   },
   "common": {
-    "email": "contact@boltsite.com",
-    "phone": "+81-3-1234-5678",
-    "address": "Shibuya, Tokyo",
+    "email": "company@cor-jp.com",
+    "phone": "",
+    "address": "",
     "loading": "Loading...",
     "error": "An error occurred",
     "success": "Success"
@@ -562,5 +562,15 @@
     "mobile_abandonment_description": "Companies with high mobile user abandonment rates",
     "dx_acceleration": "Want to accelerate DX",
     "dx_acceleration_description": "Companies wanting to promote digital transformation"
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "last_updated": "Last updated: September 20, 2025",
+    "description": "These terms of service define the conditions for using the BoltSite service (hereinafter referred to as 'the Service') provided by BoltSite by Cor.Inc (hereinafter referred to as 'the Company')."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "last_updated": "Last updated: September 20, 2025",
+    "description": "BoltSite by Cor.Inc (hereinafter referred to as 'the Company') considers the protection of our customers' personal information as an important responsibility and has established the following privacy policy."
   }
 }

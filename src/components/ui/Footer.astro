@@ -1,6 +1,6 @@
 ---
 import type { FooterLink, SocialLink } from '../../types';
-import { loadTranslation, getLocaleFromPathname, getPathPrefix } from '../../utils/i18n';
+import { getLocaleFromPathname, getPathPrefix, loadTranslation } from '../../utils/i18n';
 
 const { currentPath } = Astro.props;
 const locale = getLocaleFromPathname(currentPath || Astro.url.pathname);
@@ -24,7 +24,6 @@ const servicesLinks: FooterLink[] = [
 const supportLinks: FooterLink[] = [
   { name: t.footer.faq, href: `${pathPrefix}/#faq` },
   { name: t.footer.flow, href: `${pathPrefix}/#introduction-flow` },
-  { name: t.nav.contact, href: `${pathPrefix}/#contact` },
   { name: t.footer.company, href: "https://cor-jp.com" },
 ];
 ---
@@ -105,40 +104,15 @@ const supportLinks: FooterLink[] = [
             <div class="space-y-3 text-sm">
               <div class="flex items-start gap-2">
                 <span class="text-gray-400">✉</span>
-                <a href={`mailto:${t.common.email}`} class="text-gray-400 hover:text-white transition-colors duration-300">
+                <a href="https://cor-jp.com/contact" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-300">
                   {t.common.email}
                 </a>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="text-gray-400">📞</span>
-                <a href={`tel:${t.common.phone}`} class="text-gray-400 hover:text-white transition-colors duration-300">
-                  {t.common.phone}
-                </a>
-              </div>
-              <div class="flex items-start gap-2">
-                <span class="text-gray-400">📍</span>
-                <span class="text-gray-400">{t.common.address}</span>
               </div>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- 共創パートナー優待制度 -->
-      <div class="my-8">
-        <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-6">
-          <div class="text-center">
-            <h3 class="text-lg font-bold text-white mb-2">{t.footer.partner_program}</h3>
-            <p class="text-white/90 mb-4 text-sm">
-              {t.footer.partner_description}
-            </p>
-            <a href="https://cor-jp.com" class="inline-block bg-white text-blue-600 px-6 py-2 rounded-full text-sm font-semibold hover:bg-blue-50 transition-colors duration-300">
-              {t.footer.partner_link}
-            </a>
-          </div>
-        </div>
-      </div>
-
       <!-- 分割線 -->
       <div class="border-t border-gray-800"></div>
 

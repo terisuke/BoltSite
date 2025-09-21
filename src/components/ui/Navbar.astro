@@ -16,7 +16,6 @@ const menuitems: NavigationItem[] = [
   { href: '#faq', label: t.nav.faq },
 ];
 
-const navButton: NavigationItem = { href: '#contact', label: t.nav.free_consultation };
 ---
 
 <div class="mt-20">
@@ -25,7 +24,7 @@ const navButton: NavigationItem = { href: '#contact', label: t.nav.free_consulta
       <Astronav>
         <div class="flex w-full lg:w-auto items-center justify-between">
           <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse focus-ring rounded-lg" aria-label="BoltSiteホームページに戻る">
-            <img src="/logo.png" class="h-20" alt="BoltSiteロゴ" />
+            <img src="/logowithtxt.png" class="h-20" alt="BoltSiteロゴ" />
           </a>
           <div class="block lg:hidden">
             <button 
@@ -48,12 +47,12 @@ const navButton: NavigationItem = { href: '#contact', label: t.nav.free_consulta
         </div>
         
         <nav class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0" id="menu-items">
-          <ul class="font-medium flex flex-col p-4 lg:p-0 mt-4 border rounded-lg lg:flex-row lg:justify-center lg:items-center lg:gap-8 lg:mt-0 lg:border-0">
+          <ul class="font-medium flex flex-col p-4 lg:p-0 mt-4 border rounded-lg lg:flex-row lg:justify-center lg:items-center lg:gap-10 lg:mt-0 lg:border-0">
             {menuitems.map((item, index) => (
               <li>
                 <a 
                   href={item.href} 
-                  class="mobile-nav-link block py-2 px-3 text-black rounded lg:bg-transparent lg:p-0 lg:whitespace-nowrap lg:text-center"
+                  class="mobile-nav-link block py-3 px-4 text-black rounded lg:bg-transparent lg:py-3 lg:px-4 lg:whitespace-nowrap lg:text-center text-lg font-semibold"
                   data-close-menu="true"
                 >
                   {item.label}
@@ -64,13 +63,6 @@ const navButton: NavigationItem = { href: '#contact', label: t.nav.free_consulta
               <div class="w-full max-w-sm">
                 <LanguageSwitcher currentPath={currentPath} />
               </div>
-              <a 
-                class="mobile-nav-link px-9 py-5 rounded-2xl border border-zinc-900 bg-white hover:bg-black text-black hover:text-white inline-flex" 
-                href={navButton.href}
-                data-close-menu="true"
-              >
-                <h2 class="text-center text-xl font-normal leading-7">{navButton.label}</h2>
-              </a>
             </div>
           </ul>
         </nav>
@@ -79,9 +71,6 @@ const navButton: NavigationItem = { href: '#contact', label: t.nav.free_consulta
       <div class="flex-shrink-0">
         <div class="hidden lg:flex items-center gap-4">
           <LanguageSwitcher currentPath={currentPath} />
-          <a class="px-9 py-5 rounded-2xl border border-zinc-900 bg-white hover:bg-black text-black hover:text-white inline-flex whitespace-nowrap" href={navButton.href}>
-            <h2 class="text-center text-xl font-normal leading-7">{navButton.label}</h2>
-          </a>
         </div>
       </div>
     </header>

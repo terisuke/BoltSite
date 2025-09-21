@@ -1,8 +1,8 @@
 {
   "title": "BoltSite",
-  "description": "BoltSite: Jamstackで0.3秒表示、SEO満点。月額15,000円~でDXを加速。中小企業向け高性能ホームページ制作サービス。",
+  "description": "BoltSite: Jamstackで0.3秒表示、SEO満点。月額15,000円~でDXを加速。",
   "image": {
     "src": "/images/boltsite-cover.png",
-    "alt": "BoltSite - 高性能ホームページ制作サービス"
+    "alt": "BoltSite"
   }
 }

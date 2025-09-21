@@ -182,7 +182,7 @@ export function generateOrganizationStructuredData() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "BoltSite by Cor.Inc",
-    description: "高性能ホームページ制作サービス",
+    description: "BoltSite",
     url: "https://cor-jp.com",
     logo: "https://cor-jp.com/logo.png",
     contactPoint: {

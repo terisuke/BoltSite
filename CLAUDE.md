@@ -2,6 +2,13 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Recent Improvements (2025-09-21)
+
+- Fixed filename typo: `priceDats.json` → `priceData.json`
+- Removed unused props from component usage
+- Enhanced documentation with comprehensive command descriptions
+- Improved type safety throughout the codebase
+
 ## Project Overview
 
 BoltSite is a high-performance website creation service built with Astro, designed for Japanese SMEs. It emphasizes ultra-fast loading (0.3s), SEO optimization (PageSpeed 95+), and cost-effectiveness.
@@ -65,7 +72,7 @@ src/
 
 2. **Data Management**: Static data in JSON files under `src/data/`
    - `siteData.json`: Site configuration
-   - `priceDats.json`: Pricing information (note typo)
+   - `priceData.json`: Pricing information
    - `clientData.json`: Client testimonials
 
 3. **Styling**: Tailwind utilities preferred over custom CSS
@@ -89,9 +96,17 @@ All user-facing content is in Japanese. Maintain proper business language and ho
 
 Always run in this order:
 
-1. `npm run format`
-2. `npm run lint:fix`
-3. `npm run type-check`
-4. `npm run build`
+1. `npm run format` - Format code with Prettier
+2. `npm run lint:fix` - Fix ESLint issues
+3. `npm run type-check` - Check TypeScript types
+4. `npm run build` - Verify production build
 
-Never commit if build fails.
+Never commit if any of these commands fail.
+
+## Code Quality Standards
+
+- **Type Safety**: Use strict TypeScript typing, avoid `any`
+- **Performance**: Keep Lighthouse scores above 95
+- **Component Reusability**: Create modular, reusable components
+- **Documentation**: Update README.md for significant changes
+- **Testing**: Verify changes don't break existing functionality

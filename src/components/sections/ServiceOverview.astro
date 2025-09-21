@@ -1,5 +1,5 @@
 ---
-import { loadTranslation, getLocaleFromPathname, getTranslation } from '../../utils/i18n';
+import { getLocaleFromPathname, getTranslation, loadTranslation } from '../../utils/i18n';
 
 const { currentPath } = Astro.props;
 const locale = getLocaleFromPathname(currentPath || Astro.url.pathname);
@@ -124,14 +124,22 @@ const t = (key: string) => getTranslation(translations, key);
               <div class="flex items-center gap-3">
                 <div class="w-3 h-3 bg-green-500 rounded-full"></div>
                 <div>
-                  <div class="font-semibold text-gray-800">{t('comparison.nogyodata')}</div>
+                  <div class="font-semibold text-gray-800">
+                    <a href="https://nogyodata.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                      {t('comparison.nogyodata')}
+                    </a>
+                  </div>
                   <div class="text-sm text-gray-600">{t('comparison.nogyodata_desc')}</div>
                 </div>
               </div>
               <div class="flex items-center gap-3">
                 <div class="w-3 h-3 bg-green-500 rounded-full"></div>
                 <div>
-                  <div class="font-semibold text-gray-800">{t('comparison.cor_jp')}</div>
+                  <div class="font-semibold text-gray-800">
+                    <a href="https://cor-jp.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                      {t('comparison.cor_jp')}
+                    </a>
+                  </div>
                   <div class="text-sm text-gray-600">{t('comparison.cor_jp_desc')}</div>
                 </div>
               </div>

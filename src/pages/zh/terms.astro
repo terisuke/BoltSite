@@ -1,17 +1,71 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import { loadTranslation, getTranslation } from "../../utils/i18n";
+
+const locale = 'zh';
+const translations = await loadTranslation(locale);
+const t = (key: string) => getTranslation(translations, key);
 ---
 
 <MainLayout
-  title="服务条款 - BoltSite"
-  description="BoltSite高性能网站制作服务的服务条款。"
+  title={`${t('terms.title')} - BoltSite`}
+  description="BoltSite高性能网站创建服务的使用条款。"
 >
   <div class="container mx-auto px-4 py-20">
     <div class="max-w-4xl mx-auto">
-      <h1 class="text-4xl font-bold text-gray-900 mb-8">服务条款</h1>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">{t('terms.title')}</h1>
+      <p class="text-gray-600 mb-8">{t('terms.last_updated')}</p>
       <div class="prose prose-lg max-w-none">
-        <p>这是BoltSite的服务条款。使用我们的服务前请仔细阅读。</p>
-        <!-- Add more terms of service content here -->
+        <p class="mb-6">{t('terms.description')}</p>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">1. 条款接受</h2>
+          <p>使用BoltSite服务即表示您同意受这些服务条款的约束。如果您不同意这些条款，请不要使用我们的服务。</p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">2. 服务说明</h2>
+          <p>BoltSite提供利用Jamstack技术的高性能网站创建服务，包括：</p>
+          <ul class="list-disc pl-6 mt-2">
+            <li>超快网站性能（0.3秒加载时间）</li>
+            <li>SEO优化（Google PageSpeed 95+保证）</li>
+            <li>响应式设计</li>
+            <li>SSL证书</li>
+            <li>定期网站更新和维护</li>
+          </ul>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">3. 定价和支付</h2>
+          <p>服务费按我们定价页面显示的月费收取。初始设置费为0日元。可通过信用卡或银行转账付款。</p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">4. 用户义务</h2>
+          <p>用户不得从事任何违反法律、侵犯第三方权利或扰乱我们服务运营的活动。</p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">5. 知识产权</h2>
+          <p>通过BoltSite提供的所有内容仍属于各自所有者的财产。用户保留对自己内容的权利。</p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">6. 责任限制</h2>
+          <p>BoltSite不对因使用我们服务而产生的任何间接、偶然、特殊或后果性损害承担责任。</p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">7. 修改</h2>
+          <p>我们保留随时修改这些条款的权利。将通知用户重大变更。</p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">8. 联系信息</h2>
+          <p>如有关于这些服务条款的问题，请联系我们：</p>
+          <p>电子邮件：company@cor-jp.com<br/>
+          电话：+81-070-8561-1659</p>
+        </section>
       </div>
     </div>
   </div>
