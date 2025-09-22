@@ -1,6 +1,4 @@
 ---
-import pricingData from '../../data/priceData.json';
-import type { PricingPlan } from '../../types';
 import { getLocaleFromPathname, getTranslation, loadTranslation } from '../../utils/i18n';
 import Card from '../ui/Card.astro';
 import SectionTitle from '../ui/SectionTitle.astro';
@@ -9,7 +7,6 @@ const { currentPath } = Astro.props;
 const locale = getLocaleFromPathname(currentPath || Astro.url.pathname);
 const translations = await loadTranslation(locale);
 const t = (key: string) => getTranslation(translations, key);
-const plans: PricingPlan[] = pricingData;
 ---
 
 <section id="pricing" class="py-20 bg-gray-50">

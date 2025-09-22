@@ -112,6 +112,7 @@ export interface CardProps extends ComponentProps {
   image?: string;
   price?: number;
   features?: string[];
+  isUnderline?: boolean;
 }
 
 // i18n関連の型定義

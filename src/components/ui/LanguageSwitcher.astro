@@ -14,7 +14,7 @@ const currentLocale = getLocaleFromPathname(currentPath || Astro.url.pathname);
 const currentLanguage = languages.find(lang => lang.code === currentLocale) || languages[0];
 
 // 一意のIDを生成
-const uniqueId = Math.random().toString(36).substr(2, 9);
+const uniqueId = Math.random().toString(36).substring(2, 11);
 const switcherId = `language-switcher-${uniqueId}`;
 const dropdownId = `language-dropdown-${uniqueId}`;
 ---
@@ -63,7 +63,7 @@ const dropdownId = `language-dropdown-${uniqueId}`;
   </div>
 </div>
 
-<script define:vars={{ switcherId, dropdownId }}>
+<script is:inline define:vars={{ switcherId, dropdownId }}>
   const switcher = document.getElementById(switcherId);
   const dropdown = document.getElementById(dropdownId);
   

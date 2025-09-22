@@ -2,7 +2,16 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Recent Improvements (2025-09-21)
+## Recent Improvements (2025-09-22)
+
+- Fixed all TypeScript type checking errors across the codebase
+- Refactored components for better type safety and maintainability
+- Resolved prop interface mismatches in Card components and SectionTitle usage
+- Improved i18n utility function type definitions
+- Removed unused imports and variables for cleaner code
+- Enhanced LanguageSwitcher component with proper script handling
+
+## Previous Improvements (2025-09-21)
 
 - Fixed filename typo: `priceDats.json` → `priceData.json`
 - Removed unused props from component usage
