@@ -1,7 +1,7 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
-import priceData from "../data/priceDats.json";
 import Card from "../components/ui/Card.astro";
+import priceData from "../data/priceData.json";
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Our Pricing">
@@ -9,13 +9,13 @@ import Card from "../components/ui/Card.astro";
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-3">
             <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
                 <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">Designed for business teams like yours</h2>
-                <p class="mb-5 font-light text-gray-500 sm:text-xl">Here at Positivus we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
+                <p class="mb-5 font-light text-gray-500 sm:text-xl">BoltSite by Cor.Incでは、Jamstack技術を活用したBoltSiteで、中小企業のDXを加速し、持続的な成長を実現します。</p>
             </div>
             <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
                 <!-- Pricing Card -->
                 {
                 priceData.map((item) => (
-                <Card isUnderline={true}>
+                <Card>
                 <div class="flex flex-col p-6 mx-auto max-w-lg text-center">
                     <h3 class="mb-4 text-2xl font-semibold">{item.title}</h3>
                     <p class="font-light text-gray-500 sm:text-lg">{item.description}</p>

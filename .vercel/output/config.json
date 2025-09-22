@@ -48,7 +48,51 @@
 			"dest": "_render"
 		},
 		{
+			"src": "^/en/pricing/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/en/privacy/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/en/services/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/en/terms/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/en/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/es/pricing/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/es/privacy/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/es/services/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/es/terms/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/es/?$",
+			"dest": "_render"
+		},
+		{
 			"src": "^/pricing/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/privacy/?$",
 			"dest": "_render"
 		},
 		{
@@ -57,6 +101,34 @@
 		},
 		{
 			"src": "^/services/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/sitemap/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/terms/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/zh/pricing/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/zh/privacy/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/zh/services/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/zh/terms/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/zh/?$",
 			"dest": "_render"
 		},
 		{
