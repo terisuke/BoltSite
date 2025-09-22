@@ -12,8 +12,27 @@ const { title, description, image, frontmatter, robots } = Astro.props;
   <!-- iOS 
   <link rel="apple-touch-icon" sizes="256x256" href="/path/to/your/icon.png" />
   -->
-  <meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="generator" content={Astro.generator} />
+  
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://boltsite.pages.dev" />
+  
+  <!-- Theme color for mobile browsers -->
+  <meta name="theme-color" content="#3b82f6" />
+  <meta name="msapplication-TileColor" content="#3b82f6" />
+  
+  <!-- Additional SEO meta tags -->
+  <meta name="author" content="BoltSite by Cor.Inc" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="bingbot" content="index, follow" />
+  
+  <!-- Performance hints -->
+  <link rel="preload" href="/fonts/grotesk/SpaceGrotesk-Regular.woff" as="font" type="font/woff" crossorigin />
+  <link rel="preload" href="/fonts/grotesk/SpaceGrotesk-Medium.woff" as="font" type="font/woff" crossorigin />
 
   <title>{title}</title>
   <meta name="description" content={description} />
