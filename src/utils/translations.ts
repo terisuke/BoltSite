@@ -14,17 +14,17 @@ export const translations = {
       faq: "FAQ",
     },
     hero: {
-      title: "BoltSite",
-      subtitle: "中小企業のDXを加速します",
+      title: "BoltSite - 高性能ホームページ制作サービス",
+      subtitle: "BoltSiteで中小企業のDXを加速します",
       description:
-        "PageSpeed 95点保証の爆速サイトを1ヶ月以内に提供。初期費用0円で始められます。",
+        "BoltSiteはPageSpeed 95点保証の爆速サイトを1ヶ月以内に提供。BoltSiteで初期費用0円から始められます。",
       cta_primary: "無料相談申し込み",
       cta_secondary: "サービス詳細を見る",
       guarantee: "PageSpeed 95点保証",
     },
     services: {
-      title: "サービス",
-      subtitle: "あなたのビジネスを加速するソリューション",
+      title: "BoltSiteサービス",
+      subtitle: "BoltSiteであなたのビジネスを加速するソリューション",
       overview: "サービス概要",
       pricing: "料金プラン",
       features: "機能比較",
@@ -32,8 +32,8 @@ export const translations = {
       dx_package: "DXパッケージ",
     },
     pricing: {
-      title: "料金プラン",
-      subtitle: "シンプルで透明性の高い料金体系",
+      title: "BoltSite料金プラン",
+      subtitle: "BoltSiteのシンプルで透明性の高い料金体系",
       basic: {
         name: "ベーシック",
         price: "¥50,000",
@@ -54,7 +54,7 @@ export const translations = {
       },
     },
     footer: {
-      description: "BoltSite<br/>中小企業のDXを加速します",
+      description: "BoltSite - 高性能ホームページ制作サービス<br/>BoltSiteで中小企業のDXを加速します",
       services: "サービス",
       support: "サポート",
       contact: "お問い合わせ",
@@ -70,8 +70,8 @@ export const translations = {
       terms: "利用規約",
     },
     cta: {
-      title: "今すぐ始めませんか？",
-      subtitle: "無料相談で、あなたのビジネスに最適なソリューションをご提案",
+      title: "BoltSiteで今すぐ始めませんか？",
+      subtitle: "BoltSiteの無料相談で、あなたのビジネスに最適なソリューションをご提案",
       fast_site: "爆速サイト",
       fast_description: "0.3秒表示を実現",
       start_now: "今すぐ加速！",
@@ -85,8 +85,8 @@ export const translations = {
       },
     },
     flow: {
-      title: "導入の流れ",
-      subtitle: "1ヶ月以内に提供開始で、即時成果を",
+      title: "BoltSite導入の流れ",
+      subtitle: "BoltSiteで1ヶ月以内に提供開始で、即時成果を",
       step1: {
         title: "無料相談",
         duration: "30分",
@@ -209,8 +209,8 @@ export const translations = {
           ],
         },
         tech_stack: {
-          question: "使用している技術スタックについて教えてください",
-          answer: "BoltSiteは最新のJamstack技術を使用しています：",
+          question: "BoltSiteで使用している技術スタックについて教えてください",
+          answer: "BoltSiteは最新のJamstack技術を使用して高性能を実現しています：",
           frontend: {
             title: "フロントエンド",
             items: [
@@ -227,7 +227,7 @@ export const translations = {
               "SSL証明書（セキュリティ）",
             ],
           },
-          note: "これらの技術により、WordPressの10倍以上の表示速度を実現しています。",
+          note: "BoltSiteのこれらの技術により、WordPressの10倍以上の表示速度を実現しています。",
         },
         multilingual: {
           question: "多言語対応はどのプランで利用できますか？",
