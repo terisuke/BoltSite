@@ -7,49 +7,65 @@
   <!-- Homepage -->
   <url>
     <loc>https://boltsite.pages.dev/</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2025-01-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
-  <!-- About page (if exists) -->
+  <!-- About page -->
   <url>
     <loc>https://boltsite.pages.dev/about</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2025-01-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
-  <!-- Services page (if exists) -->
+  <!-- Services page -->
   <url>
     <loc>https://boltsite.pages.dev/services</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2025-01-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
-  <!-- Pricing page (if exists) -->
+  <!-- Pricing page -->
   <url>
     <loc>https://boltsite.pages.dev/pricing</loc>
-    <lastmod>2024-12-19</lastmod>
+    <lastmod>2025-01-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
-  <!-- Contact page (if exists) -->
+  <!-- Privacy page -->
   <url>
-    <loc>https://boltsite.pages.dev/contact</loc>
-    <lastmod>2024-12-19</lastmod>
+    <loc>https://boltsite.pages.dev/privacy</loc>
+    <lastmod>2025-01-22</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <!-- Terms page -->
+  <url>
+    <loc>https://boltsite.pages.dev/terms</loc>
+    <lastmod>2025-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <!-- Articles/Blog -->
+  <url>
+    <loc>https://boltsite.pages.dev/articles</loc>
+    <lastmod>2025-01-22</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
-  <!-- Blog/articles (if exists) -->
+  <!-- SEO Services -->
   <url>
-    <loc>https://boltsite.pages.dev/blog</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://boltsite.pages.dev/services/seo</loc>
+    <lastmod>2025-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
 </urlset>

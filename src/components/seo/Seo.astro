@@ -63,8 +63,8 @@ const jsonLD = jsonLDGenerator({
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content={image?.src || siteData.image.src} />
 <meta name="twitter:image:alt" content={title} />
-<meta name="twitter:site" content="@boltsite" />
-<meta name="twitter:creator" content="@boltsite" />
+<meta name="twitter:site" content={siteData.social?.twitter?.site || "@boltsite"} />
+<meta name="twitter:creator" content={siteData.social?.twitter?.creator || "@boltsite"} />
 
 <!-- Using environment domain -->
 <meta name="twitter:domain" content={import.meta.env.SITE} />

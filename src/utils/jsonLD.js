@@ -45,7 +45,7 @@ export default function jsonLDGenerator({ type, post, url }) {
           "url": "https://boltsite.pages.dev",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://boltsite.pages.dev/logo.png"
+            "url": "https://boltsite.pages.dev/Logo.svg"
           }
         }
       }

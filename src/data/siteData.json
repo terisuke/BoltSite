@@ -5,5 +5,11 @@
   "image": {
     "src": "/images/boltsite-cover.png",
     "alt": "BoltSite - 高性能ホームページ制作サービス"
+  },
+  "social": {
+    "twitter": {
+      "site": "@boltsite",
+      "creator": "@boltsite"
+    }
   }
 }
