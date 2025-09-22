@@ -1,18 +1,9 @@
 [build]
 command = "npm run build:cloudflare"
+publish = "dist"
 
 [env.production]
 vars = { ENVIRONMENT = "production" }
 
 [env.preview]
 vars = { ENVIRONMENT = "preview" }
-
-[[env.production.bindings]]
-name = "ASSETS"
-type = "kv_namespace"
-id = ""
-
-[[env.preview.bindings]]
-name = "ASSETS"
-type = "kv_namespace"
-id = ""

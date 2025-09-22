@@ -10,21 +10,22 @@ const query: string | null = Astro.url.searchParams.get('query');
 const allBlogArticles: CollectionEntry<'blog'>[] = await getCollection('blog');
 
 // Filter articles based on query
-const searchResults = allBlogArticles.filter(article => {
+const searchResults = query ? allBlogArticles.filter(article => {
+  const searchTerm = query.toLowerCase();
   const titleMatch: boolean = article.data.title
     .toLowerCase()
-    .includes(query!.toLowerCase());
+    .includes(searchTerm);
 
     const bodyMatch: boolean = article.body
     .toLowerCase()
-    .includes(query!.toLowerCase());
+    .includes(searchTerm);
 
     const slugMatch: boolean = article.slug
     .toLowerCase()
-    .includes(query!.toLowerCase());
+    .includes(searchTerm);
 
     return titleMatch || bodyMatch || slugMatch
-});
+}) : [];
 ---
 
 <MainLayout title="Search Results">
@@ -42,12 +43,21 @@ const searchResults = allBlogArticles.filter(article => {
             <br>
             <SearchForm />
             <br>
-            <h2 class="text-2xl pb-3 mt-6">Results For <strong>{query}</strong></h2>
-            <div class="grid gap-8 lg:grid-cols-2">
-              {searchResults.map(article => (
-                <ArticleCard article={article} />
-              ))}
-            </div>  
+            {query ? (
+              <>
+                <h2 class="text-2xl pb-3 mt-6">Results For <strong>{query}</strong></h2>
+                <div class="grid gap-8 lg:grid-cols-2">
+                  {searchResults.map(article => (
+                    <ArticleCard article={article} />
+                  ))}
+                </div>
+              </>
+            ) : (
+              <div class="text-center py-8">
+                <h2 class="text-2xl pb-3 mt-6">Search Articles</h2>
+                <p class="text-gray-600">Enter a search term to find articles.</p>
+              </div>
+            )}  
         </div>
 	</main>
 </MainLayout>
