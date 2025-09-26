@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+  /* スムーズスクロール機能 */
+  html {
+    scroll-behavior: smooth;
+  }
+  
   @font-face {
     font-family: "Grotesk";
     src: url("/fonts/grotesk/SpaceGrotesk-Regular.woff"), format("woff");
