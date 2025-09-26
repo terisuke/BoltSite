@@ -1,4 +1,4 @@
-import type { Locales } from "../types";
+import type { Locales, Translation } from "../types";
 
 // サポートされている言語
 export const SUPPORTED_LOCALES: Locales[] = ["ja", "en", "zh", "es"];
@@ -36,7 +36,7 @@ export function getPathWithoutLocale(pathname: string): string {
 }
 
 // 翻訳ファイルを読み込み
-export async function loadTranslation(locale: Locales) {
+export async function loadTranslation(locale: Locales): Promise<Translation> {
   try {
     const translation = await import(`../locales/${locale}/translation.json`);
     return translation.default;
@@ -51,9 +51,12 @@ export async function loadTranslation(locale: Locales) {
 }
 
 // ネストされた翻訳キーを取得
-export function getTranslation(translations: any, key: string): any {
+export function getTranslation(
+  translations: Translation | Record<string, any>,
+  key: string,
+): any {
   const keys = key.split(".");
-  let value = translations;
+  let value: any = translations;
 
   for (const k of keys) {
     if (value && typeof value === "object" && k in value) {

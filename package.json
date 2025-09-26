@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
+    "build:cloudflare": "astro check && astro build --config astro.config.cloudflare.mjs",
     "preview": "astro preview",
+    "preview:cloudflare": "astro preview --config astro.config.cloudflare.mjs",
     "astro": "astro",
     "check": "astro check",
     "check:watch": "astro check --watch",
@@ -20,6 +22,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/cloudflare": "^12.6.9",
     "@astrojs/tailwind": "^5.1.3",
     "@astrojs/vercel": "^8.0.1",
     "astro": "^5.0.9",

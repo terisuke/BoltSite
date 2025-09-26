@@ -1,0 +1,14 @@
+name = "boltsite-by-cor-inc"
+
+[build]
+command = "npm run build:cloudflare"
+publish = "dist"
+
+compatibility_date = "2024-09-22"
+pages_build_output_dir = "dist"
+
+[env.production]
+vars = { ENVIRONMENT = "production" }
+
+[env.preview]
+vars = { ENVIRONMENT = "preview" }

@@ -26,10 +26,28 @@ export default function jsonLDGenerator({ type, post, url }) {
   }
   return `<script type="application/ld+json">
       {
-      "@context": "https://schema.org/",
-      "@type": "WebSite",
-      "name": "${siteData.title}",
-      "url": "${import.meta.env.SITE}"
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "${siteData.title}",
+        "description": "${siteData.description}",
+        "url": "${import.meta.env.SITE}",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "${import.meta.env.SITE}/search?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "BoltSite by Cor.Inc",
+          "url": "https://boltsite.pages.dev",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://boltsite.pages.dev/logo.png"
+          }
+        }
       }
     </script>`;
 }

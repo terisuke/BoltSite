@@ -14,7 +14,66 @@ const t = translations[currentLocale] || translations.ja;
 
 // 翻訳関数
 const translate = (key: string) => getTranslation(t, key);
+
+// FAQ構造化データを生成
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": translate('faq.questions.pagespeed.question'),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": translate('faq.questions.pagespeed.answer') + " " + translate('faq.questions.pagespeed.features').join(', ') + ". " + translate('faq.questions.pagespeed.guarantee')
+      }
+    },
+    {
+      "@type": "Question",
+      "name": translate('faq.questions.updates.question'),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": translate('faq.questions.updates.answer') + " " + translate('faq.questions.updates.emergency')
+      }
+    },
+    {
+      "@type": "Question",
+      "name": translate('faq.questions.refund.question'),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": translate('faq.questions.refund.answer') + " " + translate('faq.questions.refund.conditions').join(', ') + ". " + translate('faq.questions.refund.process')
+      }
+    },
+    {
+      "@type": "Question",
+      "name": translate('faq.questions.cancellation.question'),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": translate('faq.questions.cancellation.condition_text') + " " + translate('faq.questions.cancellation.reason') + " " + translate('faq.questions.cancellation.benefits').join(', ')
+      }
+    },
+    {
+      "@type": "Question",
+      "name": translate('faq.questions.tech_stack.question'),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": translate('faq.questions.tech_stack.answer') + " " + translate('faq.questions.tech_stack.note')
+      }
+    },
+    {
+      "@type": "Question",
+      "name": translate('faq.questions.multilingual.question'),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": translate('faq.questions.multilingual.answer') + " " + translate('faq.questions.multilingual.support')
+      }
+    }
+  ]
+};
 ---
+
+<!-- FAQ構造化データ -->
+<script type="application/ld+json" set:html={JSON.stringify(faqStructuredData)}></script>
 
 <section id="faq" class="py-20 bg-white">
   <div class="container mx-auto px-4">
@@ -48,7 +107,7 @@ const translate = (key: string) => getTranslation(t, key);
               {translate('faq.questions.pagespeed.answer')}
             </p>
             <ul class="space-y-2 text-sm text-gray-600">
-              {translate('faq.questions.pagespeed.features').map((feature) => (
+              {translate('faq.questions.pagespeed.features').map((feature: string) => (
                 <li class="flex items-center gap-2">
                   <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>

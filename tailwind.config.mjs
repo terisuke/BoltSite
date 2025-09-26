@@ -130,10 +130,13 @@ export default {
         },
         // Legacy colors for backward compatibility
         "legacy-green": "var(--green)",
+        "custom-green": "var(--green)",
         black: "var(--black)",
         dark: "var(--dark)",
+        "custom-gray": "var(--gray)",
         "legacy-gray": "var(--gray)",
         white: "var(--white)",
+        lime: "#b9ff66",
       },
     },
   },

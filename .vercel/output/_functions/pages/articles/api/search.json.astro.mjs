@@ -1,4 +1,4 @@
-import { g as getCollection } from '../../../chunks/_astro_content_CqvyBrLr.mjs';
+import { g as getCollection } from '../../../chunks/_astro_content_BN0g4Dkl.mjs';
 export { renderers } from '../../../renderers.mjs';
 
 const GET = async ({ url }) => {
@@ -17,9 +17,7 @@ const GET = async ({ url }) => {
       }
     );
   }
-  const allBlogArticles = await getCollection(
-    "blog"
-  );
+  const allBlogArticles = await getCollection("blog");
   const searchResults = allBlogArticles.filter((article) => {
     const titleMatch = article.data.title.toLowerCase().includes(query.toLowerCase());
     const bodyMatch = article.body.toLowerCase().includes(query.toLowerCase());

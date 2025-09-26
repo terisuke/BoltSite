@@ -1,6 +1,5 @@
 ---
 import type { CardProps } from '../../types';
-import Button from './Button.astro';
 
 interface Props extends CardProps {
   children?: any;
@@ -15,6 +14,7 @@ const {
   className = '',
   id,
   children,
+  isUnderline = false,
   ...rest
 } = Astro.props;
 
