@@ -3,6 +3,7 @@ export const languages = {
   en: "English",
   zh: "中文",
   es: "Español",
+  ko: "한국어",
 } as const;
 
 export type Language = keyof typeof languages;
@@ -21,6 +22,8 @@ export async function loadTranslations(lng: Language) {
         return (await import("./locales/zh/translation.json")).default;
       case "es":
         return (await import("./locales/es/translation.json")).default;
+      case "ko":
+        return (await import("./locales/ko/translation.json")).default;
       default:
         return (await import("./locales/ja/translation.json")).default;
     }

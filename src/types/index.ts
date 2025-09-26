@@ -116,7 +116,7 @@ export interface CardProps extends ComponentProps {
 }
 
 // i18n関連の型定義
-export type Locales = "ja" | "en" | "zh" | "es";
+export type Locales = "ja" | "en" | "zh" | "es" | "ko";
 
 export interface Translation {
   nav: {

@@ -1,0 +1,72 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { loadTranslation, getTranslation } from "../../utils/i18n";
+
+const locale = 'ko';
+const translations = await loadTranslation(locale);
+const t = (key: string) => getTranslation(translations, key);
+---
+
+<MainLayout
+  title={`${t('terms.title')} - BoltSite`}
+  description="BoltSite 고성능 홈페이지 제작 서비스 이용약관."
+>
+  <div class="container mx-auto px-4 py-20">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">{t('terms.title')}</h1>
+      <p class="text-gray-600 mb-8">{t('terms.last_updated')}</p>
+      <div class="prose prose-lg max-w-none">
+        <p class="mb-6">{t('terms.description')}</p>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">1. 약관 동의</h2>
+          <p>BoltSite 서비스를 이용함으로써 이 이용약관에 동의하는 것으로 간주됩니다. 이 약관에 동의하지 않으시면 서비스를 이용하실 수 없습니다.</p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">2. 서비스 설명</h2>
+          <p>BoltSite는 Jamstack 기술을 활용한 고성능 홈페이지 제작 서비스를 제공하며, 다음을 포함합니다:</p>
+          <ul class="list-disc pl-6 mt-2">
+            <li>초고속 웹사이트 성능 (0.3초 로딩 시간)</li>
+            <li>SEO 최적화 (Google PageSpeed 95점 이상 보장)</li>
+            <li>반응형 디자인</li>
+            <li>SSL 인증서</li>
+            <li>정기적인 사이트 업데이트 및 유지보수</li>
+          </ul>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">3. 요금 및 결제</h2>
+          <p>서비스 요금은 요금 페이지에 표시된 대로 월 단위로 청구됩니다. 초기 설정 비용은 0원입니다. 신용카드 또는 은행 송금으로 결제할 수 있습니다.</p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">4. 사용자 의무</h2>
+          <p>사용자는 법률을 위반하거나 제3자의 권리를 침해하거나 서비스 운영을 방해하는 활동을 해서는 안 됩니다.</p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">5. 지적재산권</h2>
+          <p>BoltSite를 통해 제공되는 모든 콘텐츠는 각 소유자의 재산으로 남습니다. 사용자는 자신의 콘텐츠에 대한 권리를 보유합니다.</p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">6. 책임 제한</h2>
+          <p>BoltSite는 서비스 이용으로 인한 간접적, 부수적, 특별 또는 결과적 손해에 대해 책임지지 않습니다.</p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">7. 약관 수정</h2>
+          <p>이 약관을 언제든지 수정할 권리를 보유합니다. 중요한 변경사항은 사용자에게 알려드립니다.</p>
+        </section>
+
+        <section class="mb-8">
+          <h2 class="text-2xl font-semibold mb-4">8. 연락처 정보</h2>
+          <p>이용약관에 대한 질문이 있으시면 다음으로 연락해 주세요:</p>
+          <p>이메일: company@cor-jp.com<br/>
+          전화: +81-070-8561-1659</p>
+        </section>
+      </div>
+    </div>
+  </div>
+</MainLayout>

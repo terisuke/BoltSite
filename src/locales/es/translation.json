@@ -55,7 +55,7 @@
     "subtitle": "Comience fácilmente con costo inicial cero y facturación mensual",
     "basic": {
       "name": "Principiante",
-      "price": "$100",
+      "price": "¥100",
       "period": "/mes",
       "description": "Mensual (Impuestos Incluidos)",
       "features": [
@@ -67,7 +67,7 @@
     },
     "standard": {
       "name": "Estándar",
-      "price": "$170",
+      "price": "¥170",
       "period": "/mes",
       "description": "Mensual (Impuestos Incluidos)",
       "features": [
@@ -80,7 +80,7 @@
     },
     "premium": {
       "name": "Premium",
-      "price": "$340",
+      "price": "¥340",
       "period": "/mes",
       "description": "Mensual (Impuestos Incluidos)",
       "features": [
@@ -137,9 +137,9 @@
       "title": "Selección de Plan",
       "duration": "Mismo Día",
       "description": "Por favor, revise el sitio demo y seleccione el plan óptimo.",
-      "beginner_plan": "Principiante: $100~",
-      "standard_plan": "Estándar: $170~",
-      "premium_plan": "Premium: $200~",
+      "beginner_plan": "Principiante: ¥100~",
+      "standard_plan": "Estándar: ¥170~",
+      "premium_plan": "Premium: ¥200~",
       "step_title": "Decisión de Plan",
       "step_description": "Por favor, elija el plan óptimo"
     },
@@ -210,11 +210,11 @@
         ]
       },
       "cost": {
-        "question": "¿El costo inicial es realmente $0?",
-        "answer": "Sí, el costo inicial es completamente $0. Puede usar nuestro servicio solo con tarifas mensuales.",
+        "question": "¿El costo inicial es realmente ¥0?",
+        "answer": "Sí, el costo inicial es completamente ¥0. Puede usar nuestro servicio solo con tarifas mensuales.",
         "features": [
-          "Costo inicial: $0",
-          "Tarifa mensual: $100~",
+          "Costo inicial: ¥0",
+          "Tarifa mensual: ¥100~",
           "Sin tarifas adicionales",
           "Sin penalizaciones por cancelación"
         ]

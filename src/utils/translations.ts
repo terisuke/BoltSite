@@ -290,13 +290,13 @@ export const translations = {
       subtitle: "Simple and transparent pricing structure",
       basic: {
         name: "Basic",
-        price: "$500",
+        price: "¥500",
         period: "/month",
         description: "For small businesses",
       },
       pro: {
         name: "Pro",
-        price: "$1,000",
+        price: "¥1,000",
         period: "/month",
         description: "For medium businesses",
       },
@@ -375,9 +375,9 @@ export const translations = {
         description:
           "After reviewing the demo site, you will select the optimal plan.",
         features: {
-          basic: "Beginner: $150/month",
-          standard: "Standard: $250/month",
-          premium: "Premium: $300/month",
+          basic: "Beginner: ¥150/month",
+          standard: "Standard: ¥250/month",
+          premium: "Premium: ¥300/month",
         },
         step_title: "Plan Decision",
         step_description: "Please choose the optimal plan",
@@ -494,7 +494,7 @@ export const translations = {
           details: {
             languages:
               "Supported languages: Japanese, English, Chinese (Simplified), Spanish",
-            quality: "Translation quality: Native-checked (outsourced $5,000)",
+            quality: "Translation quality: Native-checked (outsourced ¥5,000)",
             switching: "Switching: Language switcher button in top right",
           },
           support: "We support global business expansion.",
@@ -792,13 +792,13 @@ export const translations = {
       subtitle: "Estructura de precios simple y transparente",
       basic: {
         name: "Básico",
-        price: "$500",
+        price: "¥500",
         period: "/mes",
         description: "Para pequeñas empresas",
       },
       pro: {
         name: "Pro",
-        price: "$1,000",
+        price: "¥1,000",
         period: "/mes",
         description: "Para empresas medianas",
       },
@@ -879,9 +879,9 @@ export const translations = {
         description:
           "Después de revisar el sitio demo, seleccionará el plan óptimo.",
         features: {
-          basic: "Principiante: $150/mes",
-          standard: "Estándar: $250/mes",
-          premium: "Premium: $300/mes",
+          basic: "Principiante: ¥150/mes",
+          standard: "Estándar: ¥250/mes",
+          premium: "Premium: ¥300/mes",
         },
         step_title: "Decisión del Plan",
         step_description: "Por favor, elija el plan óptimo",
@@ -999,7 +999,7 @@ export const translations = {
             languages:
               "Idiomas soportados: Japonés, Inglés, Chino (Simplificado), Español",
             quality:
-              "Calidad de traducción: Verificado por nativos (subcontratado $5,000)",
+              "Calidad de traducción: Verificado por nativos (subcontratado ¥5,000)",
             switching:
               "Cambio: Botón de cambio de idioma en la parte superior derecha",
           },
@@ -1021,6 +1021,260 @@ export const translations = {
       success: "Éxito",
     },
   },
+  ko: {
+    nav: {
+      home: "홈",
+      services: "서비스",
+      pricing: "요금제",
+      about: "회사소개",
+      contact: "문의하기",
+      free_consultation: "무료 상담",
+      features: "기능 비교",
+      performance: "성능",
+      faq: "자주 묻는 질문",
+    },
+    hero: {
+      title: "BoltSite - 고성능 홈페이지 제작 서비스",
+      subtitle: "BoltSite로 중소기업의 DX를 가속화합니다",
+      description:
+        "BoltSite는 PageSpeed 95점 보장의 초고속 사이트를 1개월 이내에 제공합니다. BoltSite로 초기 비용 0원부터 시작할 수 있습니다.",
+      cta_primary: "무료 상담 신청",
+      cta_secondary: "서비스 상세 보기",
+      guarantee: "PageSpeed 95점 보장",
+    },
+    services: {
+      title: "BoltSite 서비스",
+      subtitle: "BoltSite로 귀하의 비즈니스를 가속화하는 솔루션",
+      overview: "서비스 개요",
+      pricing: "요금제",
+      features: "기능 비교",
+      performance: "성능 보장",
+      dx_package: "DX 패키지",
+    },
+    pricing: {
+      title: "BoltSite 요금제",
+      subtitle: "BoltSite의 간단하고 투명한 요금 체계",
+      basic: {
+        name: "베이직",
+        price: "₩50,000",
+        period: "/월",
+        description: "소규모 비즈니스용",
+      },
+      pro: {
+        name: "프로",
+        price: "₩100,000",
+        period: "/월",
+        description: "중규모 비즈니스용",
+      },
+      enterprise: {
+        name: "엔터프라이즈",
+        price: "맞춤형",
+        period: "",
+        description: "대규모 비즈니스용",
+      },
+    },
+    footer: {
+      description: "BoltSite - 고성능 홈페이지 제작 서비스<br/>BoltSite로 중소기업의 DX를 가속화합니다",
+      services: "서비스",
+      support: "지원",
+      contact: "문의하기",
+      faq: "자주 묻는 질문",
+      flow: "도입 과정",
+      company: "Cor.주식회사",
+      partner_program: "공동 창조 파트너 우대 제도",
+      partner_description:
+        "Cor.주식회사의 다른 서비스를 이용 중인 고객에게는 장기적인 파트너십에 기반하여 특별 가격을 제공합니다.",
+      partner_link: "자세히 보기",
+      copyright: "© 2025 BoltSite by Cor.주식회사. All rights reserved.",
+      privacy: "개인정보처리방침",
+      terms: "이용약관",
+    },
+    cta: {
+      title: "BoltSite로 지금 바로 시작하시겠습니까?",
+      subtitle: "BoltSite의 무료 상담으로 귀하의 비즈니스에 최적화된 솔루션을 제안합니다",
+      fast_site: "초고속 사이트",
+      fast_description: "0.3초 표시를 실현",
+      start_now: "지금 바로 가속화!",
+      free_consultation: "무료 상담 신청",
+      contact: "문의하기",
+      guarantees: {
+        initial_cost: "초기 비용 0원",
+        delivery: "1개월 이내 제공",
+        pagespeed: "PageSpeed 95점 보장",
+        refund: "전액 환불 보장",
+      },
+    },
+    flow: {
+      title: "BoltSite 도입 과정",
+      subtitle: "BoltSite로 1개월 이내에 제공 시작으로 즉시 성과를",
+      step1: {
+        title: "무료 상담",
+        duration: "30분",
+        description:
+          "현재의 과제나 요구사항을 말씀해 주세요. 최적의 플랜을 제안해 드립니다.",
+        features: {
+          hearing: "과제 히어링",
+          experience: "속도 체험",
+          proposal: "플랜 제안",
+        },
+        step_title: "무료 상담 신청",
+        step_description: "먼저 편하게 상담해 주세요",
+      },
+      step2: {
+        title: "데모 사이트 제작",
+        duration: "3일",
+        description:
+          "고객의 업계에 맞춘 데모 사이트를 제작하여 실제 속도를 체험해 드립니다.",
+        features: {
+          design: "업계 특화 디자인",
+          speed: "0.3초 표시 체험",
+          mobile: "모바일 최적화 확인",
+        },
+        step_title: "데모 사이트 체험",
+        step_description: "실제 속도를 체감해 주세요",
+      },
+      step3: {
+        title: "플랜 선택",
+        duration: "당일",
+        description:
+          "데모 사이트를 확인해 주시고 최적의 플랜을 선택해 주세요.",
+        features: {
+          basic: "비기너: 15,000원~",
+          standard: "스탠다드: 25,000원~",
+          premium: "프리미엄: 30,000원~",
+        },
+        step_title: "플랜 결정",
+        step_description: "최적의 플랜을 선택해 주세요",
+      },
+      step4: {
+        title: "디자인 제작",
+        duration: "2주",
+        description:
+          "고객의 브랜드에 맞춘 오리지널 디자인을 제작합니다.",
+        features: {
+          brand: "브랜드 컬러 적용",
+          responsive: "반응형 대응",
+          content: "콘텐츠 제작",
+        },
+        step_title: "디자인 제작",
+        step_description: "오리지널 디자인을 제작",
+      },
+      step5: {
+        title: "공개·운영 시작",
+        duration: "1개월 이내",
+        description: "사이트를 공개하고 지속적인 운영 지원을 시작합니다.",
+        features: {
+          launch: "사이트 공개",
+          support: "운영 지원 시작",
+          monitoring: "성능 모니터링",
+        },
+        step_title: "운영 시작",
+        step_description: "지속적인 지원을 제공",
+      },
+    },
+    faq: {
+      subtitle: "고객으로부터 자주 받는 질문에 답변드립니다",
+      questions: {
+        pagespeed: {
+          question: "PageSpeed 95점 보장에 대해 알려주세요",
+          answer:
+            "최신 최적화 기술로 확실히 PageSpeed 95점 이상을 달성합니다:",
+          features: [
+            "이미지 최적화 (WebP 형식)",
+            "CSS/JS 압축·통합",
+            "CDN 배포에 의한 고속화",
+            "모바일 최적화",
+          ],
+          guarantee: "목표 미달성 시 전액 환불합니다.",
+        },
+        updates: {
+          question: "월에 몇 번까지 업데이트할 수 있나요?",
+          answer: "플랜에 따라 업데이트 횟수가 다릅니다:",
+          plan_names: {
+            basic: "비기너",
+            standard: "스탠다드",
+            premium: "프리미엄",
+            enterprise: "엔터프라이즈",
+          },
+          plan_limits: {
+            basic: "월 1회까지",
+            standard: "월 2회까지",
+            premium: "월 3회까지",
+            enterprise: "무제한",
+          },
+          emergency:
+            "긴급한 업데이트가 필요한 경우, 프리미엄 플랜 이상에서 긴급 대응 서비스를 이용할 수 있습니다.",
+        },
+        refund: {
+          question: "환불 조건에 대해 알려주세요",
+          answer: "다음의 경우에 전액 환불합니다:",
+          conditions: [
+            "PageSpeed 95점 미달성",
+            "표시 속도 0.3초 미달성",
+            "1개월 이내의 제공 미달성",
+          ],
+          process: "환불은 목표 미달성이 확인된 시점에서 즉시 실행합니다.",
+        },
+        cancellation: {
+          question: "해약 정책에 대해 알려주세요",
+          condition_title: "해약 조건",
+          condition_text:
+            "1년 이내의 해약의 경우, 1년분의 요금을 지불해 주세요.",
+          reason:
+            "장기적인 파트너십을 권장합니다. 이유는 다음과 같습니다:",
+          benefits: [
+            "지속적인 최적화에 의한 효과 향상",
+            "기술 진보에의 대응",
+            "안정적인 지원 체제",
+          ],
+        },
+        tech_stack: {
+          question: "BoltSite에서 사용하는 기술 스택에 대해 알려주세요",
+          answer: "BoltSite는 최신 Jamstack 기술을 사용하여 고성능을 실현합니다:",
+          frontend: {
+            title: "프론트엔드",
+            items: [
+              "Astro.js (정적 사이트 생성)",
+              "Tailwind CSS (스타일링)",
+              "TypeScript (타입 안전성)",
+            ],
+          },
+          infrastructure: {
+            title: "인프라",
+            items: [
+              "Firebase Hosting (배포)",
+              "Cloudflare CDN (최적화)",
+              "SSL 인증서 (보안)",
+            ],
+          },
+          note: "BoltSite의 이러한 기술로 WordPress의 10배 이상의 표시 속도를 실현합니다.",
+        },
+        multilingual: {
+          question: "다국어 대응은 어떤 플랜에서 이용할 수 있나요?",
+          answer: "다국어 대응은 프리미엄 플랜 이상에서 이용할 수 있습니다:",
+          details: {
+            languages: "대응 언어: 일본어, 영어, 중국어(간체), 스페인어",
+            quality: "번역 품질: 네이티브 체크 완료 (외주 50만원)",
+            switching: "전환: 우상단의 언어 전환 버튼",
+          },
+          support: "글로벌 비즈니스 확장을 지원합니다.",
+        },
+      },
+      other_questions: {
+        title: "다른 질문은 없으신가요?",
+        description: "무료 상담에서 편하게 말씀해 주세요",
+        button: "무료 상담 신청",
+      },
+    },
+    common: {
+      email: "company@cor-jp.com",
+      phone: "",
+      address: "",
+      loading: "로딩 중...",
+      error: "오류가 발생했습니다",
+      success: "성공했습니다",
+    },
+  },
 } as const;
 
 export type Language = keyof typeof translations;
@@ -1029,4 +1283,5 @@ export const availableLanguages = {
   en: "English",
   zh: "中文",
   es: "Español",
+  ko: "한국어",
 } as const;
