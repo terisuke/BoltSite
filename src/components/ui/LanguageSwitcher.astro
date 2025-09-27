@@ -7,7 +7,8 @@ const languages = [
   { code: 'ja', name: '日本語', flag: '🇯🇵' },
   { code: 'en', name: 'English', flag: '🇺🇸' },
   { code: 'zh', name: '中文', flag: '🇨🇳' },
-  { code: 'es', name: 'Español', flag: '🇪🇸' }
+  { code: 'es', name: 'Español', flag: '🇪🇸' },
+  { code: 'ko', name: '한국어', flag: '🇰🇷' }
 ];
 
 const currentLocale = getLocaleFromPathname(currentPath || Astro.url.pathname);
@@ -39,7 +40,7 @@ const dropdownId = `language-dropdown-${uniqueId}`;
   >
     {languages.map((language) => {
       // 現在のパスから言語プレフィックスを除去
-      const pathWithoutLocale = currentPath?.replace(/^\/(en|zh|es)/, '') || '';
+      const pathWithoutLocale = currentPath?.replace(/^\/(en|zh|es|ko)/, '') || '';
       // 新しい言語のURLを生成
       const newPath = language.code === 'ja' ? pathWithoutLocale || '/' : `/${language.code}${pathWithoutLocale || ''}`;
       

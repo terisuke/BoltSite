@@ -1,7 +1,7 @@
 import type { Locales, Translation } from "../types";
 
 // サポートされている言語
-export const SUPPORTED_LOCALES: Locales[] = ["ja", "en", "zh", "es"];
+export const SUPPORTED_LOCALES: Locales[] = ["ja", "en", "zh", "es", "ko"];
 
 // デフォルト言語
 export const DEFAULT_LOCALE: Locales = "ja";
@@ -76,6 +76,7 @@ export function getLanguageName(locale: Locales): string {
     en: "English",
     zh: "中文",
     es: "Español",
+    ko: "한국어",
   };
 
   return names[locale] || locale;
@@ -88,6 +89,7 @@ export function getLanguageFlag(locale: Locales): string {
     en: "🇺🇸",
     zh: "🇨🇳",
     es: "🇪🇸",
+    ko: "🇰🇷",
   };
 
   return flags[locale] || "🌐";

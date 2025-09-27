@@ -55,14 +55,14 @@
     "subtitle": "零初始费用，月付制轻松开始",
     "basic": {
       "name": "入门版",
-      "price": "¥100",
+      "price": "¥15,000",
       "period": "/月",
       "description": "月费（含税）",
       "features": ["最多5页", "响应式设计", "SSL证书", "每月更新"]
     },
     "standard": {
       "name": "标准版",
-      "price": "¥170",
+      "price": "¥25,000",
       "period": "/月",
       "description": "月费（含税）",
       "features": [
@@ -75,7 +75,7 @@
     },
     "premium": {
       "name": "高级版",
-      "price": "¥340",
+      "price": "¥30,000",
       "period": "/月",
       "description": "月费（含税）",
       "features": ["最多20页", "电商功能", "会员功能", "API集成", "每周更新"]
@@ -126,9 +126,9 @@
       "title": "方案选择",
       "duration": "当日",
       "description": "请查看演示网站并选择最佳方案。",
-      "beginner_plan": "初学者：$100~",
-      "standard_plan": "标准：$170~",
-      "premium_plan": "高级：$200~",
+      "beginner_plan": "初学者：¥15,000~",
+      "standard_plan": "标准：¥25,000~",
+      "premium_plan": "高级：¥30,000~",
       "step_title": "方案决定",
       "step_description": "请选择最佳方案"
     },

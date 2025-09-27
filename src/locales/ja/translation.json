@@ -566,5 +566,69 @@
     "title": "プライバシーポリシー",
     "last_updated": "最終更新日: 2025年9月20日",
     "description": "BoltSite by Cor.Inc（以下「当社」）は、お客様の個人情報の保護を重要な責務と考え、以下のプライバシーポリシーを定めています。"
+  },
+  "flow": {
+    "title": "BoltSite導入の流れ",
+    "subtitle": "BoltSiteで1ヶ月以内に提供開始で、即時成果を",
+    "step1": {
+      "title": "無料相談",
+      "duration": "30分",
+      "description": "現在の課題やご要望をお聞かせください。最適なプランをご提案いたします。",
+      "features": {
+        "hearing": "課題ヒアリング",
+        "experience": "速度体験",
+        "proposal": "プラン提案"
+      },
+      "step_title": "無料相談申し込み",
+      "step_description": "まずはお気軽にご相談ください"
+    },
+    "step2": {
+      "title": "デモサイト作成",
+      "duration": "1週間",
+      "description": "お客様の業界に特化したデモサイトを高速で作成します。",
+      "features": {
+        "design": "業界特化デザイン",
+        "speed": "高速サイト構築",
+        "mobile": "モバイル最適化"
+      },
+      "step_title": "デモサイト制作",
+      "step_description": "実際のサイトを体験できます"
+    },
+    "step3": {
+      "title": "プラン選定",
+      "duration": "即日",
+      "description": "お客様のニーズに最適なプランを選択していただきます。",
+      "features": {
+        "basic": "ベーシックプラン",
+        "standard": "スタンダードプラン",
+        "premium": "プレミアムプラン"
+      },
+      "step_title": "プラン選択",
+      "step_description": "最適なプランをご提案"
+    },
+    "step4": {
+      "title": "デザイン制作",
+      "duration": "2週間",
+      "description": "お客様のブランドに合わせたデザインを制作します。",
+      "features": {
+        "brand": "ブランド統一",
+        "responsive": "レスポンシブ対応",
+        "content": "コンテンツ最適化"
+      },
+      "step_title": "デザイン制作",
+      "step_description": "ブランドに合わせたデザイン"
+    },
+    "step5": {
+      "title": "公開・運用開始",
+      "duration": "即日",
+      "description": "サイトを公開し、運用を開始します。",
+      "features": {
+        "launch": "サイト公開",
+        "support": "運用サポート",
+        "monitoring": "パフォーマンス監視"
+      },
+      "step_title": "公開・運用",
+      "step_description": "即座に成果を実感"
+    }
   }
 }

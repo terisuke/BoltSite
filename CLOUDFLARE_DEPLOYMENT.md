@@ -28,6 +28,7 @@ npm run preview:cloudflare
    - GitHubリポジトリを接続
 
 3. **ビルド設定**
+
    ```
    Framework preset: Astro
    Build command: npm run build:cloudflare
@@ -44,16 +45,19 @@ npm run preview:cloudflare
 #### 方法B: Wrangler CLI を使用
 
 1. **Wrangler CLIをインストール**
+
    ```bash
    npm install -g wrangler
    ```
 
 2. **Cloudflareにログイン**
+
    ```bash
    wrangler login
    ```
 
 3. **プロジェクトの初期化**
+
    ```bash
    wrangler pages project create boltsite-by-cor-inc
    ```
@@ -67,6 +71,7 @@ npm run preview:cloudflare
 ## 📁 設定ファイル
 
 ### astro.config.cloudflare.mjs
+
 ```javascript
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
@@ -92,6 +97,7 @@ export default defineConfig({
 ```
 
 ### wrangler.toml
+
 ```toml
 [build]
 command = "npm run build:cloudflare"
@@ -140,11 +146,13 @@ Cloudflare Pagesでは以下の最適化が自動で適用されます：
 ### ビルドエラーが発生した場合
 
 1. **Node.jsバージョンを確認**
+
    ```bash
    node --version  # v20.x.x以上を推奨
    ```
 
 2. **依存関係を再インストール**
+
    ```bash
    rm -rf node_modules package-lock.json
    npm install

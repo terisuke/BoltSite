@@ -1,0 +1,11 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import PricingPlans from "../../components/sections/PricingPlans.astro";
+---
+
+<MainLayout
+  title="요금제 - BoltSite"
+  description="고성능 홈페이지 제작 서비스를 위한 간단하고 투명한 요금 체계."
+>
+  <PricingPlans currentPath={Astro.url.pathname} />
+</MainLayout>

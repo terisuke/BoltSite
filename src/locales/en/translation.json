@@ -55,7 +55,7 @@
     "subtitle": "Start easily with zero initial cost and monthly billing",
     "basic": {
       "name": "Beginner",
-      "price": "$100",
+      "price": "¥15,000",
       "period": "/month",
       "description": "Monthly (Tax Included)",
       "features": [
@@ -67,7 +67,7 @@
     },
     "standard": {
       "name": "Standard",
-      "price": "$170",
+      "price": "¥25,000",
       "period": "/month",
       "description": "Monthly (Tax Included)",
       "features": [
@@ -80,7 +80,7 @@
     },
     "premium": {
       "name": "Premium",
-      "price": "$340",
+      "price": "¥30,000",
       "period": "/month",
       "description": "Monthly (Tax Included)",
       "features": [
@@ -137,9 +137,9 @@
       "title": "Plan Selection",
       "duration": "Same Day",
       "description": "Please check the demo site and select the optimal plan.",
-      "beginner_plan": "Beginner: $100~",
-      "standard_plan": "Standard: $170~",
-      "premium_plan": "Premium: $200~",
+      "beginner_plan": "Beginner: ¥100~",
+      "standard_plan": "Standard: ¥170~",
+      "premium_plan": "Premium: ¥200~",
       "step_title": "Plan Decision",
       "step_description": "Please choose the optimal plan"
     },
@@ -210,11 +210,11 @@
         ]
       },
       "cost": {
-        "question": "Is the initial cost really $0?",
-        "answer": "Yes, the initial cost is completely $0. You can use our service with monthly fees only.",
+        "question": "Is the initial cost really ¥0?",
+        "answer": "Yes, the initial cost is completely ¥0. You can use our service with monthly fees only.",
         "features": [
-          "Initial cost: $0",
-          "Monthly fee: $100~",
+          "Initial cost: ¥0",
+          "Monthly fee: ¥100~",
           "No additional fees",
           "No cancellation penalties"
         ]
@@ -287,7 +287,7 @@
     "support": "Support",
     "scalability": "Scalability",
     "maintenance_cost": "Maintenance Cost",
-    "zero_yen": "$0",
+    "zero_yen": "¥0",
     "high_level": "Highest Level",
     "full_support": "Full Support",
     "limited": "Limited",
