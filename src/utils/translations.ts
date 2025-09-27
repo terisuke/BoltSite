@@ -54,7 +54,8 @@ export const translations = {
       },
     },
     footer: {
-      description: "BoltSite - 高性能ホームページ制作サービス<br/>BoltSiteで中小企業のDXを加速します",
+      description:
+        "BoltSite - 高性能ホームページ制作サービス<br/>BoltSiteで中小企業のDXを加速します",
       services: "サービス",
       support: "サポート",
       contact: "お問い合わせ",
@@ -71,7 +72,8 @@ export const translations = {
     },
     cta: {
       title: "BoltSiteで今すぐ始めませんか？",
-      subtitle: "BoltSiteの無料相談で、あなたのビジネスに最適なソリューションをご提案",
+      subtitle:
+        "BoltSiteの無料相談で、あなたのビジネスに最適なソリューションをご提案",
       fast_site: "爆速サイト",
       fast_description: "0.3秒表示を実現",
       start_now: "今すぐ加速！",
@@ -210,7 +212,8 @@ export const translations = {
         },
         tech_stack: {
           question: "BoltSiteで使用している技術スタックについて教えてください",
-          answer: "BoltSiteは最新のJamstack技術を使用して高性能を実現しています：",
+          answer:
+            "BoltSiteは最新のJamstack技術を使用して高性能を実現しています：",
           frontend: {
             title: "フロントエンド",
             items: [
@@ -1074,7 +1077,8 @@ export const translations = {
       },
     },
     footer: {
-      description: "BoltSite - 고성능 홈페이지 제작 서비스<br/>BoltSite로 중소기업의 DX를 가속화합니다",
+      description:
+        "BoltSite - 고성능 홈페이지 제작 서비스<br/>BoltSite로 중소기업의 DX를 가속화합니다",
       services: "서비스",
       support: "지원",
       contact: "문의하기",
@@ -1091,7 +1095,8 @@ export const translations = {
     },
     cta: {
       title: "BoltSite로 지금 바로 시작하시겠습니까?",
-      subtitle: "BoltSite의 무료 상담으로 귀하의 비즈니스에 최적화된 솔루션을 제안합니다",
+      subtitle:
+        "BoltSite의 무료 상담으로 귀하의 비즈니스에 최적화된 솔루션을 제안합니다",
       fast_site: "초고속 사이트",
       fast_description: "0.3초 표시를 실현",
       start_now: "지금 바로 가속화!",
@@ -1136,8 +1141,7 @@ export const translations = {
       step3: {
         title: "플랜 선택",
         duration: "당일",
-        description:
-          "데모 사이트를 확인해 주시고 최적의 플랜을 선택해 주세요.",
+        description: "데모 사이트를 확인해 주시고 최적의 플랜을 선택해 주세요.",
         features: {
           basic: "비기너: 15,000원~",
           standard: "스탠다드: 25,000원~",
@@ -1149,8 +1153,7 @@ export const translations = {
       step4: {
         title: "디자인 제작",
         duration: "2주",
-        description:
-          "고객의 브랜드에 맞춘 오리지널 디자인을 제작합니다.",
+        description: "고객의 브랜드에 맞춘 오리지널 디자인을 제작합니다.",
         features: {
           brand: "브랜드 컬러 적용",
           responsive: "반응형 대응",
@@ -1177,8 +1180,7 @@ export const translations = {
       questions: {
         pagespeed: {
           question: "PageSpeed 95점 보장에 대해 알려주세요",
-          answer:
-            "최신 최적화 기술로 확실히 PageSpeed 95점 이상을 달성합니다:",
+          answer: "최신 최적화 기술로 확실히 PageSpeed 95점 이상을 달성합니다:",
           features: [
             "이미지 최적화 (WebP 형식)",
             "CSS/JS 압축·통합",
@@ -1220,8 +1222,7 @@ export const translations = {
           condition_title: "해약 조건",
           condition_text:
             "1년 이내의 해약의 경우, 1년분의 요금을 지불해 주세요.",
-          reason:
-            "장기적인 파트너십을 권장합니다. 이유는 다음과 같습니다:",
+          reason: "장기적인 파트너십을 권장합니다. 이유는 다음과 같습니다:",
           benefits: [
             "지속적인 최적화에 의한 효과 향상",
             "기술 진보에의 대응",
@@ -1230,7 +1231,8 @@ export const translations = {
         },
         tech_stack: {
           question: "BoltSite에서 사용하는 기술 스택에 대해 알려주세요",
-          answer: "BoltSite는 최신 Jamstack 기술을 사용하여 고성능을 실현합니다:",
+          answer:
+            "BoltSite는 최신 Jamstack 기술을 사용하여 고성능을 실현합니다:",
           frontend: {
             title: "프론트엔드",
             items: [
